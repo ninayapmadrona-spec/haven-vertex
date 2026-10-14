@@ -41,14 +41,14 @@ export const Navbar = () => {
             </span>
           )}
         </Link>
-        <ul className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+        <ul className="hidden md:flex items-center gap-8 text-sm font-semibold">
           {links.map((l) => (
             <li key={l.to}>
               <NavLink
                 to={l.to}
                 end={l.end}
-                className="hover:text-foreground transition-smooth"
-                activeClassName="text-foreground font-medium"
+                className="text-lavender-deep/55 hover:text-lavender-deep transition-smooth"
+                activeClassName="text-lavender-deep font-bold"
               >
                 {l.label}
               </NavLink>
