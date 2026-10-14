@@ -6,6 +6,7 @@ import { useFinalCtaContact, useSiteSettings } from "@/lib/sanity/hooks";
 import { usePreviewMode } from "@/lib/sanity/usePreviewMode";
 
 const links = [
+  { to: "/", label: "Home", end: true },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/portfolio", label: "Portfolio" },
@@ -45,6 +46,7 @@ export const Navbar = () => {
             <li key={l.to}>
               <NavLink
                 to={l.to}
+                end={l.end}
                 className="hover:text-foreground transition-smooth"
                 activeClassName="text-foreground font-medium"
               >
