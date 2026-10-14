@@ -1,40 +1,37 @@
 import type {StructureResolver} from 'sanity/structure'
 
 /**
- * Haven Vertex only has six content screens, each editing a single document.
- * This gives a fixed, named menu instead of generic "by type" lists, and
- * prevents anyone from accidentally creating a second Hero/About/etc.
+ * The Studio menu mirrors the website's pages: Home, About, Services,
+ * Portfolio, Testimonials, Contact. Each entry edits a single document, so
+ * nobody can accidentally create a second Hero/About/etc.
+ *
+ * The "Closing banner & contact details" document feeds two places on the
+ * site: the big "Book a call" banner at the bottom of Home, and the Contact
+ * page — it's listed once, under Home, to avoid editing it from two menus.
  */
+const singleton = (S: Parameters<StructureResolver>[0], title: string, type: string) =>
+  S.listItem().title(title).id(type).child(S.document().schemaType(type).documentId(type))
+
 export const structure: StructureResolver = (S) =>
   S.list()
     .title('Haven Vertex Content')
     .items([
+      singleton(S, 'Site Settings (Logo)', 'siteSettings'),
+      S.divider(),
       S.listItem()
-        .title('Site Settings (Logo)')
-        .id('siteSettings')
-        .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
-      S.listItem()
-        .title('Hero')
-        .id('hero')
-        .child(S.document().schemaType('hero').documentId('hero')),
-      S.listItem()
-        .title('About / Meet Nina')
-        .id('about')
-        .child(S.document().schemaType('about').documentId('about')),
-      S.listItem()
-        .title('Services')
-        .id('servicesSection')
-        .child(S.document().schemaType('servicesSection').documentId('servicesSection')),
-      S.listItem()
-        .title('Testimonials')
-        .id('testimonialsSection')
-        .child(S.document().schemaType('testimonialsSection').documentId('testimonialsSection')),
-      S.listItem()
-        .title('Portfolio')
-        .id('portfolioSection')
-        .child(S.document().schemaType('portfolioSection').documentId('portfolioSection')),
-      S.listItem()
-        .title('Final CTA / Contact')
-        .id('finalCtaContact')
-        .child(S.document().schemaType('finalCtaContact').documentId('finalCtaContact')),
+        .title('Home Page')
+        .id('homePage')
+        .child(
+          S.list()
+            .title('Home Page')
+            .items([
+              singleton(S, 'Hero (top of the page)', 'hero'),
+              singleton(S, 'Platforms & Tools', 'toolsBanner'),
+              singleton(S, 'Closing banner & contact details', 'finalCtaContact'),
+            ]),
+        ),
+      singleton(S, 'About Page', 'about'),
+      singleton(S, 'Services Page', 'servicesSection'),
+      singleton(S, 'Portfolio Page', 'portfolioSection'),
+      singleton(S, 'Testimonials Page', 'testimonialsSection'),
     ])

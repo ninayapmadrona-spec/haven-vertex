@@ -24,6 +24,30 @@ export interface HeroContent {
   tags?: string[];
 }
 
+export type ToolIcon =
+  | "blocks"
+  | "layout"
+  | "brush"
+  | "mail"
+  | "calendar"
+  | "chart"
+  | "search"
+  | "film"
+  | "shopping";
+
+export interface ToolItem {
+  hidden?: boolean;
+  name: string;
+  icon?: ToolIcon;
+}
+
+export interface ToolsBannerContent {
+  eyebrow?: string;
+  heading?: string;
+  description?: string;
+  items: ToolItem[];
+}
+
 export interface AboutContent {
   eyebrow?: string;
   heading: string;

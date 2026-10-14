@@ -28,9 +28,10 @@ and the public site's build doesn't depend on it.
    npm install
    npm run dev
    ```
-   Opens at `http://localhost:3333`. You should see six sections in the
-   left sidebar: Hero, About / Meet Nina, Services, Testimonials, Portfolio,
-   Final CTA / Contact.
+   Opens at `http://localhost:3333`. The left sidebar mirrors the website's
+   pages: Site Settings, Home Page (Hero, Platforms & Tools, Closing banner &
+   contact details), About Page, Services Page, Portfolio Page, Testimonials
+   Page.
 
 4. **Migrate the current website content in** (run once, from the repo root,
    not from `studio/`):

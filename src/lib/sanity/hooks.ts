@@ -2,6 +2,7 @@ import { useSanitySection } from "./useSanitySection";
 import {
   SITE_SETTINGS_QUERY,
   HERO_QUERY,
+  TOOLS_BANNER_QUERY,
   ABOUT_QUERY,
   SERVICES_SECTION_QUERY,
   TESTIMONIALS_SECTION_QUERY,
@@ -11,6 +12,7 @@ import {
 import {
   defaultSiteSettings,
   defaultHero,
+  defaultToolsBanner,
   defaultAbout,
   defaultServicesSection,
   defaultTestimonialsSection,
@@ -21,6 +23,8 @@ import {
 export const useSiteSettings = () =>
   useSanitySection("siteSettings", SITE_SETTINGS_QUERY, defaultSiteSettings);
 export const useHero = () => useSanitySection("hero", HERO_QUERY, defaultHero);
+export const useToolsBanner = () =>
+  useSanitySection("toolsBanner", TOOLS_BANNER_QUERY, defaultToolsBanner);
 export const useAbout = () => useSanitySection("about", ABOUT_QUERY, defaultAbout);
 export const useServicesSection = () =>
   useSanitySection("servicesSection", SERVICES_SECTION_QUERY, defaultServicesSection);

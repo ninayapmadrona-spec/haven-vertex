@@ -12,6 +12,7 @@ import logoImg from "@/assets/logo.png";
 import type {
   SiteSettingsContent,
   HeroContent,
+  ToolsBannerContent,
   AboutContent,
   ServicesSectionContent,
   TestimonialsSectionContent,
@@ -47,6 +48,34 @@ export const defaultHero: HeroContent = {
   statBadgeNumber: "12+",
   statBadgeLabel: "Years supporting businesses",
   tags: ["Small Businesses", "Australian Businesses", "Agencies", "Entrepreneurs"],
+};
+
+export const defaultToolsBanner: ToolsBannerContent = {
+  eyebrow: "Digital Toolkit",
+  heading: "Platforms & Tools I Work With",
+  description: "Trusted platforms for website management, content, marketing, analytics, and business operations.",
+  items: [
+    { name: "WordPress", icon: "blocks" },
+    { name: "Wix", icon: "layout" },
+    { name: "Squarespace", icon: "layout" },
+    { name: "Elementor", icon: "blocks" },
+    { name: "Canva", icon: "brush" },
+    { name: "MailerLite", icon: "mail" },
+    { name: "Mailchimp", icon: "mail" },
+    { name: "Google Workspace", icon: "calendar" },
+    { name: "Google Analytics", icon: "chart" },
+    { name: "Google Search Console", icon: "search" },
+    { name: "Ahrefs", icon: "search" },
+    { name: "Semrush", icon: "chart" },
+    { name: "Meta Business Suite", icon: "layout" },
+    { name: "CapCut", icon: "film" },
+    { name: "Trello", icon: "calendar" },
+    { name: "Asana", icon: "calendar" },
+    { name: "ClickUp", icon: "calendar" },
+    { name: "GoHighLevel", icon: "chart" },
+    { name: "Shopify", icon: "shopping" },
+    { name: "WooCommerce", icon: "shopping" },
+  ],
 };
 
 export const defaultAbout: AboutContent = {

@@ -26,6 +26,17 @@ export const HERO_QUERY = /* groq */ `
   tags
 }`;
 
+export const TOOLS_BANNER_QUERY = /* groq */ `
+*[_type == "toolsBanner"][0]{
+  eyebrow,
+  heading,
+  description,
+  "items": items[!hidden]{
+    name,
+    icon
+  }
+}`;
+
 export const ABOUT_QUERY = /* groq */ `
 *[_type == "about"][0]{
   eyebrow,
@@ -106,6 +117,7 @@ export const FINAL_CTA_CONTACT_QUERY = /* groq */ `
 export const QUERIES_BY_TYPE: Record<string, string> = {
   siteSettings: SITE_SETTINGS_QUERY,
   hero: HERO_QUERY,
+  toolsBanner: TOOLS_BANNER_QUERY,
   about: ABOUT_QUERY,
   servicesSection: SERVICES_SECTION_QUERY,
   testimonialsSection: TESTIMONIALS_SECTION_QUERY,
