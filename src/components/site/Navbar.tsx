@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import { openCalendly, useCalendly } from "@/lib/calendly";
@@ -20,6 +22,9 @@ export const Navbar = () => {
   const { content: siteSettings } = useSiteSettings();
   const { isPreview } = usePreviewMode();
   const calendlyUrl = content.calendlyUrl;
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
     <header
@@ -55,10 +60,38 @@ export const Navbar = () => {
             </li>
           ))}
         </ul>
-        <Button asChild variant="default" size="sm" className="rounded-full px-5 gradient-primary text-primary-foreground border-0 shadow-soft hover:shadow-elegant transition-smooth">
-          <a href={calendlyUrl} onClick={openCalendly(calendlyUrl)} target="_blank" rel="noopener noreferrer">Book a Call</a>
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button asChild variant="default" size="sm" className="rounded-full px-5 gradient-primary text-primary-foreground border-0 shadow-soft hover:shadow-elegant transition-smooth">
+            <a href={calendlyUrl} onClick={openCalendly(calendlyUrl)} target="_blank" rel="noopener noreferrer">Book a Call</a>
+          </Button>
+          <button
+            type="button"
+            className="md:hidden p-2 text-lavender-deep"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((o) => !o)}
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </nav>
+      {open && (
+        <ul id="mobile-menu" className="md:hidden container pb-4 flex flex-col text-base font-semibold border-t border-border/40 bg-background/95">
+          {links.map((l) => (
+            <li key={l.to}>
+              <NavLink
+                to={l.to}
+                end={l.end}
+                className="block py-3 text-lavender-deep/55 hover:text-lavender-deep transition-smooth"
+                activeClassName="text-lavender-deep font-bold"
+              >
+                {l.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      )}
     </header>
   );
 };

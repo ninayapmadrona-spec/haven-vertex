@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { RouteSeo } from "@/components/site/RouteSeo";
 
 // Scrolls to the top of the page whenever the route changes, since the
 // browser otherwise preserves scroll position across client-side navigations.
@@ -18,9 +19,12 @@ const ScrollToTop = () => {
 export const Layout = () => (
   <>
     <ScrollToTop />
+    <RouteSeo />
     <Navbar />
     <main>
-      <Outlet />
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <Outlet />
+      </Suspense>
     </main>
     <Footer />
   </>

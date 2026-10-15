@@ -8,7 +8,7 @@ import heroImg from "@/assets/hero.jpg";
 import portfolio1 from "@/assets/portfolio-1.jpg";
 import portfolio2 from "@/assets/portfolio-2.jpg";
 import portfolio3 from "@/assets/portfolio-3.jpg";
-import logoImg from "@/assets/logo.png";
+import logoImg from "@/assets/logo.webp";
 import type {
   SiteSettingsContent,
   HeroContent,
@@ -30,7 +30,7 @@ export const defaultHero: HeroContent = {
   brandLine: "Haven Vertex",
   headline: "Website Management & Virtual Assistance for Growing Businesses",
   description: [
-    "Keeping your website updated, your content organized, and your business running smoothly—without the cost of a full-time employee.",
+    "Keeping your website updated, your content organised, and your business running smoothly—without the cost of a full-time employee.",
     "With over 12 years of experience supporting businesses, agencies, and entrepreneurs, I manage the digital tasks that keep your business moving forward.",
   ],
   highlights: [
@@ -84,7 +84,7 @@ export const defaultAbout: AboutContent = {
   bodyParagraphs: [
     "Running a business means wearing multiple hats. Between managing clients, handling operations, updating your website, and maintaining your online presence, it's easy to become overwhelmed.",
     "I'm Nina Madrona, founder of Haven Vertex.",
-    "For more than 12 years, I've helped businesses stay organized, professional, and visible online through website management, content support, digital administration, and marketing assistance.",
+    "For more than 12 years, I've helped businesses stay organised, professional, and visible online through website management, content support, digital administration, and marketing assistance.",
     "My goal is simple: help business owners spend less time managing tasks and more time growing their business.",
   ],
   points: [
@@ -182,7 +182,7 @@ export const defaultPortfolioSection: PortfolioSectionContent = {
       image: portfolio3,
       tag: "Visibility",
       title: "SEO & Content Publishing",
-      description: "Publishing and optimizing content for improved visibility and engagement.",
+      description: "Publishing and optimising content for improved visibility and engagement.",
     },
     {
       image: portfolio2,

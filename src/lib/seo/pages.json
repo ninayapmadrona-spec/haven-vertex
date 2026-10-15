@@ -1,0 +1,55 @@
+{
+  "siteUrl": "https://haven-vertex-main.vercel.app",
+  "siteName": "Haven Vertex",
+  "ogImage": "/og-image.png",
+  "pages": [
+    {
+      "path": "/",
+      "title": "Website Management for Australian Businesses | Haven Vertex",
+      "description": "Website management, content updates and virtual assistant support for Australian small businesses. WordPress, Wix & Squarespace. Book a free call.",
+      "h1": "Website Management & Virtual Assistance for Growing Businesses",
+      "intro": "Haven Vertex keeps your website updated, your content organised and your business running smoothly, without the cost of a full-time employee. Based in the Philippines with 12+ years of experience supporting Australian businesses.",
+      "priority": "1.0"
+    },
+    {
+      "path": "/about",
+      "title": "About Nina Madrona | Website Manager | Haven Vertex",
+      "description": "Meet Nina Madrona, founder of Haven Vertex. 12+ years of website management and digital support for Australian businesses, agencies and entrepreneurs.",
+      "h1": "Your Reliable Digital Support Partner",
+      "intro": "I'm Nina Madrona, founder of Haven Vertex. For more than 12 years I've helped businesses stay organised, professional and visible online.",
+      "priority": "0.8"
+    },
+    {
+      "path": "/services",
+      "title": "Website Management & Virtual Assistant Services | Haven Vertex",
+      "description": "Ongoing website maintenance, content publishing, SEO support and virtual assistant packages for small businesses. WordPress, Wix & Squarespace experts.",
+      "h1": "Support Tailored To Your Business",
+      "intro": "Clear, dependable website management and virtual assistant packages designed around the way your business works.",
+      "priority": "0.9"
+    },
+    {
+      "path": "/portfolio",
+      "title": "Website Management Portfolio & Experience | Haven Vertex",
+      "description": "Recent website management, SEO content publishing, social media and landing page projects delivered across multiple industries. Samples on request.",
+      "h1": "Recent Projects & Experience",
+      "intro": "Managing and maintaining business websites across multiple industries. Samples available on request.",
+      "priority": "0.6"
+    },
+    {
+      "path": "/testimonials",
+      "title": "Client Testimonials | Haven Vertex",
+      "description": "Read what clients say about working with Haven Vertex for website management, content publishing and virtual assistant support.",
+      "h1": "Client Testimonials",
+      "intro": "Reviews from businesses supported by Haven Vertex.",
+      "priority": "0.5"
+    },
+    {
+      "path": "/contact",
+      "title": "Contact Haven Vertex | Book a Free Discovery Call",
+      "description": "Tell me about your website and where you need support. Book a free 30-minute discovery call with Haven Vertex. Replies within 1-2 business days.",
+      "h1": "Let's Start The Conversation",
+      "intro": "Tell me about your business, your goals and where you need support. I typically respond within 1-2 business days.",
+      "priority": "0.8"
+    }
+  ]
+}
