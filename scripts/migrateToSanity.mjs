@@ -220,7 +220,7 @@ async function run() {
       email: "ninayapmadrona@gmail.com",
       linkedinUrl: "https://www.linkedin.com/in/nina-ricci-madrona-002191a2/",
       linkedinLabel: "Nina Madrona",
-      location: "Philippines",
+      location: "Serving Australian businesses",
       locationNote: "Supporting clients worldwide, with extensive experience supporting Australian businesses.",
     },
   ];
