@@ -32,6 +32,15 @@ export const AboutExtra = () => {
               </div>
             ))}
           </div>
+          <h2 className="font-serif text-3xl lg:text-4xl text-balance mt-12">{aboutExtra.industriesHeading}</h2>
+          <div className="mt-6 space-y-5">
+            {aboutExtra.industries.map(([title, text]) => (
+              <div key={title}>
+                <h3 className="font-semibold text-ink">{title}</h3>
+                <p className="mt-1 text-muted-foreground leading-relaxed">{text}</p>
+              </div>
+            ))}
+          </div>
           <p className="mt-6 text-muted-foreground">
             See the full list of <Link to="/services" className="text-lavender-deep font-semibold underline underline-offset-4">website management packages</Link>{" "}
             or browse <Link to="/portfolio" className="text-lavender-deep font-semibold underline underline-offset-4">recent projects</Link>.

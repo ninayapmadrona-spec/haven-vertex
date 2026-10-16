@@ -83,13 +83,13 @@ export const defaultAbout: AboutContent = {
   heading: "Your Reliable Website Manager & Digital Support Partner",
   bodyParagraphs: [
     "Running a business means wearing multiple hats. Between managing clients, handling operations, updating your website, and maintaining your online presence, it's easy to become overwhelmed.",
-    "I'm Nina Madrona, founder of Haven Vertex, a website management and virtual assistant business.",
-    "For more than 12 years, I've helped businesses stay organised, professional, and visible online through website management, content support, digital administration, and marketing assistance.",
+    "I'm Nina Madrona, founder of Haven Vertex. I'm a virtual assistant with 12+ years of experience supporting businesses with website management, digital marketing, content creation and online operations.",
+    "I launched my own VA service in 2022 and spent more than four years working with an Australian digital marketing agency, supporting multiple clients across different industries. My work combines hands-on technical skills, creative design and dependable business support.",
     "My goal is simple: help business owners spend less time managing tasks and more time growing their business.",
   ],
   points: [
     "12+ Years Experience",
-    "Website Management Specialist",
+    "4+ Years With an Australian Digital Agency",
     "Supporting Australian Businesses",
     "WordPress • Wix • Squarespace",
   ],

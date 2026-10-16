@@ -51,18 +51,24 @@ export const faqs = [
 ];
 
 export const aboutExtra = {
-  workHeading: "What I Do Day To Day",
+  workHeading: "Services I Offer",
   work: [
-    ["Website management & maintenance", "Content, image and layout updates, blog publishing, landing page edits and regular check-ups on WordPress, Wix and Squarespace sites."],
-    ["SEO & local SEO support", "On-page SEO, page titles and descriptions, Google Search Console and Google Business Profile support to help customers find you."],
-    ["Content & social media support", "Newsletters, Canva graphics, social scheduling and repurposing so your content stays consistent."],
-    ["Virtual assistant & admin support", "Research, calendar management and the day-to-day tasks that pull you away from running the business."],
+    ["Website management & development", "WordPress (Elementor, Divi, Gutenberg), Wix and Squarespace design, maintenance and updates; content uploads, landing pages, responsive layouts, troubleshooting, basic HTML/CSS customisation, and Shopify and WooCommerce support."],
+    ["Digital marketing & SEO", "On-page SEO and content optimisation, local SEO and Google Business Profile support, Google Search Console, GA4 and tools like Ahrefs, Semrush and Moz, plus social media planning, scheduling and management."],
+    ["Content & creative services", "Canva graphics, flyers, newsletters and event materials; social media graphics; short-form video editing in CapCut; website copy and event descriptions."],
+    ["Business & technical support", "Website and CRM research and comparisons, GoHighLevel, Mailchimp and MailerLite support, online forms, contact workflows and lead capture, and ongoing website support."],
   ],
-  whyHeading: "Why Australian Businesses Work With Me",
+  industriesHeading: "Industries I've Supported",
+  industries: [
+    ["Renewable energy", "Website development and management for solar and battery businesses, including Satellite Solar and TT New Energy."],
+    ["Hospitality & clubs", "Website updates, event promotions, dining and booking information, newsletters and digital content for RSL and sports clubs and hospitality businesses."],
+    ["Australian agency work", "More than four years supporting multiple clients through an Australian digital marketing agency. Agency and some client names are confidential."],
+  ],
+  whyHeading: "Why Businesses Work With Me",
   why: [
-    "Over 12 years supporting businesses, agencies and entrepreneurs online.",
-    "Extensive experience supporting Australian businesses, with working hours that overlap the Australian business day.",
-    "One dependable person for website, content and admin tasks, without the cost of a full-time hire.",
-    "Clear, friendly communication and a simple plan: you'll always know what's been done and what's next.",
+    "12+ years supporting businesses, agencies and entrepreneurs online.",
+    "Hands-on technical website skills combined with creative execution and practical business support.",
+    "Experience across Australian industries, with working hours that overlap the Australian business day.",
+    "One reliable person who takes ownership of your website, content and ongoing online operations, without the cost of a full-time hire.",
   ],
 };
