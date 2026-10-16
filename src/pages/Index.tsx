@@ -23,7 +23,6 @@ const Index = () => {
     description: seo.pages[0].description,
     email: "ninayapmadrona@gmail.com",
     founder: { "@type": "Person", name: "Nina Madrona", jobTitle: "Website Manager & Virtual Assistant" },
-    address: { "@type": "PostalAddress", addressCountry: "PH" },
     areaServed: [
       { "@type": "Country", name: "Australia" },
       { "@type": "Place", name: "Worldwide" },

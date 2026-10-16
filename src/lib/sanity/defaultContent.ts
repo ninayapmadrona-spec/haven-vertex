@@ -83,7 +83,7 @@ export const defaultAbout: AboutContent = {
   heading: "Your Reliable Website Manager & Digital Support Partner",
   bodyParagraphs: [
     "Running a business means wearing multiple hats. Between managing clients, handling operations, updating your website, and maintaining your online presence, it's easy to become overwhelmed.",
-    "I'm Nina Madrona, founder of Haven Vertex, a website management and virtual assistant business based in the Philippines.",
+    "I'm Nina Madrona, founder of Haven Vertex, a website management and virtual assistant business.",
     "For more than 12 years, I've helped businesses stay organised, professional, and visible online through website management, content support, digital administration, and marketing assistance.",
     "My goal is simple: help business owners spend less time managing tasks and more time growing their business.",
   ],

@@ -6,7 +6,7 @@ export const whoIHelp = {
   eyebrow: "Who I Help",
   heading: "Website Support for Australian Small Businesses, Agencies & Entrepreneurs",
   intro:
-    "I'm Nina Madrona, a website manager and virtual assistant based in the Philippines with 12+ years of experience. Most of my clients are Australian business owners who are too busy to keep their website current, and agencies that need a reliable pair of hands behind the scenes.",
+    "I'm Nina Madrona, a website manager and virtual assistant with 12+ years of experience. Most of my clients are Australian business owners who are too busy to keep their website current, and agencies that need a reliable pair of hands behind the scenes.",
   groups: [
     {
       title: "Small business owners",
@@ -34,7 +34,7 @@ export const faqs = [
   },
   {
     q: "Do you work with Australian businesses?",
-    a: "Yes. Supporting Australian businesses is a big part of my work. I'm based in the Philippines, which is only a few hours behind Australia's east coast, so we have plenty of overlap in the business day.",
+    a: "Yes. Supporting Australian businesses is a big part of my work. I work with clients across Australia and my working hours overlap the Australian business day, so you'll get timely replies and updates.",
   },
   {
     q: "How much does website management cost?",
