@@ -42,6 +42,17 @@ export const RouteSeo = () => {
       document.head.appendChild(link);
     }
     link.href = url;
+    let robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if ((page as { noindex?: boolean }).noindex) {
+      if (!robots) {
+        robots = document.createElement("meta");
+        robots.name = "robots";
+        document.head.appendChild(robots);
+      }
+      robots.content = "noindex, follow";
+    } else if (robots) {
+      robots.remove();
+    }
   }, [pathname]);
 
   return null;

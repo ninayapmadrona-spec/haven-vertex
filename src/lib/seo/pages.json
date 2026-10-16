@@ -6,7 +6,7 @@
     {
       "path": "/",
       "title": "Website Management for Australian Businesses | Haven Vertex",
-      "description": "Website management, content updates and virtual assistant support for Australian small businesses. WordPress, Wix & Squarespace. Book a free call.",
+      "description": "Website management, content and virtual assistant support for businesses in Australia, USA, UK & Canada. WordPress, Wix & Squarespace. Free call.",
       "h1": "Website Management & Virtual Assistance for Growing Businesses",
       "intro": "Haven Vertex keeps your website updated, your content organised and your business running smoothly, without the cost of a full-time employee. 12+ years of experience supporting Australian businesses.",
       "priority": "1.0"
@@ -22,7 +22,7 @@
     {
       "path": "/services",
       "title": "Website Management & Virtual Assistant Services | Haven Vertex",
-      "description": "Ongoing website maintenance, content publishing, SEO support and virtual assistant packages for small businesses. WordPress, Wix & Squarespace experts.",
+      "description": "Website management, maintenance, SEO and virtual assistant packages for WordPress, Wix and Squarespace sites. Serving Australia, USA, UK & Canada.",
       "h1": "Support Tailored To Your Business",
       "intro": "Clear, dependable website management and virtual assistant packages designed around the way your business works.",
       "priority": "0.9"
@@ -41,12 +41,13 @@
       "description": "Read what clients say about working with Haven Vertex for website management, content publishing and virtual assistant support.",
       "h1": "Client Testimonials",
       "intro": "Reviews from businesses supported by Haven Vertex.",
-      "priority": "0.5"
+      "priority": "0.5",
+      "noindex": true
     },
     {
       "path": "/contact",
       "title": "Contact Haven Vertex | Book a Free Discovery Call",
-      "description": "Tell me about your website and where you need support. Book a free 30-minute discovery call with Haven Vertex. Replies within 1-2 business days.",
+      "description": "Book a free discovery call with Haven Vertex for website management and virtual assistant support. Flexible hours across Australia, USA, UK & Canada.",
       "h1": "Let's Start The Conversation",
       "intro": "Tell me about your business, your goals and where you need support. I typically respond within 1-2 business days.",
       "priority": "0.8"

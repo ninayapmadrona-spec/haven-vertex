@@ -23,6 +23,7 @@ function head(data, page) {
     `<title>${t}</title>`,
     `<meta name="description" content="${d}" />`,
     `<link rel="canonical" href="${url}" />`,
+    ...(page.noindex ? [`<meta name="robots" content="noindex, follow" />`] : []),
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="${esc(data.siteName)}" />`,
     `<meta property="og:locale" content="en_AU" />`,
@@ -78,6 +79,7 @@ export default function seoPlugin() {
 
       const today = new Date().toISOString().slice(0, 10);
       const urls = data.pages
+        .filter((p) => !p.noindex)
         .map((p) => `  <url>\n    <loc>${site}${p.path === "/" ? "/" : p.path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${p.priority}</priority>\n  </url>`)
         .join("\n");
       fs.writeFileSync(

@@ -29,12 +29,34 @@ export const Contact = () => {
       toast({ title: "Please check the form", description: result.error.issues[0].message, variant: "destructive" });
       return;
     }
+    const data = result.data;
+    const subject = `Website enquiry from ${data.name}${data.business ? ` (${data.business})` : ""}`;
+    const body = `Name: ${data.name}\nEmail: ${data.email}\nBusiness: ${data.business || "-"}\nService: ${data.service}\n\n${data.message}`;
+    const key = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
+
+    // No form service connected yet: open the visitor's email app with the
+    // enquiry pre-filled so no lead is ever silently lost.
+    if (!key) {
+      window.location.href = `mailto:${content.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      return;
+    }
+
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast({ title: "Thank you!", description: "Your message has been received. I'll be in touch within 24 hours." });
-      setForm({ name: "", email: "", business: "", service: "", message: "" });
-    }, 700);
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ access_key: key, subject, from_name: "Haven Vertex website", name: data.name, email: data.email, business: data.business, service: data.service, message: data.message }),
+    })
+      .then((r) => r.json())
+      .then((json) => {
+        if (!json.success) throw new Error(json.message);
+        toast({ title: "Thank you!", description: "Your message has been sent. I'll be in touch within 1-2 business days." });
+        setForm({ name: "", email: "", business: "", service: "", message: "" });
+      })
+      .catch(() => {
+        toast({ title: "Couldn't send your message", description: `Please email ${content.email} directly.`, variant: "destructive" });
+      })
+      .finally(() => setLoading(false));
   };
 
   return (

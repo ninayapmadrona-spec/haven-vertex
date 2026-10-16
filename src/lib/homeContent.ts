@@ -6,7 +6,7 @@ export const whoIHelp = {
   eyebrow: "Who I Help",
   heading: "Website Support for Australian Small Businesses, Agencies & Entrepreneurs",
   intro:
-    "I'm Nina Madrona, a website manager and virtual assistant with 12+ years of experience. Most of my clients are Australian business owners who are too busy to keep their website current, and agencies that need a reliable pair of hands behind the scenes.",
+    "I'm Nina Madrona, a website manager and virtual assistant with 12+ years of experience. I support business owners in Australia, the USA, the UK and Canada who are too busy to keep their website current, and agencies that need a reliable pair of hands behind the scenes.",
   groups: [
     {
       title: "Small business owners",
@@ -33,12 +33,12 @@ export const faqs = [
     a: "I support WordPress (including Elementor), Wix and Squarespace websites, plus online stores built on Shopify and WooCommerce. I also work with Canva, Mailchimp, MailerLite, Google Analytics and Google Search Console.",
   },
   {
-    q: "Do you work with Australian businesses?",
-    a: "Yes. Supporting Australian businesses is a big part of my work. I work with clients across Australia and my working hours overlap the Australian business day, so you'll get timely replies and updates.",
+    q: "Which countries do you work with?",
+    a: "Australia is where most of my experience is, but I also support businesses in the USA, UK and Canada. I work flexible hours and can overlap with your time zone, so you'll get timely replies and updates.",
   },
   {
     q: "How much does website management cost?",
-    a: "Packages start from $500 USD for Essential Website Support, with larger content and dedicated support packages available. See the Services page for what each package includes, or book a free call and I'll recommend the right fit.",
+    a: "Packages start from $500 USD per month for Essential Website Support, with larger content and dedicated support packages available. See the Services page for what each package includes, or book a free call and I'll recommend the right fit.",
   },
   {
     q: "Are you a virtual assistant or a website manager?",
@@ -68,7 +68,7 @@ export const aboutExtra = {
   why: [
     "12+ years supporting businesses, agencies and entrepreneurs online.",
     "Hands-on technical website skills combined with creative execution and practical business support.",
-    "Experience across Australian industries, with working hours that overlap the Australian business day.",
+    "Experience across Australian industries, plus flexible hours that overlap your time zone in Australia, the USA, UK or Canada.",
     "One reliable person who takes ownership of your website, content and ongoing online operations, without the cost of a full-time hire.",
   ],
 };

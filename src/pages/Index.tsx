@@ -25,7 +25,9 @@ const Index = () => {
     founder: { "@type": "Person", name: "Nina Madrona", jobTitle: "Website Manager & Virtual Assistant" },
     areaServed: [
       { "@type": "Country", name: "Australia" },
-      { "@type": "Place", name: "Worldwide" },
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Canada" },
     ],
     sameAs: ["https://www.linkedin.com/in/nina-ricci-madrona-002191a2/"],
     knowsAbout: ["Website management", "Website maintenance", "WordPress", "Wix", "Squarespace", "Content publishing", "SEO", "Virtual assistance"],

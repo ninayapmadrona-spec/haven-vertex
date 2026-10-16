@@ -212,5 +212,5 @@ export const defaultFinalCtaContact: FinalCtaContactContent = {
   linkedinUrl: "https://www.linkedin.com/in/nina-ricci-madrona-002191a2/",
   linkedinLabel: "Nina Madrona",
   location: "Serving Australian businesses",
-  locationNote: "Supporting clients worldwide, with extensive experience supporting Australian businesses.",
+  locationNote: "Serving clients in Australia, the USA, the UK and Canada, with flexible hours that overlap your time zone.",
 };
