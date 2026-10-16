@@ -42,7 +42,7 @@ export const Contact = () => {
       <div className="container grid lg:grid-cols-5 gap-12 lg:gap-16">
         <div className="lg:col-span-2">
           <p className="text-xs uppercase tracking-[0.3em] text-lavender-deep mb-4">Contact</p>
-          <h2 className="font-serif text-4xl lg:text-5xl leading-tight text-balance">{content.contactHeading}</h2>
+          <h1 className="font-serif text-4xl lg:text-5xl leading-tight text-balance">{content.contactHeading}</h1>
           {content.contactDescription && (
             <p className="mt-5 text-muted-foreground leading-relaxed">{content.contactDescription}</p>
           )}

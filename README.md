@@ -34,7 +34,7 @@ is edited from the Sanity Studio, not from this code — see `studio/README.md`.
 ## Previewing unpublished changes
 
 Visit the live site with `?preview=1` in the URL (e.g.
-`https://havenvertex.vercel.app/?preview=1`) to see unpublished draft
+`https://haven-vertex-main.vercel.app/?preview=1`) to see unpublished draft
 content from the Studio, with a banner confirming you're in preview mode.
 Click "Exit preview" in the banner, or revisit with `?preview=0`, to go back
 to the normal published site.
@@ -52,6 +52,5 @@ to the normal published site.
 
 ```sh
 npm run lint      # eslint
-npm run test      # vitest
 npm run build     # production build (dist/)
 ```

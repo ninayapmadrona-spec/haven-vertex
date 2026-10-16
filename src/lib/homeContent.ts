@@ -49,3 +49,20 @@ export const faqs = [
     a: "Book a free 30-minute discovery call. We'll talk through your website, your goals and the tasks taking up your time, and I'll suggest a clear plan with no obligation.",
   },
 ];
+
+export const aboutExtra = {
+  workHeading: "What I Do Day To Day",
+  work: [
+    ["Website management & maintenance", "Content, image and layout updates, blog publishing, landing page edits and regular check-ups on WordPress, Wix and Squarespace sites."],
+    ["SEO & local SEO support", "On-page SEO, page titles and descriptions, Google Search Console and Google Business Profile support to help customers find you."],
+    ["Content & social media support", "Newsletters, Canva graphics, social scheduling and repurposing so your content stays consistent."],
+    ["Virtual assistant & admin support", "Research, calendar management and the day-to-day tasks that pull you away from running the business."],
+  ],
+  whyHeading: "Why Australian Businesses Work With Me",
+  why: [
+    "Over 12 years supporting businesses, agencies and entrepreneurs online.",
+    "Extensive experience supporting Australian businesses, with working hours that overlap the Australian business day.",
+    "One dependable person for website, content and admin tasks, without the cost of a full-time hire.",
+    "Clear, friendly communication and a simple plan: you'll always know what's been done and what's next.",
+  ],
+};

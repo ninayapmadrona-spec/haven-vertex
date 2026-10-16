@@ -11,11 +11,11 @@ export const About = () => {
       <div className="container grid lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5">
           {about.eyebrow && <p className="text-xs uppercase tracking-[0.3em] text-lavender-deep mb-4">{about.eyebrow}</p>}
-          <h2 className="font-serif text-4xl lg:text-5xl leading-tight text-balance">{about.heading}</h2>
+          <h1 className="font-serif text-4xl lg:text-5xl leading-tight text-balance">{about.heading}</h1>
           {about.images?.[0] && (
             <img
               src={about.images[0]}
-              alt="About Haven Vertex"
+              alt="Nina Madrona, founder of Haven Vertex"
               className="mt-8 w-full rounded-2xl object-cover shadow-soft hidden lg:block"
             />
           )}

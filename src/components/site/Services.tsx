@@ -18,7 +18,7 @@ export const Services = () => {
       <div className="container">
         <div className="max-w-2xl mx-auto text-center mb-16">
           {content.eyebrow && <p className="text-xs uppercase tracking-[0.3em] text-lavender-deep mb-4">{content.eyebrow}</p>}
-          <h2 className="font-serif text-4xl lg:text-5xl text-balance">{content.heading}</h2>
+          <h1 className="font-serif text-4xl lg:text-5xl text-balance">{content.heading}</h1>
           {content.description && <p className="mt-5 text-muted-foreground text-lg">{content.description}</p>}
         </div>
 

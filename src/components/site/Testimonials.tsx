@@ -80,7 +80,7 @@ export const Testimonials = () => {
       <div className="container">
         <div className="max-w-2xl mx-auto text-center mb-16">
           {content.eyebrow && <p className="text-xs uppercase tracking-[0.3em] text-lavender-deep mb-4">{content.eyebrow}</p>}
-          <h2 className="font-serif text-4xl lg:text-5xl text-balance">{content.heading}</h2>
+          <h1 className="font-serif text-4xl lg:text-5xl text-balance">{content.heading}</h1>
         </div>
 
         {items.length === 0 ? (

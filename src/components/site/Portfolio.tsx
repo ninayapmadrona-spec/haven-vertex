@@ -11,7 +11,7 @@ export const Portfolio = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
           <div>
             {content.eyebrow && <p className="text-xs uppercase tracking-[0.3em] text-lavender-deep mb-4">{content.eyebrow}</p>}
-            <h2 className="font-serif text-4xl lg:text-5xl text-balance max-w-2xl">{content.heading}</h2>
+            <h1 className="font-serif text-4xl lg:text-5xl text-balance max-w-2xl">{content.heading}</h1>
           </div>
           {content.note && <p className="text-muted-foreground italic">{content.note}</p>}
         </div>
