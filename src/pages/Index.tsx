@@ -17,7 +17,7 @@ const Index = () => {
     "@id": `${siteUrl}/#business`,
     name: "Haven Vertex",
     url: `${siteUrl}/`,
-    logo: `${siteUrl}/og-image.png`,
+    logo: `${siteUrl}/logo.png`,
     image: `${siteUrl}/og-image.png`,
     slogan: "Connect. Automate. Elevate.",
     description: seo.pages[0].description,

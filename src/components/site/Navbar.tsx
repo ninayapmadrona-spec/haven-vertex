@@ -38,7 +38,7 @@ export const Navbar = () => {
             <img
               src={siteSettings.logo}
               alt={siteSettings.siteName || "Haven Vertex"}
-              className="h-10 sm:h-12 w-auto object-contain"
+              className="h-12 sm:h-14 w-auto object-contain"
             />
           ) : (
             <span className="font-serif text-2xl sm:text-3xl font-semibold text-ink">
