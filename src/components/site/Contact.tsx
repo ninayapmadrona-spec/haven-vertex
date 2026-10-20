@@ -32,23 +32,16 @@ export const Contact = () => {
     const data = result.data;
     const subject = `Website enquiry from ${data.name}${data.business ? ` (${data.business})` : ""}`;
     const body = `Name: ${data.name}\nEmail: ${data.email}\nBusiness: ${data.business || "-"}\nService: ${data.service}\n\n${data.message}`;
-    const key = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
+    // Web3Forms access key: public by design (it can only deliver messages to
+    // hello@havenvertex.com). Can be overridden with VITE_WEB3FORMS_KEY.
+    const key = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) || "f05e4f0f-cbb4-45ca-9f3b-193145b7fe3c";
     const fields = { name: data.name, email: data.email, business: data.business || "-", service: data.service, message: data.message };
 
-    // Sends the enquiry to the business email. Uses Web3Forms when a key is
-    // configured, otherwise FormSubmit (no account needed; the first submission
-    // asks the inbox owner to confirm once).
-    const request = key
-      ? fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ access_key: key, subject, from_name: "Haven Vertex website", ...fields }),
-        })
-      : fetch(`https://formsubmit.co/ajax/${content.email}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ _subject: subject, _template: "table", _captcha: "false", _honey: "", ...fields }),
-        });
+    const request = fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ access_key: key, subject, from_name: "Haven Vertex website", botcheck: "", ...fields }),
+    });
 
     setLoading(true);
     request
