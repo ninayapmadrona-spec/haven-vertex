@@ -58,8 +58,9 @@ export const Contact = () => {
         toast({ title: "Thank you!", description: "Your message has been sent. I'll be in touch within 1-2 business days." });
         setForm({ name: "", email: "", business: "", service: "", message: "" });
       })
-      .catch(() => {
-        toast({ title: "Couldn't send your message", description: `Please email ${content.email} directly.`, variant: "destructive" });
+      .catch((err: Error) => {
+        const reason = err?.message && err.message !== "Failed to fetch" ? `${err.message} ` : "";
+        toast({ title: "Couldn't send your message", description: `${reason}Please email ${content.email} directly.`, variant: "destructive" });
       })
       .finally(() => setLoading(false));
   };
