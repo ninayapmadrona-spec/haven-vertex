@@ -33,23 +33,28 @@ export const Contact = () => {
     const subject = `Website enquiry from ${data.name}${data.business ? ` (${data.business})` : ""}`;
     const body = `Name: ${data.name}\nEmail: ${data.email}\nBusiness: ${data.business || "-"}\nService: ${data.service}\n\n${data.message}`;
     const key = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
+    const fields = { name: data.name, email: data.email, business: data.business || "-", service: data.service, message: data.message };
 
-    // No form service connected yet: open the visitor's email app with the
-    // enquiry pre-filled so no lead is ever silently lost.
-    if (!key) {
-      window.location.href = `mailto:${content.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      return;
-    }
+    // Sends the enquiry to the business email. Uses Web3Forms when a key is
+    // configured, otherwise FormSubmit (no account needed; the first submission
+    // asks the inbox owner to confirm once).
+    const request = key
+      ? fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ access_key: key, subject, from_name: "Haven Vertex website", ...fields }),
+        })
+      : fetch(`https://formsubmit.co/ajax/${content.email}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ _subject: subject, _template: "table", _captcha: "false", _honey: "", ...fields }),
+        });
 
     setLoading(true);
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ access_key: key, subject, from_name: "Haven Vertex website", name: data.name, email: data.email, business: data.business, service: data.service, message: data.message }),
-    })
+    request
       .then((r) => r.json())
       .then((json) => {
-        if (!json.success) throw new Error(json.message);
+        if (!(json.success === true || json.success === "true")) throw new Error(json.message);
         toast({ title: "Thank you!", description: "Your message has been sent. I'll be in touch within 1-2 business days." });
         setForm({ name: "", email: "", business: "", service: "", message: "" });
       })
@@ -82,13 +87,13 @@ export const Contact = () => {
                 <span><span className="block text-xs uppercase tracking-wider text-muted-foreground">LinkedIn</span>{content.linkedinLabel}</span>
               </a>
             )}
-            {content.location && (
+            {(content.location || content.locationNote) && (
               <div className="flex items-start gap-3 text-foreground">
                 <span className="w-10 h-10 rounded-full bg-accent flex items-center justify-center flex-shrink-0"><MapPin className="w-4 h-4 text-lavender-deep" /></span>
                 <span>
                   <span className="block text-xs uppercase tracking-wider text-muted-foreground">Location</span>
-                  {content.location}
-                  {content.locationNote && <span className="block text-sm text-muted-foreground mt-1">{content.locationNote}</span>}
+                  {content.location && <span className="block">{content.location}</span>}
+                  {content.locationNote && <span className={`block ${content.location ? "text-sm text-muted-foreground mt-1" : ""}`}>{content.locationNote}</span>}
                 </span>
               </div>
             )}

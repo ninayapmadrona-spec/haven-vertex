@@ -14,7 +14,6 @@ export const AboutExtra = () => {
     jobTitle: "Website Manager & Virtual Assistant",
     url: `${siteUrl}/about`,
     worksFor: { "@type": "ProfessionalService", name: "Haven Vertex", url: `${siteUrl}/` },
-    sameAs: ["https://www.linkedin.com/in/nina-ricci-madrona-002191a2/"],
     knowsAbout: ["Website management", "WordPress", "Wix", "Squarespace", "SEO", "Content publishing", "Virtual assistance"],
   };
 
