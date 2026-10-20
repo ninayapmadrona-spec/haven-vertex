@@ -21,7 +21,7 @@ const Index = () => {
     image: `${siteUrl}/og-image.png`,
     slogan: "Connect. Automate. Elevate.",
     description: seo.pages[0].description,
-    email: "ninayapmadrona@gmail.com",
+    email: "hello@havenvertex.com",
     founder: { "@type": "Person", name: "Nina Madrona", jobTitle: "Website Manager & Virtual Assistant" },
     areaServed: [
       { "@type": "Country", name: "Australia" },

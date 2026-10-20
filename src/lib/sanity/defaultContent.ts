@@ -208,7 +208,7 @@ export const defaultFinalCtaContact: FinalCtaContactContent = {
   contactHeading: "Let's Start The Conversation",
   contactDescription:
     "Tell me about your business, your goals, and where you need support. I typically respond within 1–2 business days.",
-  email: "ninayapmadrona@gmail.com",
+  email: "hello@havenvertex.com",
   linkedinUrl: "https://www.linkedin.com/in/nina-ricci-madrona-002191a2/",
   linkedinLabel: "Nina Madrona",
   location: "Serving Australian businesses",
