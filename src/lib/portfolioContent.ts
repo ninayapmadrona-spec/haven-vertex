@@ -1,8 +1,13 @@
-// Named client work (permission confirmed). Text only for now; add
-// screenshots later by giving each project an `image`.
+import ttImage from "@/assets/portfolio-tt-new-energy.webp";
+import ssImage from "@/assets/portfolio-satellite-solar.webp";
+
+// Named client work (permission confirmed).
 export const caseStudies = [
   {
     client: "Satellite Solar",
+    url: "https://www.satellitesolar.com.au/",
+    image: ssImage,
+    imageAlt: "Satellite Solar website homepage with solar dashboard hero",
     sector: "Renewable energy",
     platform: "Wix",
     summary:
@@ -16,6 +21,9 @@ export const caseStudies = [
   },
   {
     client: "TT New Energy",
+    url: "https://www.ttnewenergy.com.au/",
+    image: ttImage,
+    imageAlt: "TT New Energy website homepage showing WHES battery storage systems",
     sector: "Renewable energy",
     platform: "Squarespace",
     summary:
