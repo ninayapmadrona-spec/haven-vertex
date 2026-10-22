@@ -1,10 +1,31 @@
 import { Link } from "react-router-dom";
 import { Portfolio as PortfolioSection } from "@/components/site/Portfolio";
 import { aboutExtra } from "@/lib/homeContent";
+import { caseStudies } from "@/lib/portfolioContent";
 
 const PortfolioPage = () => (
   <>
     <PortfolioSection />
+    <section className="pb-20 lg:pb-24">
+      <div className="container max-w-5xl">
+        <h2 className="font-serif text-3xl lg:text-4xl text-balance">Selected Client Work</h2>
+        <div className="mt-8 grid md:grid-cols-2 gap-6">
+          {caseStudies.map((c) => (
+            <article key={c.client} className="bg-card border border-border/60 rounded-2xl p-7 shadow-soft">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-lavender-deep">{c.sector} · {c.platform}</p>
+              <h3 className="mt-2 font-serif text-2xl text-ink">{c.client}</h3>
+              <p className="mt-3 text-muted-foreground leading-relaxed">{c.summary}</p>
+              <ul className="mt-4 space-y-2 text-sm text-foreground list-disc pl-5">
+                {c.work.map((w) => (
+                  <li key={w}>{w}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+        <p className="mt-6 text-sm text-muted-foreground italic">More project samples and screenshots are available on request.</p>
+      </div>
+    </section>
     <section className="pb-24 lg:pb-32">
       <div className="container max-w-4xl">
         <h2 className="font-serif text-3xl lg:text-4xl text-balance">Industries I've Supported</h2>
