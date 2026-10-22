@@ -8,6 +8,8 @@ const links = [
   { to: "/contact", label: "Contact" },
 ];
 
+const LINKEDIN_URL = "https://www.linkedin.com/company/haven-vertex";
+
 export const Footer = () => (
   <footer className="py-12 border-t border-border/60">
     <div className="container flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
@@ -20,6 +22,7 @@ export const Footer = () => (
         {links.map((l) => (
           <Link key={l.to} to={l.to} className="text-lavender-deep/70 hover:text-lavender-deep transition-smooth">{l.label}</Link>
         ))}
+        <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-lavender-deep/70 hover:text-lavender-deep transition-smooth">LinkedIn</a>
       </nav>
       <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Haven Vertex. All rights reserved.</p>
     </div>

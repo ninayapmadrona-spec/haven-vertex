@@ -29,6 +29,7 @@ const Index = () => {
       { "@type": "Country", name: "United Kingdom" },
       { "@type": "Country", name: "Canada" },
     ],
+    sameAs: ["https://www.linkedin.com/company/haven-vertex"],
     knowsAbout: ["Website management", "Website maintenance", "WordPress", "Wix", "Squarespace", "Content publishing", "SEO", "Virtual assistance"],
     serviceType: ["Website Management", "Website Maintenance", "Virtual Assistant Services", "Content Publishing", "SEO Support"],
   };
