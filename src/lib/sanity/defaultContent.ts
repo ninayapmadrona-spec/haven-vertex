@@ -164,7 +164,35 @@ export const defaultTestimonialsSection: TestimonialsSectionContent = {
   eyebrow: "Kind Words",
   heading: "Client Testimonials",
   description: "Real client reviews will be added soon.",
-  items: [],
+  items: [
+    {
+      type: "written",
+      clientName: "Jackie",
+      company: "Marketing & Community Engagement, sports club group",
+      writtenText:
+        "Nina is highly competent and efficient. She redesigned both our websites, which greatly improved our look, increased efficiency and, most importantly, made them much more user friendly. With any job we request, Nina is always friendly, prompt, insightful and professional. We highly recommend Nina for all digital content work.",
+    },
+    {
+      type: "written",
+      clientName: "Jackie",
+      company: "Marketing & Community Engagement, sports club group",
+      writtenText:
+        "Thank you. All looks great! So happy with the link you made. I came back from holidays thinking no one had seen what you had achieved.",
+    },
+    {
+      type: "written",
+      clientName: "Client",
+      company: "Website project",
+      writtenText:
+        "What captivated me most about your work is that you understood me. My goals, my challenges, and the solution. You understand me in a way that is effortless.",
+    },
+    {
+      type: "written",
+      clientName: "Lisa",
+      company: "Working client",
+      writtenText: "You always do a good job.",
+    },
+  ],
 };
 
 export const defaultPortfolioSection: PortfolioSectionContent = {
