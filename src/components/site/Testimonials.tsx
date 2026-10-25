@@ -22,10 +22,23 @@ const ClientByline = ({ item }: { item: TestimonialItem }) => (
 );
 
 const TestimonialCard = ({ item }: { item: TestimonialItem }) => {
-  const embedUrl = item.type === "video" ? getEmbedUrl(item.videoUrl) : null;
+  const isFile = item.type === "video" && !!item.videoUrl && /\.mp4$/i.test(item.videoUrl);
+  const embedUrl = item.type === "video" && !isFile ? getEmbedUrl(item.videoUrl) : null;
 
   return (
     <article className="rounded-3xl bg-card border border-border/60 shadow-soft p-8 flex flex-col">
+      {isFile && (
+        <video
+          src={item.videoUrl}
+          poster={item.videoUrl?.replace(/\.mp4$/i, ".jpg")}
+          controls
+          playsInline
+          preload="metadata"
+          className="w-full max-h-[460px] rounded-2xl mb-5 bg-ink object-contain"
+          aria-label={`Video testimonial from ${item.clientName}`}
+        />
+      )}
+
       {item.type === "video" && embedUrl && (
         <div className="aspect-video rounded-2xl overflow-hidden mb-5 bg-ink/5">
           <iframe
