@@ -23,7 +23,7 @@ export const HomeFaq = () => {
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((f, i) => (
             <AccordionItem key={f.q} value={`faq-${i}`}>
-              <AccordionTrigger className="text-left font-semibold text-ink">{f.q}</AccordionTrigger>
+              <AccordionTrigger className="text-left font-sans text-lg font-bold text-ink">{f.q}</AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">{f.a}</AccordionContent>
             </AccordionItem>
           ))}

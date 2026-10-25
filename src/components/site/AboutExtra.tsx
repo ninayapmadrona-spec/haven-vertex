@@ -26,7 +26,7 @@ export const AboutExtra = () => {
           <div className="mt-6 space-y-5">
             {aboutExtra.work.map(([title, text]) => (
               <div key={title}>
-                <h3 className="font-semibold text-ink">{title}</h3>
+                <h3 className="font-sans font-bold text-ink">{title}</h3>
                 <p className="mt-1 text-muted-foreground leading-relaxed">{text}</p>
               </div>
             ))}
@@ -35,7 +35,7 @@ export const AboutExtra = () => {
           <div className="mt-6 space-y-5">
             {aboutExtra.industries.map(([title, text]) => (
               <div key={title}>
-                <h3 className="font-semibold text-ink">{title}</h3>
+                <h3 className="font-sans font-bold text-ink">{title}</h3>
                 <p className="mt-1 text-muted-foreground leading-relaxed">{text}</p>
               </div>
             ))}

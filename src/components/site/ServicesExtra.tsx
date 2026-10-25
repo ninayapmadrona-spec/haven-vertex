@@ -23,7 +23,7 @@ export const ServicesExtra = () => (
         {c.steps.map(([title, text], i) => (
           <li key={title} className="bg-lavender-soft rounded-2xl p-7">
             <span className="font-serif text-4xl text-lavender-deep">{i + 1}</span>
-            <h3 className="mt-2 font-semibold text-ink">{title}</h3>
+            <h3 className="mt-2 font-sans font-bold text-ink">{title}</h3>
             <p className="mt-2 text-muted-foreground leading-relaxed">{text}</p>
           </li>
         ))}
