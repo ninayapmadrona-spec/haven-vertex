@@ -12,6 +12,7 @@ const Services = lazy(() => import("./pages/Services.tsx"));
 const Portfolio = lazy(() => import("./pages/Portfolio.tsx"));
 const Testimonials = lazy(() => import("./pages/Testimonials.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
+const Kiosk = lazy(() => import("./pages/Kiosk.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
           </Route>
+          <Route path="/kiosk" element={<Suspense fallback={null}><Kiosk /></Suspense>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route
             path="*"

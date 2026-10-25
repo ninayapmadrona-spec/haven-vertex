@@ -51,6 +51,15 @@
       "h1": "Let's Start The Conversation",
       "intro": "Tell me about your business, your goals and where you need support. I typically respond within 1-2 business days.",
       "priority": "0.8"
+    },
+    {
+      "path": "/kiosk",
+      "title": "Build Your Support Plan | Haven Vertex Kiosk",
+      "description": "Tap to build a website management and virtual assistant plan, see starting prices and book a free call with Haven Vertex.",
+      "h1": "Build your website support plan",
+      "intro": "Tap what you need and see the starting price.",
+      "priority": "0.3",
+      "noindex": true
     }
   ]
 }

@@ -1,4 +1,8 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { getViewMode } from "@/lib/viewMode";
 import { HomeHero } from "@/components/site/HomeHero";
+import { HomeChoose } from "@/components/site/HomeChoose";
 import { HomeTrust, HomeStats } from "@/components/site/HomeTrust";
 import { HomeServices } from "@/components/site/HomeServices";
 import { HomeWork } from "@/components/site/HomeWork";
@@ -14,6 +18,11 @@ import seo from "@/lib/seo/pages.json";
 const siteUrl = (import.meta.env.VITE_SITE_URL || seo.siteUrl).replace(/\/$/, "");
 
 const Index = () => {
+  const navigate = useNavigate();
+  // Visitors who chose the kiosk last time go straight back to it.
+  useEffect(() => {
+    if (getViewMode() === "kiosk") navigate("/kiosk", { replace: true });
+  }, [navigate]);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -41,6 +50,7 @@ const Index = () => {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <HomeHero />
+      <HomeChoose />
       <HomeTrust />
       <HomeServices />
       <HomeStats />
