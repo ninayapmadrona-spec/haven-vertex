@@ -27,21 +27,17 @@ export const Navbar = () => {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header
-      className={`fixed inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/40 transition-smooth ${
-        isPreview ? "top-9" : "top-0"
-      }`}
-    >
-      <nav className="container flex items-center justify-between h-20">
+    <header className={`fixed inset-x-0 z-50 px-4 sm:px-6 pt-3 transition-smooth ${isPreview ? "top-9" : "top-0"}`}>
+      <nav className="mx-auto flex h-16 max-w-[1232px] items-center justify-between rounded-full border border-border/70 bg-white/60 pl-5 pr-2.5 backdrop-blur-md shadow-soft">
         <Link to="/" className="flex items-center gap-3">
           {siteSettings.logo ? (
             <img
               src={siteSettings.logo}
               alt={siteSettings.siteName || "Haven Vertex"}
-              className="h-12 sm:h-14 w-auto object-contain"
+              className="h-9 sm:h-10 w-auto object-contain"
             />
           ) : (
-            <span className="font-serif text-2xl sm:text-3xl font-semibold text-ink">
+            <span className="font-serif text-2xl text-ink">
               {siteSettings.siteName || "Haven Vertex"}
             </span>
           )}
@@ -61,8 +57,8 @@ export const Navbar = () => {
           ))}
         </ul>
         <div className="flex items-center gap-2">
-          <Button asChild variant="default" size="sm" className="rounded-full px-5 gradient-primary text-primary-foreground border-0 shadow-soft hover:shadow-elegant transition-smooth">
-            <a href={calendlyUrl} onClick={openCalendly(calendlyUrl)} target="_blank" rel="noopener noreferrer">Book a Call</a>
+          <Button asChild variant="default" size="sm" className="rounded-full h-11 px-6 bg-primary text-primary-foreground border-0 hover:bg-primary hover:-translate-y-0.5 hover:shadow-elegant transition-smooth">
+            <a href={calendlyUrl} onClick={openCalendly(calendlyUrl)} target="_blank" rel="noopener noreferrer">Book a free call</a>
           </Button>
           <button
             type="button"
@@ -77,7 +73,7 @@ export const Navbar = () => {
         </div>
       </nav>
       {open && (
-        <ul id="mobile-menu" className="md:hidden container pb-4 flex flex-col text-base font-semibold border-t border-border/40 bg-background/95">
+        <ul id="mobile-menu" className="md:hidden mx-auto mt-2 max-w-[1232px] rounded-3xl border border-border/70 bg-white/95 px-6 py-3 flex flex-col text-base font-semibold shadow-elegant">
           {links.map((l) => (
             <li key={l.to}>
               <NavLink

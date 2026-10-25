@@ -12,8 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        serif: ['"Gloock"', 'Georgia', 'serif'],
+        sans: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+        mono: ['"DM Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -56,6 +57,7 @@ export default {
           deep: "hsl(var(--lavender-deep))",
         },
         ink: "hsl(var(--ink))",
+        plum: "hsl(var(--plum))",
         neutral: "hsl(var(--neutral))",
       },
       borderRadius: {

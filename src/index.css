@@ -4,50 +4,51 @@
 
 @layer base {
   :root {
-    --background: 30 20% 99%;
-    --foreground: 260 15% 12%;
+    --background: 262 62% 95%;
+    --foreground: 261 52% 17%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 260 15% 12%;
+    --card: 265 60% 99%;
+    --card-foreground: 261 52% 17%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 260 15% 12%;
+    --popover: 265 60% 99%;
+    --popover-foreground: 261 52% 17%;
 
-    --primary: 265 35% 55%;
-    --primary-foreground: 30 20% 99%;
-    --primary-glow: 270 60% 78%;
+    --primary: 258 51% 38%;
+    --primary-foreground: 265 100% 98%;
+    --primary-glow: 265 82% 85%;
 
-    --secondary: 270 30% 96%;
-    --secondary-foreground: 260 20% 20%;
+    --secondary: 262 50% 92%;
+    --secondary-foreground: 261 52% 17%;
 
-    --muted: 270 20% 96%;
-    --muted-foreground: 260 10% 45%;
+    --muted: 262 40% 92%;
+    --muted-foreground: 259 24% 41%;
 
-    --accent: 280 40% 92%;
-    --accent-foreground: 265 35% 30%;
+    --accent: 265 70% 90%;
+    --accent-foreground: 258 51% 30%;
 
-    --lavender: 270 50% 88%;
-    --lavender-soft: 280 45% 95%;
-    --lavender-deep: 265 40% 45%;
-    --ink: 260 20% 10%;
-    --neutral: 30 15% 96%;
+    --lavender: 265 82% 85%;
+    --lavender-soft: 262 55% 91%;
+    --lavender-deep: 258 51% 38%;
+    --plum: 267 46% 17%;
+    --ink: 261 52% 17%;
+    --neutral: 262 40% 96%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 270 20% 90%;
-    --input: 270 20% 92%;
-    --ring: 265 35% 55%;
+    --border: 262 35% 85%;
+    --input: 262 35% 88%;
+    --ring: 258 51% 38%;
 
     --radius: 1rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(280 50% 96%) 0%, hsl(270 45% 92%) 50%, hsl(260 35% 88%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(30 20% 99%) 0%, hsl(280 30% 97%) 100%);
-    --gradient-primary: linear-gradient(135deg, hsl(265 40% 50%), hsl(280 50% 65%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(280 30% 98%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(262 62% 95%) 0%, hsl(262 62% 95%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(262 62% 95%) 0%, hsl(262 55% 92%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(258 51% 34%), hsl(258 51% 42%));
+    --gradient-card: linear-gradient(145deg, hsl(265 60% 99%) 0%, hsl(262 60% 97%) 100%);
 
-    --shadow-soft: 0 4px 20px -4px hsl(265 35% 55% / 0.08);
-    --shadow-elegant: 0 20px 60px -20px hsl(265 35% 40% / 0.18);
+    --shadow-soft: 0 4px 20px -4px hsl(258 51% 30% / 0.10);
+    --shadow-elegant: 0 20px 60px -20px hsl(258 51% 25% / 0.25);
     --shadow-glow: 0 0 40px hsl(280 60% 75% / 0.35);
 
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -65,12 +66,11 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-feature-settings: "ss01", "cv11";
-    font-size: 17px;
+        font-size: 17px;
   }
 
   h1, h2, h3, h4 {
-    @apply font-serif tracking-tight;
+    @apply font-serif tracking-tight font-normal;
   }
 }
 

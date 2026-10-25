@@ -14,7 +14,7 @@ export const Footer = () => (
   <footer className="py-12 border-t border-border/60">
     <div className="container flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
       <div>
-        <p className="font-serif text-2xl font-semibold">Haven Vertex</p>
+        <p className="font-serif text-2xl">Haven Vertex</p>
         <p className="text-xs text-muted-foreground mt-1">Website Management • Virtual Assistance • Digital Support</p>
         <p className="text-xs text-muted-foreground mt-1">Serving Australia, USA, UK &amp; Canada</p>
       </div>

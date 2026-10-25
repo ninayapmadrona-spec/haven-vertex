@@ -1,4 +1,6 @@
-import { Hero } from "@/components/site/Hero";
+import { HomeHero } from "@/components/site/HomeHero";
+import { HomeServices } from "@/components/site/HomeServices";
+import { HomeWork } from "@/components/site/HomeWork";
 import { HomeIntro } from "@/components/site/HomeIntro";
 import { ToolsBanner } from "@/components/site/ToolsBanner";
 import { HomeFaq } from "@/components/site/HomeFaq";
@@ -37,7 +39,9 @@ const Index = () => {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Hero />
+      <HomeHero />
+      <HomeServices />
+      <HomeWork />
       <HomeIntro />
       <ToolsBanner />
       <HomeFaq />
