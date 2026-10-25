@@ -9,6 +9,7 @@ import { toast } from "@/hooks/use-toast";
 import { Mail, Linkedin, MapPin, CheckCircle2 } from "lucide-react";
 import { useFinalCtaContact } from "@/lib/sanity/hooks";
 import { openCalendly, useCalendly } from "@/lib/calendly";
+import { PageHero } from "./PageHero";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -63,16 +64,12 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 gradient-soft">
+    <>
+    <PageHero eyebrow="Get in touch" title={content.contactHeading} intro={content.contactDescription} note="Your goals. My support. Real results." />
+    <section id="contact" className="pb-24 pt-4 lg:pb-32">
       <div className="container grid lg:grid-cols-5 gap-12 lg:gap-16">
         <div className="lg:col-span-2">
-          <p className="text-xs uppercase tracking-[0.3em] text-lavender-deep mb-4">Contact</p>
-          <h1 className="font-serif text-4xl lg:text-5xl leading-tight text-balance">{content.contactHeading}</h1>
-          {content.contactDescription && (
-            <p className="mt-5 text-muted-foreground leading-relaxed">{content.contactDescription}</p>
-          )}
-
-          <div className="mt-10 space-y-4">
+          <div className="space-y-4">
             {content.email && (
               <a href={`mailto:${content.email}`} className="flex items-center gap-3 text-foreground hover:text-lavender-deep transition-smooth">
                 <span className="w-10 h-10 rounded-full bg-accent flex items-center justify-center"><Mail className="w-4 h-4 text-lavender-deep" /></span>
@@ -156,5 +153,6 @@ export const Contact = () => {
         )}
       </div>
     </section>
+    </>
   );
 };

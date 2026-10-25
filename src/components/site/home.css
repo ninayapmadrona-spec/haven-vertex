@@ -106,7 +106,57 @@
   .hv-slide{grid-template-columns:1fr;min-height:0}
   .hv-ctrl{position:static;justify-content:flex-end;padding:0 20px 20px}
   .hv-svcwrap,.hv-work,.hv-steps{grid-template-columns:1fr}
-  .hv-panel{position:static}
+  .hv-panel{position:relative;top:auto}
   .hv-deco>div{--o:.14}
 }
 @media(prefers-reduced-motion:reduce){.hv-sway svg,.hv-spin svg,.hv-flow{animation:none!important}}
+
+/* ---- dark hero + bands ---- */
+.hv-hero{position:relative;overflow:hidden;color:#F4EEFF;padding:9.5rem 0 11rem;background:radial-gradient(900px 500px at 82% 30%,rgba(155,123,224,.28),transparent 60%),linear-gradient(160deg,#1B0E2E 0%,#2A1748 55%,#33205A 100%)}
+.hv-hero-tall{padding-bottom:12.5rem}
+.hv-hero-art{position:absolute;inset:0;pointer-events:none}
+.hv-glow{position:absolute;right:6%;top:18%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(205,180,247,.22),transparent 65%);filter:blur(10px)}
+.hv-hero-art .hv-sway{height:auto}
+.hv-eyebrow{display:flex;align-items:center;gap:14px;font:500 11px "DM Mono",monospace;letter-spacing:.22em;text-transform:uppercase;color:#CDB4F7;margin:0 0 22px}
+.hv-eyebrow::after{content:"";width:48px;height:1px;background:rgba(205,180,247,.5)}
+.hv-hero-title{font-size:clamp(42px,6.2vw,84px);line-height:1.02;letter-spacing:-.015em;margin:0;text-wrap:balance;color:#fff}
+.hv-hero-intro{margin:26px 0 0;max-width:46ch;font-size:18px;line-height:1.6;color:rgba(244,238,255,.82)}
+.hv-script{position:absolute;right:2%;top:-.5rem;font:500 26px/1.15 "Dancing Script",cursive;color:#E6D8FF;transform:rotate(-7deg);max-width:9ch;text-align:left;opacity:.9}
+.hv-silk{position:absolute;left:0;right:0;bottom:40px;width:100%;height:220px;pointer-events:none}
+.hv-silk-a{animation:hv-drift 14s ease-in-out infinite alternate}
+.hv-silk-b{animation:hv-drift 18s ease-in-out infinite alternate-reverse}
+@keyframes hv-drift{from{transform:translateX(-30px)}to{transform:translateX(30px)}}
+.hv-wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:110px;display:block}
+.hv-wave.flip{bottom:auto;top:-1px;transform:scaleY(-1)}
+.hv-pill{display:inline-flex;align-items:center;height:50px;padding:0 28px;border-radius:999px;background:#CDB4F7;color:#27163D;font:600 15px "Hanken Grotesk",sans-serif;text-decoration:none;transition:transform .3s,box-shadow .3s,background .3s}
+.hv-pill:hover{transform:translateY(-2px);background:#DCC9FB;box-shadow:0 14px 30px -12px rgba(205,180,247,.6)}
+.hv-pill-ghost{background:transparent;color:#F4EEFF;border:1px solid rgba(244,238,255,.4)}
+.hv-pill-ghost:hover{background:rgba(255,255,255,.08)}
+.hv-band{position:relative;overflow:hidden;color:#F4EEFF;padding:9rem 0;background:radial-gradient(700px 400px at 85% 20%,rgba(155,123,224,.22),transparent 60%),linear-gradient(160deg,#1B0E2E,#2A1748)}
+.hv-band .hv-wave{height:90px}
+.hv-band h2{color:#fff}
+.hv-band .hv-sway{height:auto}
+.hv-stats{display:grid;grid-template-columns:1.1fr 2fr;gap:32px 64px;align-items:center}
+.hv-stat-row{display:grid;grid-template-columns:repeat(3,1fr)}
+.hv-stat{padding:0 24px;border-left:1px solid rgba(244,238,255,.2)}
+.hv-stat:first-child{border-left:0;padding-left:0}
+.hv-stat b{display:block;font:400 clamp(34px,4vw,52px) Gloock,serif;color:#fff}
+.hv-stat span{font-size:14px;color:rgba(244,238,255,.7)}
+.hv-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 44px;align-items:center}
+.hv-trust span{font:400 26px Gloock,serif;opacity:.7}
+.hv-psteps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px}
+.hv-pstep{padding:0 28px;border-left:1px solid rgba(244,238,255,.2)}
+.hv-pstep:first-child{border-left:0;padding-left:0}
+.hv-pstep .n{font:400 44px Gloock,serif;color:#CDB4F7}
+.hv-pstep h3{font-size:24px;margin:6px 0 8px;color:#fff}
+.hv-pstep p{margin:0;font-size:15px;line-height:1.55;color:rgba(244,238,255,.75)}
+@media(max-width:860px){
+  .hv-hero{padding:8rem 0 9rem}
+  .hv-hero-art .hv-sway{opacity:.35!important}
+  .hv-stats{grid-template-columns:1fr}
+  .hv-stat-row{grid-template-columns:1fr;gap:20px}
+  .hv-stat{border-left:0;padding:0}
+  .hv-psteps{grid-template-columns:1fr 1fr;gap:28px 0}
+  .hv-pstep:nth-child(3){border-left:0;padding-left:0}
+}
+@media(prefers-reduced-motion:reduce){.hv-silk-a,.hv-silk-b{animation:none!important}}

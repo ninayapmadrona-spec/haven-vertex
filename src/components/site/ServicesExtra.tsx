@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
+import { Wave } from "./Botanical";
+import "./home.css";
 import { servicesExtra as c } from "@/lib/servicesContent";
 
 /** Keyword-rich detail under the package cards on /services. */
 export const ServicesExtra = () => (
-  <section className="py-20 lg:py-24">
+  <>
+  <section className="pb-4 pt-4">
     <div className="container">
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h2 className="font-serif text-3xl lg:text-4xl text-balance">{c.heading}</h2>
@@ -18,17 +21,27 @@ export const ServicesExtra = () => (
         ))}
       </div>
 
-      <h2 className="font-serif text-3xl lg:text-4xl text-center mt-20 mb-10">{c.stepsHeading}</h2>
-      <ol className="grid md:grid-cols-3 gap-6">
+    </div>
+  </section>
+  <section className="hv hv-band" style={{ paddingTop: "8rem", paddingBottom: "8rem" }} aria-labelledby="svc-steps">
+    <Wave flip />
+    <div className="container relative z-10">
+      <p className="hv-eyebrow">My approach</p>
+      <h2 id="svc-steps" className="max-w-[18ch] font-serif text-4xl leading-[1.05] text-balance lg:text-5xl">{c.stepsHeading}</h2>
+      <ol className="hv-psteps" style={{ gridTemplateColumns: `repeat(${c.steps.length}, 1fr)` }}>
         {c.steps.map(([title, text], i) => (
-          <li key={title} className="bg-lavender-soft rounded-2xl p-7">
-            <span className="font-serif text-4xl text-lavender-deep">{i + 1}</span>
-            <h3 className="mt-2 font-sans font-bold text-ink">{title}</h3>
-            <p className="mt-2 text-muted-foreground leading-relaxed">{text}</p>
+          <li key={title} className="hv-pstep">
+            <span className="n">{String(i + 1).padStart(2, "0")}</span>
+            <h3 className="font-serif">{title}</h3>
+            <p>{text}</p>
           </li>
         ))}
       </ol>
-
+    </div>
+    <Wave />
+  </section>
+  <section className="pb-20 pt-4 lg:pb-24">
+    <div className="container">
       <div className="max-w-3xl mx-auto text-center mt-20">
         <h2 className="font-serif text-3xl lg:text-4xl text-balance">{c.hoursHeading}</h2>
         <p className="mt-4 text-muted-foreground leading-relaxed">{c.hours}</p>
@@ -39,4 +52,5 @@ export const ServicesExtra = () => (
       </div>
     </div>
   </section>
+  </>
 );

@@ -1,4 +1,5 @@
 import { Quote, Linkedin, ExternalLink } from "lucide-react";
+import { PageHero } from "./PageHero";
 import { useTestimonialsSection } from "@/lib/sanity/hooks";
 import { getEmbedUrl } from "@/lib/video";
 import type { TestimonialItem } from "@/lib/sanity/types";
@@ -76,12 +77,10 @@ export const Testimonials = () => {
   const items = content.items || [];
 
   return (
-    <section id="testimonials" className="py-24 lg:py-32 gradient-soft">
+    <>
+    <PageHero eyebrow={content.eyebrow || "Client reviews"} title={content.heading} note="Clients. Partnership. Growth." />
+    <section id="testimonials" className="pb-24 pt-4 lg:pb-32">
       <div className="container">
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          {content.eyebrow && <p className="text-xs uppercase tracking-[0.3em] text-lavender-deep mb-4">{content.eyebrow}</p>}
-          <h1 className="font-serif text-4xl lg:text-5xl text-balance">{content.heading}</h1>
-        </div>
 
         {items.length === 0 ? (
           <div className="max-w-2xl mx-auto rounded-3xl bg-card border border-border/60 shadow-soft p-10 lg:p-14 text-center">
@@ -98,5 +97,6 @@ export const Testimonials = () => {
         )}
       </div>
     </section>
+    </>
   );
 };

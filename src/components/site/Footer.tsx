@@ -11,7 +11,7 @@ const links = [
 const LINKEDIN_URL = "https://www.linkedin.com/company/haven-vertex";
 
 export const Footer = () => (
-  <footer className="py-12 border-t border-border/60">
+  <footer className="pb-12 pt-4">
     <div className="container flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
       <div>
         <p className="font-serif text-2xl">Haven Vertex</p>

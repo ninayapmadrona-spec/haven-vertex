@@ -1,4 +1,5 @@
 import { HomeHero } from "@/components/site/HomeHero";
+import { HomeTrust, HomeStats } from "@/components/site/HomeTrust";
 import { HomeServices } from "@/components/site/HomeServices";
 import { HomeWork } from "@/components/site/HomeWork";
 import { HomeIntro } from "@/components/site/HomeIntro";
@@ -40,7 +41,9 @@ const Index = () => {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <HomeHero />
+      <HomeTrust />
       <HomeServices />
+      <HomeStats />
       <HomeWork />
       <HomeIntro />
       <ToolsBanner />

@@ -28,7 +28,7 @@ export const Navbar = () => {
 
   return (
     <header className={`fixed inset-x-0 z-50 px-4 sm:px-6 pt-3 transition-smooth ${isPreview ? "top-9" : "top-0"}`}>
-      <nav className="mx-auto flex h-16 max-w-[1232px] items-center justify-between rounded-full border border-border/70 bg-white/60 pl-5 pr-2.5 backdrop-blur-md shadow-soft">
+      <nav className="mx-auto flex h-16 max-w-[1232px] items-center justify-between rounded-full border border-border/70 bg-white/92 pl-5 pr-2.5 backdrop-blur-md shadow-soft">
         <Link to="/" className="flex items-center gap-3">
           {siteSettings.logo ? (
             <img

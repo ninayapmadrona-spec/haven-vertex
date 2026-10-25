@@ -1,26 +1,33 @@
 import { Check } from "lucide-react";
+import { PageHero, PillLink } from "./PageHero";
+import { openCalendly, useCalendly } from "@/lib/calendly";
+import { useFinalCtaContact } from "@/lib/sanity/hooks";
 import { useAbout } from "@/lib/sanity/hooks";
 
 export const About = () => {
   const { content: about } = useAbout();
+  useCalendly();
+  const { content: contact } = useFinalCtaContact();
   const paragraphs = about.bodyParagraphs || [];
   const lastIndex = paragraphs.length - 1;
 
   return (
-    <section id="about" className="py-24 lg:py-32">
-      <div className="container grid lg:grid-cols-12 gap-12 items-start">
-        <div className="lg:col-span-5">
-          {about.eyebrow && <p className="text-xs uppercase tracking-[0.3em] text-lavender-deep mb-4">{about.eyebrow}</p>}
-          <h1 className="font-serif text-4xl lg:text-5xl leading-tight text-balance">{about.heading}</h1>
-          {about.images?.[0] && (
+    <>
+    <PageHero eyebrow={about.eyebrow || "About"} title={about.heading} note="Operations. People. Systems. Freedom.">
+      <PillLink href={contact.calendlyUrl} onClick={openCalendly(contact.calendlyUrl)} newTab>Book a free call</PillLink>
+    </PageHero>
+    <section id="about" className="pb-20 pt-4 lg:pb-28">
+      <div className={`container grid gap-12 items-start ${about.images?.[0] ? "lg:grid-cols-12" : ""}`}>
+        {about.images?.[0] && (
+          <div className="lg:col-span-5">
             <img
               src={about.images[0]}
               alt="Nina Madrona, founder of Haven Vertex"
-              className="mt-8 w-full rounded-2xl object-cover shadow-soft hidden lg:block"
+              className="w-full rounded-2xl object-cover shadow-soft hidden lg:block"
             />
-          )}
-        </div>
-        <div className="lg:col-span-7 lg:pt-4">
+          </div>
+        )}
+        <div className={about.images?.[0] ? "lg:col-span-7" : "max-w-3xl"}>
           <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
             {paragraphs.map((p, i) => (
               <p key={i} className={i === lastIndex ? "font-medium text-foreground" : undefined}>
@@ -43,5 +50,6 @@ export const About = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };

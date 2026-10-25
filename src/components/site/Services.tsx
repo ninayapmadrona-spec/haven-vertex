@@ -1,36 +1,29 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Globe, Megaphone, BriefcaseBusiness, Check, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
+import { PageHero, PillLink } from "./PageHero";
+import { openCalendly, useCalendly } from "@/lib/calendly";
+import { useFinalCtaContact } from "@/lib/sanity/hooks";
 import { useServicesSection } from "@/lib/sanity/hooks";
-import type { ServiceItem } from "@/lib/sanity/types";
-
-const ICONS: Record<NonNullable<ServiceItem["icon"]>, typeof Globe> = {
-  globe: Globe,
-  megaphone: Megaphone,
-  briefcase: BriefcaseBusiness,
-};
 
 export const Services = () => {
   const { content } = useServicesSection();
+  useCalendly();
+  const { content: contact } = useFinalCtaContact();
 
   return (
-    <section id="services" className="py-24 lg:py-32 gradient-soft">
+    <>
+    <PageHero eyebrow={content.eyebrow || "Services"} title={content.heading} intro={content.description} note="Organised. Reliable. Proactive.">
+      <PillLink href={contact.calendlyUrl} onClick={openCalendly(contact.calendlyUrl)} newTab>Book a free call</PillLink>
+    </PageHero>
+    <section id="services" className="pb-24 pt-4 lg:pb-32">
       <div className="container">
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          {content.eyebrow && <p className="text-xs uppercase tracking-[0.3em] text-lavender-deep mb-4">{content.eyebrow}</p>}
-          <h1 className="font-serif text-4xl lg:text-5xl text-balance">{content.heading}</h1>
-          {content.description && <p className="mt-5 text-muted-foreground text-lg">{content.description}</p>}
-        </div>
 
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {content.items.map((s) => {
-            const Icon = ICONS[s.icon || "globe"];
             return (
               <article key={s.title} className="group relative gradient-card rounded-3xl p-8 lg:p-10 border border-lavender/80 shadow-soft hover:shadow-elegant hover:-translate-y-1 transition-smooth flex flex-col">
-                <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center mb-6">
-                  <Icon className="w-6 h-6 text-lavender-deep" />
-                </div>
-                <h3 className="font-serif text-2xl mb-2">{s.title}</h3>
+                <h3 className="font-serif text-3xl mb-3">{s.title}</h3>
                 {s.price && (
                   <p className="text-lavender-deep font-medium mb-4">
                     {s.priceLabel || "Starting From"} <span className="font-serif text-2xl">{s.price}</span> / Month
@@ -56,11 +49,8 @@ export const Services = () => {
                   </div>
                 )}
 
-                <Button asChild className="mt-8 rounded-full h-12 gradient-primary text-primary-foreground border-0 group/btn">
-                  <Link to="/contact">
-                    Let's Discuss
-                    <ArrowRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-smooth" />
-                  </Link>
+                <Button asChild className="mt-8 rounded-full h-12 bg-primary text-primary-foreground hover:bg-primary hover:-translate-y-0.5 transition-smooth">
+                  <Link to="/contact">Let's Discuss</Link>
                 </Button>
               </article>
             );
@@ -68,5 +58,6 @@ export const Services = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
