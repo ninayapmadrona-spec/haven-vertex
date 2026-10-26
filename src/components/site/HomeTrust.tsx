@@ -1,7 +1,7 @@
 import "./home.css";
 import { Lavender, Wave } from "./Botanical";
 
-const platforms = ["Wix", "Squarespace", "WordPress", "Canva", "Google Workspace", "Mailchimp"];
+const platforms = ["Wix", "Squarespace", "WordPress", "Duda", "Canva", "Google Workspace", "Mailchimp"];
 
 export const HomeTrust = () => (
   <>

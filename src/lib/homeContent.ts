@@ -53,7 +53,7 @@ export const faqs = [
 export const aboutExtra = {
   workHeading: "Services I Offer",
   work: [
-    ["Website management & development", "WordPress (Elementor, Divi, Gutenberg), Wix and Squarespace design, maintenance and updates; content uploads, landing pages, responsive layouts, troubleshooting, basic HTML/CSS customisation, and Shopify and WooCommerce support."],
+    ["Website management & development", "WordPress (Elementor, Divi, Gutenberg), Wix, Squarespace and Duda design, maintenance and updates; content uploads, landing pages, responsive layouts, troubleshooting, basic HTML/CSS customisation, and Shopify and WooCommerce support."],
     ["Digital marketing & SEO", "On-page SEO and content optimisation, local SEO and Google Business Profile support, Google Search Console, GA4 and tools like Ahrefs, Semrush and Moz, plus social media planning, scheduling and management."],
     ["Content & creative services", "Canva graphics, flyers, newsletters and event materials; social media graphics; short-form video editing in CapCut; website copy and event descriptions."],
     ["Business & technical support", "Website and CRM research and comparisons, GoHighLevel, Mailchimp and MailerLite support, online forms, contact workflows and lead capture, and ongoing website support."],

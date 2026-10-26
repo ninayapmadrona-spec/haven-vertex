@@ -5,7 +5,7 @@ import { ART } from "./HomeArt";
 import "./home.css";
 
 const items = [
-  { title: "Website management", tag: "FROM $500 USD / MONTH", blurb: "Monthly updates, fixes, speed, security and SEO across Wix, Squarespace and WordPress.", head: ["Websites that stay ", "fresh", " and fast."], text: "Your site is checked, updated and sped up every month, with backups and SEO included.", chips: ["Updates", "SEO", "Speed", "Backups"] },
+  { title: "Website management", tag: "FROM $500 USD / MONTH", blurb: "Monthly updates, fixes, speed, security and SEO across Wix, Squarespace, Duda and WordPress.", head: ["Websites that stay ", "fresh", " and fast."], text: "Your site is checked, updated and sped up every month, with backups and SEO included.", chips: ["Updates", "SEO", "Speed", "Backups"] },
   { title: "Automation", tag: "CONNECT", blurb: "Forms, emails, bookings and CRM steps connected so enquiries never slip through.", head: ["Enquiries that ", "answer", " themselves."], text: "Every form submission triggers a reply, a calendar link and a CRM entry without you lifting a finger.", chips: ["Forms", "Email", "Calendly", "CRM"] },
   { title: "Content and marketing", tag: "ELEVATE", blurb: "Pages, posts and graphics that keep the site and socials consistent.", head: ["Content that ", "sounds", " like you."], text: "Pages, posts and graphics made to match your brand and published on a steady rhythm.", chips: ["Pages", "Blog", "Social", "Graphics"] },
   { title: "Virtual assistance", tag: "SUPPORT", blurb: "Inbox, scheduling and admin handled so your day stays clear.", head: ["An extra pair of ", "capable", " hands."], text: "Inbox, scheduling and admin handled in hours that overlap with your time zone.", chips: ["Inbox", "Calendar", "Admin", "Reports"] },
@@ -30,7 +30,7 @@ export const HomeServices = () => {
           Website management, <em style={{ fontStyle: "normal", opacity: 0.55 }}>maintenance</em> and virtual assistant support.
         </h2>
         <p className="max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-          Most small businesses do not need an agency. They need someone dependable who knows their site, answers quickly and fixes things before customers notice. That is the job: ongoing website maintenance, content publishing and SEO support for WordPress, Wix and Squarespace, plus the admin that keeps your business moving. Flexible hours overlap with your time zone.
+          Most small businesses do not need an agency. They need someone dependable who knows their site, answers quickly and fixes things before customers notice. That is the job: ongoing website maintenance, content publishing and SEO support for WordPress, Wix, Squarespace and Duda, plus the admin that keeps your business moving. Flexible hours overlap with your time zone.
         </p>
       </div>
 

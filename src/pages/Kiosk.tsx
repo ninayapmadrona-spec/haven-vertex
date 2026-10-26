@@ -16,7 +16,7 @@ const CATS = [
   { id: "sup", n: "Support", s: "Hand it off", ic: "S", h: ["An extra pair of ", "hands"], t: "Virtual assistance", sub: "Take the admin off your plate." },
 ];
 const ITEMS: Item[] = [
-  { id: "p1", c: "pkg", t: "Essential Website Support", d: "Ongoing updates and maintenance for WordPress, Wix or Squarespace.", p: 500, single: true },
+  { id: "p1", c: "pkg", t: "Essential Website Support", d: "Ongoing updates and maintenance for WordPress, Wix, Squarespace or Duda.", p: 500, single: true },
   { id: "p2", c: "pkg", t: "Content & Marketing Support", d: "Blog publishing, newsletters, Canva graphics and social scheduling.", p: 800, single: true, b: "For content" },
   { id: "p3", c: "pkg", t: "Dedicated Digital Support", d: "Website, content, admin and priority communication in one plan.", p: 1500, single: true },
   { id: "w1", c: "web", t: "Monthly updates", d: "Text, images, services and prices kept current." },

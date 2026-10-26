@@ -35,7 +35,7 @@ export const defaultHero: HeroContent = {
   ],
   highlights: [
     "Website Management",
-    "WordPress, Wix & Squarespace Support",
+    "WordPress, Wix, Squarespace & Duda Support",
     "Content Publishing & Updates",
     "Social Media Assistance",
     "SEO & Local SEO Support",
@@ -91,7 +91,7 @@ export const defaultAbout: AboutContent = {
     "12+ Years Experience",
     "4+ Years With an Australian Digital Agency",
     "Supporting Australian Businesses",
-    "WordPress • Wix • Squarespace",
+    "WordPress • Wix • Squarespace • Duda",
   ],
 };
 
@@ -108,7 +108,7 @@ export const defaultServicesSection: ServicesSectionContent = {
       priceLabel: "Starting From",
       features: [
         "Website content updates",
-        "WordPress, Wix or Squarespace support",
+        "WordPress, Wix, Squarespace or Duda support",
         "Blog publishing",
         "Image updates",
         "Landing page edits",
@@ -246,7 +246,7 @@ export const defaultPortfolioSection: PortfolioSectionContent = {
       image: portfolio1,
       tag: "Design",
       title: "Website Design & Landing Pages",
-      description: "Building and updating websites using WordPress, Wix, and Squarespace.",
+      description: "Building and updating websites using WordPress, Wix, Squarespace, and Duda.",
     },
   ],
 };

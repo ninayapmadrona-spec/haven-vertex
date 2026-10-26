@@ -3,7 +3,7 @@ export const servicesExtra = {
   intro:
     "Every package is built from the same core services. Choose the level of support that fits, and we'll tailor the details on a free discovery call.",
   groups: [
-    ["Website management & maintenance", "WordPress (Elementor, Divi, Gutenberg), Wix and Squarespace updates, content uploads, landing pages, responsive layouts, troubleshooting and Shopify or WooCommerce support."],
+    ["Website management & maintenance", "WordPress (Elementor, Divi, Gutenberg), Wix, Squarespace and Duda updates, content uploads, landing pages, responsive layouts, troubleshooting and Shopify or WooCommerce support."],
     ["SEO & local SEO", "On-page SEO, content optimisation, Google Business Profile support, Google Search Console, GA4 and reporting with tools like Ahrefs, Semrush and Moz."],
     ["Content & social media", "Blog publishing, newsletters, Canva graphics, short-form video editing in CapCut, social media planning and scheduling."],
     ["Business & technical support", "GoHighLevel, Mailchimp and MailerLite support, online forms and lead capture, CRM research and ongoing website support."],

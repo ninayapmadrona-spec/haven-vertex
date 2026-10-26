@@ -14,7 +14,7 @@ export const AboutExtra = () => {
     jobTitle: "Website Manager & Virtual Assistant",
     url: `${siteUrl}/about`,
     worksFor: { "@type": "ProfessionalService", name: "Haven Vertex", url: `${siteUrl}/` },
-    knowsAbout: ["Website management", "WordPress", "Wix", "Squarespace", "SEO", "Content publishing", "Virtual assistance"],
+    knowsAbout: ["Website management", "WordPress", "Wix", "Squarespace", "Duda", "SEO", "Content publishing", "Virtual assistance"],
   };
 
   return (
