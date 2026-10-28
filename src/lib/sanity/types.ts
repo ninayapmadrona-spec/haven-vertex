@@ -63,6 +63,7 @@ export interface ServiceItem {
   description?: string;
   price?: string;
   priceLabel?: string;
+  hours?: string;
   features?: string[];
   idealFor?: string;
 }

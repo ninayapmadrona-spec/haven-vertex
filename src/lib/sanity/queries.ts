@@ -57,6 +57,7 @@ export const SERVICES_SECTION_QUERY = /* groq */ `
     description,
     price,
     priceLabel,
+    hours,
     features,
     idealFor
   }

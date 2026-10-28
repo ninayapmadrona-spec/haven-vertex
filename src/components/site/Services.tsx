@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { PageHero, PillLink } from "./PageHero";
+import { ServicesPricing } from "./ServicesPricing";
 import { openCalendly, useCalendly } from "@/lib/calendly";
 import { useFinalCtaContact } from "@/lib/sanity/hooks";
 import { useServicesSection } from "@/lib/sanity/hooks";
@@ -29,6 +30,7 @@ export const Services = () => {
                     {s.priceLabel || "Starting From"} <span className="font-serif text-2xl">{s.price}</span> / Month
                   </p>
                 )}
+                {s.hours && <p className="mb-4 inline-block self-start rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase tracking-wider text-lavender-deep">{s.hours}</p>}
                 {s.description && <p className="text-muted-foreground text-sm leading-relaxed mb-6">{s.description}</p>}
 
                 {!!s.features?.length && (
@@ -58,6 +60,7 @@ export const Services = () => {
         </div>
       </div>
     </section>
+    <ServicesPricing />
     </>
   );
 };
