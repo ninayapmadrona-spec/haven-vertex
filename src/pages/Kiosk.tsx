@@ -5,7 +5,7 @@ import { setViewMode } from "@/lib/viewMode";
 import { Lavender } from "@/components/site/Botanical";
 import { RouteSeo } from "@/components/site/RouteSeo";
 import "@/components/site/home.css";
-import { TERMS, applyTerm, ADDON_PRICE, PACKAGE_INCLUDES, EXTRA_HOUR, type TermId } from "@/lib/pricing";
+import { TERMS, applyTerm, ADDON_PRICE, PACKAGE_INCLUDES, EXTRA_HOUR, CURRENCIES, type TermId } from "@/lib/pricing";
 import "./kiosk.css";
 
 type Item = { id: string; c: string; t: string; d: string; p?: number; single?: boolean; b?: string };
@@ -50,6 +50,7 @@ const Kiosk = () => {
   const [open, setOpen] = useState(false);
   const [bump, setBump] = useState(0);
   const [term, setTerm] = useState<TermId>("m");
+  const [cur, setCur] = useState("USD");
   const [form, setForm] = useState({ name: "", email: "" });
   const [sending, setSending] = useState(false);
   const [sentTo, setSentTo] = useState<string | null>(null);
@@ -102,7 +103,7 @@ const Kiosk = () => {
       body: JSON.stringify({
         access_key: KEY, subject: `Plan request from ${form.name.trim()}`, from_name: "Haven Vertex kiosk", botcheck: "",
         name: form.name.trim(), email: form.email.trim(), service: pkg?.t || "No package chosen",
-        message: `Plan built on the kiosk:\n${planText}\n\nTerm: ${termInfo.label}\nEstimated: ${money(final)}${term === "12" ? ` (${`$${(final * 12).toLocaleString("en-US")}`} paid yearly)` : ""}\nMonthly price before term discount: ${money(monthly)}`,
+        message: `Plan built on the kiosk:\n${planText}\n\nTerm: ${termInfo.label}\nPay in currency: ${cur}\nEstimated: ${money(final)}${term === "12" ? ` (${`$${(final * 12).toLocaleString("en-US")}`} paid yearly)` : ""}\nMonthly price before term discount: ${money(monthly)}`,
       }),
     }).then((r) => r.json()).then((j) => {
       if (!(j.success === true || j.success === "true")) throw new Error(j.message);
@@ -208,6 +209,11 @@ const Kiosk = () => {
                   ))}
                 </div>
                 <p className="kk-note">{termInfo.note}</p>
+                <label className="kk-note" style={{ display: "grid", gap: 4 }}>Pay in this currency (by bank transfer)
+                  <select value={cur} onChange={(e) => setCur(e.target.value)} aria-label="Currency" style={{ height: 48, borderRadius: 24, border: "2px solid rgba(75,46,143,.3)", padding: "0 18px", background: "#fff", color: "#2a1745", font: "inherit" }}>
+                    {CURRENCIES.map((c) => <option key={c}>{c}</option>)}
+                  </select>
+                </label>
                 <div className="kk-total"><span>Estimated</span><span>{money(final)}</span></div>
                 {term === "12" && <p className="kk-note">That is ${(final * 12).toLocaleString("en-US")} USD paid once a year.</p>}
                 <p className="kk-note">This is an estimate. Plans are paid in advance and nothing is charged here. Extra hours are ${EXTRA_HOUR} an hour. We confirm everything on your free call.</p>

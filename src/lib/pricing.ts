@@ -29,9 +29,12 @@ export const ADDON_PRICE: Record<string, number> = {
 };
 
 export const PAYMENT_TERMS = [
-  { t: "Paid in advance", p: "Monthly plans are invoiced before each month starts. Work for a new month begins once payment arrives." },
+  { t: "Paid in advance", p: "Monthly plans are invoiced before each month starts. Pay by bank transfer in your own currency (USD, AUD, GBP, CAD, EUR or NZD). Work begins once payment arrives." },
   { t: "Starting out", p: "Your first month is paid before any work begins. A free 30 minute call comes first, with no charge." },
   { t: "One-off projects", p: "Landing pages, setups and fixes are quoted up front. 50% deposit to book, 50% on delivery." },
   { t: "Hours and extras", p: `Each plan has a set number of hours a month. Extra time is $${EXTRA_HOUR} an hour, agreed with you first. Unused hours do not roll over.` },
   { t: "Changing or stopping", p: "Month-to-month plans can change or stop with 14 days' notice. If you leave a 6 or 12 month plan early, the months used are re-billed at the monthly rate." },
 ];
+
+// Clients pay by bank transfer in their own currency. The invoice amount is set by hand.
+export const CURRENCIES = ["USD", "AUD", "GBP", "CAD", "EUR", "NZD", "Other"] as const;

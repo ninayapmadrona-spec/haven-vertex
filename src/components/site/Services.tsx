@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { PageHero, PillLink } from "./PageHero";
 import { ServicesPricing } from "./ServicesPricing";
+import { StartPlan } from "./StartPlan";
 import { openCalendly, useCalendly } from "@/lib/calendly";
 import { useFinalCtaContact } from "@/lib/sanity/hooks";
 import { useServicesSection } from "@/lib/sanity/hooks";
@@ -54,6 +55,9 @@ export const Services = () => {
                 <Button asChild className="mt-8 rounded-full h-12 bg-primary text-primary-foreground hover:bg-primary hover:-translate-y-0.5 transition-smooth">
                   <Link to="/contact">Let's Discuss</Link>
                 </Button>
+                {s.price && (
+                  <StartPlan plan={s.title} price={Number(String(s.price).replace(/[^0-9]/g, ""))} className="mt-3 h-12 rounded-full border border-primary/40 font-bold text-primary transition-smooth hover:bg-accent" />
+                )}
               </article>
             );
           })}
