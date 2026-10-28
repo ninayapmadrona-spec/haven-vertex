@@ -1,27 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Flower, Sprig } from "./Botanical";
-import { ART } from "./HomeArt";
 import "./home.css";
 
 const items = [
-  { title: "Website management", tag: "FROM $500 USD / MONTH", blurb: "Monthly updates, fixes, speed, security and SEO across Wix, Squarespace, Duda and WordPress.", head: ["Websites that stay ", "fresh", " and fast."], text: "Your site is checked, updated and sped up every month, with backups and SEO included.", chips: ["Updates", "SEO", "Speed", "Backups"] },
-  { title: "Automation", tag: "CONNECT", blurb: "Forms, emails, bookings and CRM steps connected so enquiries never slip through.", head: ["Enquiries that ", "answer", " themselves."], text: "Every form submission triggers a reply, a calendar link and a CRM entry without you lifting a finger.", chips: ["Forms", "Email", "Calendly", "CRM"] },
-  { title: "Content and marketing", tag: "ELEVATE", blurb: "Pages, posts and graphics that keep the site and socials consistent.", head: ["Content that ", "sounds", " like you."], text: "Pages, posts and graphics made to match your brand and published on a steady rhythm.", chips: ["Pages", "Blog", "Social", "Graphics"] },
-  { title: "Virtual assistance", tag: "SUPPORT", blurb: "Inbox, scheduling and admin handled so your day stays clear.", head: ["An extra pair of ", "capable", " hands."], text: "Inbox, scheduling and admin handled in hours that overlap with your time zone.", chips: ["Inbox", "Calendar", "Admin", "Reports"] },
+  { big: "WEB", title: "Website management", tag: "FROM $500 USD / MONTH", blurb: "Monthly updates, fixes, speed, security and SEO across Wix, Squarespace, Duda and WordPress.", head: ["Websites that stay ", "fresh", " and fast."], text: "Your site is checked, updated and sped up every month, with backups and SEO included.", chips: ["Updates", "SEO", "Speed", "Backups"] },
+  { big: "AUTO", title: "Automation", tag: "CONNECT", blurb: "Forms, emails, bookings and CRM steps connected so enquiries never slip through.", head: ["Enquiries that ", "answer", " themselves."], text: "Every form submission triggers a reply, a calendar link and a CRM entry without you lifting a finger.", chips: ["Forms", "Email", "Calendly", "CRM"] },
+  { big: "SEO", title: "Content and marketing", tag: "ELEVATE", blurb: "Pages, posts and graphics that keep the site and socials consistent.", head: ["Content that ", "sounds", " like you."], text: "Pages, posts and graphics made to match your brand and published on a steady rhythm.", chips: ["Pages", "Blog", "Social", "Graphics"] },
+  { big: "VA", title: "Virtual assistance", tag: "SUPPORT", blurb: "Inbox, scheduling and admin handled so your day stays clear.", head: ["An extra pair of ", "capable", " hands."], text: "Inbox, scheduling and admin handled in hours that overlap with your time zone.", chips: ["Inbox", "Calendar", "Admin", "Reports"] },
 ];
 
 export const HomeServices = () => {
-  const [i, setI] = useState(0);
-  const [out, setOut] = useState(false);
-  const [shown, setShown] = useState(0);
-  const pick = (k: number) => {
-    if (k === i) return;
-    setI(k);
-    setOut(true);
-    window.setTimeout(() => { setShown(k); setOut(false); }, 300);
-  };
-  const d = items[shown];
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
     <section className="hv container py-20 lg:py-28" aria-labelledby="home-services-heading">
@@ -34,35 +23,30 @@ export const HomeServices = () => {
         </p>
       </div>
 
-      <div className="hv-svcwrap">
-        <div className="hv-svc" role="tablist" aria-label="Services">
-          {items.map((s, k) => (
-            <button key={s.title} type="button" role="tab" aria-selected={k === i} onClick={() => pick(k)}>
-              <h3 className="font-serif">{s.title}</h3>
-              <span>{s.tag}</span>
-              <p>{s.blurb}</p>
-            </button>
-          ))}
-          <p className="pt-6 text-sm text-muted-foreground" style={{ all: "unset", display: "block", paddingTop: 24, fontSize: 14 }}>
-            <Link to="/services" className="font-semibold text-primary underline underline-offset-4">See all services and pricing</Link>
-          </p>
-        </div>
-
-        <div className="hv-panel" aria-live="polite">
-          <div className="hv-deco" aria-hidden="true">
-            <Sprig className="text-lavender" style={{ width: 90, right: "4%", bottom: -16 }} />
-            <Flower className="text-lavender" style={{ width: 140, left: -40, top: -40 }} />
-          </div>
-          <div className={`hv-ptxt${out ? " out" : ""}`}>
-            <h4 className="font-serif">{d.head[0]}<em style={{ fontStyle: "normal", opacity: 0.55 }}>{d.head[1]}</em>{d.head[2]}</h4>
-            <p>{d.text}</p>
-          </div>
-          <div className="hv-artbox">
-            {ART.map((a, k) => <div key={k} className={k === i ? "on" : ""}>{a}</div>)}
-          </div>
-          <div className="hv-chips">{d.chips.map((c) => <span key={c}>{c}</span>)}</div>
-        </div>
+      <div className="hv-accs">
+        {items.map((s, k) => {
+          const isOpen = open === k;
+          return (
+            <div key={s.title} className="hv-acc" data-open={isOpen}>
+              <button type="button" aria-expanded={isOpen} aria-controls={`hv-acc-${k}`} onClick={() => setOpen(isOpen ? null : k)}>
+                <span className="hv-acc-t font-serif">{s.title}</span>
+                <span className="hv-acc-tag">{s.tag}</span>
+                <span className="hv-acc-big font-serif" aria-hidden="true">{s.big}</span>
+              </button>
+              <div id={`hv-acc-${k}`} className="hv-acc-body" role="region" aria-label={s.title}>
+                <div>
+                  <h4 className="font-serif">{s.head[0]}<em style={{ fontStyle: "normal", opacity: 0.7 }}>{s.head[1]}</em>{s.head[2]}</h4>
+                  <p>{s.text}</p>
+                  <div className="hv-chips">{s.chips.map((c) => <span key={c}>{c}</span>)}</div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
+      <p className="mt-6 text-sm">
+        <Link to="/services" className="font-semibold text-primary underline underline-offset-4">See all services and pricing</Link>
+      </p>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { caseStudies } from "@/lib/portfolioContent";
+import { PortfolioFan } from "./PortfolioFan";
 import "./home.css";
 
 const steps = [
@@ -14,16 +14,7 @@ export const HomeWork = () => (
       <h2 id="home-work-heading" className="font-serif text-4xl leading-[1.04] sm:text-5xl lg:text-6xl">
         Recent <em style={{ fontStyle: "normal", opacity: 0.55 }}>work</em>
       </h2>
-      <div className="hv-work">
-        {caseStudies.map((c) => (
-          <a key={c.client} href={c.url} target="_blank" rel="noopener noreferrer" className="hv-case">
-            <div className="hv-shot"><img src={c.image} alt={c.imageAlt} loading="lazy" width={1400} /></div>
-            <div className="hv-meta"><span>{c.platform}</span><span>Visit site ↗</span></div>
-            <h3 className="font-serif text-3xl">{c.client}</h3>
-            <p className="text-[15px] leading-relaxed text-muted-foreground">{c.summary}</p>
-          </a>
-        ))}
-      </div>
+      <PortfolioFan />
       <p className="mt-8 text-muted-foreground">
         More detail on the <Link to="/portfolio" className="font-semibold text-primary underline underline-offset-4">portfolio page</Link>.
       </p>
