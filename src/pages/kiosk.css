@@ -97,3 +97,5 @@
 .kk .kk-terms button b{font-size:15px}.kk .kk-terms button small{font-size:12px;opacity:.75}
 .kk .kk-terms button[aria-checked="true"]{background:#6c3fc7;border-color:#6c3fc7;color:#fff}
 .kk .kk-terms button:focus-visible{outline:3px solid #8a5be0;outline-offset:2px}
+.kk .kk-attract h2{color:#fff;max-width:14ch}
+.kk .kk-attract h2 em{color:#d9c2ff}
