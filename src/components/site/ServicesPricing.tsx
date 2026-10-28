@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-import { TERMS, PAYMENT_TERMS, EXTRA_HOUR } from "@/lib/pricing";
+import { TERMS, PAYMENT_TERMS, EXTRA_HOUR, BONUS_HOURS } from "@/lib/pricing";
 import { setViewMode } from "@/lib/viewMode";
 
 const packages = [
-  { n: "Essential Website Support", p: 500 },
-  { n: "Content & Marketing Support", p: 800 },
-  { n: "Dedicated Digital Support", p: 1500 },
+  { n: "Essential Website Support", p: 500, h: 15 },
+  { n: "Content & Marketing Support", p: 800, h: 32 },
+  { n: "Dedicated Digital Support", p: 1500, h: 60 },
 ];
 const fmt = (n: number) => `$${n.toLocaleString("en-US")}`;
 
@@ -42,6 +42,7 @@ export const ServicesPricing = () => (
                   return (
                     <td key={t.id} className="py-4 pr-4">
                       <span className="font-serif text-2xl">{fmt(m)}</span> <span className="text-sm text-muted-foreground">/ month</span>
+                      <div className="text-xs text-muted-foreground">{t.id === "12" ? `${k.h + BONUS_HOURS} hours a month (${BONUS_HOURS} free)` : `${k.h} hours a month`}</div>
                       {t.id === "12" && <div className="text-xs text-muted-foreground">{fmt(m * 12)} paid upfront for the year</div>}
                     </td>
                   );
@@ -51,7 +52,7 @@ export const ServicesPricing = () => (
           </tbody>
         </table>
       </div>
-      <p className="mt-4 text-sm text-muted-foreground">Extra hours are ${EXTRA_HOUR} an hour, agreed with you first.</p>
+      <p className="mt-4 text-sm text-muted-foreground">Extra hours are ${EXTRA_HOUR} an hour, agreed with you first. Commit to 12 months and get {BONUS_HOURS} free extra hours every month.</p>
     </section>
 
     <section className="container pb-20 lg:pb-28" aria-labelledby="payment-heading">

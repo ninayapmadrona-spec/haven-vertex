@@ -106,9 +106,9 @@ export const defaultServicesSection: ServicesSectionContent = {
       description: "Perfect for businesses that need ongoing website updates and maintenance.",
       price: "$500 USD",
       priceLabel: "Starting From",
-      hours: "Up to 20 hours / month",
+      hours: "Up to 15 hours / month",
       features: [
-        "Up to 20 hours of work each month",
+        "Up to 15 hours of work each month",
         "Text, image, price and service updates on your live site",
         "Blog posts formatted, optimised and published",
         "Landing page and offer page edits",

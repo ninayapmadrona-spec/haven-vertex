@@ -1,10 +1,12 @@
 // Single source of truth for Haven Vertex pricing. All prices are USD per month.
 export const EXTRA_HOUR = 30;
+export const BONUS_HOURS = 5; // free extra hours a month on a 12-month plan
+export const BASE_HOURS: Record<string, number> = { essential: 15, content: 32, dedicated: 60 };
 
 export const TERMS = [
   { id: "m", label: "Month to month", short: "Monthly", off: 0, note: "No lock-in. Cancel with 14 days' notice." },
   { id: "6", label: "6-month commitment", short: "6 months", off: 0.1, note: "10% off. Billed monthly in advance." },
-  { id: "12", label: "12 months, paid upfront", short: "12 months", off: 0.15, note: "15% off. Pay the full year before work starts." },
+  { id: "12", label: "12 months, paid upfront", short: "12 months", off: 0.15, note: "15% off and 5 free extra hours every month. Pay the full year before work starts." },
 ] as const;
 export type TermId = (typeof TERMS)[number]["id"];
 

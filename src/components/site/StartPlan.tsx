@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { TERMS, CURRENCIES, applyTerm, type TermId } from "@/lib/pricing";
+import { TERMS, CURRENCIES, BONUS_HOURS, applyTerm, type TermId } from "@/lib/pricing";
 
 const KEY = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) || "f05e4f0f-cbb4-45ca-9f3b-193145b7fe3c";
 
@@ -34,7 +34,7 @@ export const StartPlan = ({ plan, price, className, children }: Props) => {
       body: JSON.stringify({
         access_key: KEY, subject: `Invoice request: ${plan} (${t.short}) from ${f.name.trim()}`, from_name: "Haven Vertex website", botcheck: "",
         name: f.name.trim(), email: f.email.trim(), service: plan,
-        message: `Invoice request\nPlan: ${plan}\nTerm: ${t.label}\nPrice: $${monthly} USD / month${term === "12" ? ` ($${monthly * 12} USD paid upfront)` : ""}\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}`,
+        message: `Invoice request\nPlan: ${plan}\nTerm: ${t.label}\nPrice: $${monthly} USD / month${term === "12" ? ` (+${BONUS_HOURS} free hours a month)` : ""}${term === "12" ? ` ($${monthly * 12} USD paid upfront)` : ""}\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}`,
       }),
     }).then((r) => r.json()).then((j) => {
       if (!(j.success === true || j.success === "true")) throw new Error(j.message);
@@ -62,7 +62,7 @@ export const StartPlan = ({ plan, price, className, children }: Props) => {
                   <label key={x.id} className="cursor-pointer rounded-2xl border-2 px-2 py-3 text-center text-sm transition-colors" style={term === x.id ? { background: "#4b2e8f", borderColor: "#4b2e8f", color: "#fff" } : { background: "#fff", borderColor: "rgba(75,46,143,.3)", color: "#2a1745" }}>
                     <input type="radio" name="term" className="sr-only" checked={term === x.id} onChange={() => setTerm(x.id)} />
                     <b className="block">{x.short}</b>
-                    <small className="opacity-80">{x.off ? `${Math.round(x.off * 100)}% off` : "No lock-in"}</small>
+                    <small className="opacity-80">{x.off ? `${Math.round(x.off * 100)}% off${x.id === "12" ? ` + ${BONUS_HOURS} hrs` : ""}` : "No lock-in"}</small>
                   </label>
                 ))}
               </fieldset>
