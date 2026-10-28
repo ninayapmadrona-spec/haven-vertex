@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-import { TERMS, PAYMENT_TERMS, EXTRA_HOUR } from "@/lib/pricing";
+import { TERMS, PAYMENT_TERMS, EXTRA_HOUR, BUILDS } from "@/lib/pricing";
+import { StartPlan } from "./StartPlan";
 import { setViewMode } from "@/lib/viewMode";
 
 const packages = [
@@ -56,6 +57,33 @@ export const ServicesPricing = () => (
         Each plan works out to about $20 an hour when you use every hour, and that includes website skills, not just admin. In Australia, freelance virtual assistants typically charge AU$35 to AU$65 an hour, and agency website retainers often start around AU$2,500 a month.
       </p>
       <p className="mt-4 text-sm text-muted-foreground">Extra hours are ${EXTRA_HOUR} an hour, agreed with you first.</p>
+    </section>
+
+    <section className="container pb-20 lg:pb-28" aria-labelledby="build-heading">
+      <h2 id="build-heading" className="max-w-[20ch] text-balance font-serif text-4xl leading-[1.05] sm:text-5xl">
+        Only need a new <em style={{ fontStyle: "normal", opacity: 0.55 }}>website</em>?
+      </h2>
+      <p className="mt-4 max-w-[62ch] text-lg text-muted-foreground">
+        Fixed prices, agreed before we start. No monthly plan needed. In Australia, small agencies commonly quote AU$2,000 to AU$5,000 for a landing page and AU$5,000 to AU$15,000 for a 5 to 10 page business site.
+      </p>
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {BUILDS.map((b) => (
+          <article key={b.id} className="flex flex-col rounded-3xl border border-lavender/80 bg-card p-7 shadow-soft">
+            <h3 className="font-serif text-2xl">{b.name}</h3>
+            <p className="mt-2 text-lavender-deep"><span className="text-sm">From</span> <span className="font-serif text-3xl">{fmt(b.price)}</span> <span className="text-sm text-muted-foreground">USD</span></p>
+            <p className="mt-1 text-sm text-muted-foreground">{b.pages} · {b.time}</p>
+            <ul className="mt-5 grid gap-2.5">
+              {b.includes.map((x) => (
+                <li key={x} className="flex items-start gap-2.5 text-sm"><Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-lavender-deep" /><span>{x}</span></li>
+              ))}
+            </ul>
+            <StartPlan build plan={b.name} price={b.price} className="mt-auto h-12 rounded-full border border-primary/40 font-bold text-primary transition-colors hover:bg-accent">Book this build</StartPlan>
+          </article>
+        ))}
+      </div>
+      <p className="mt-6 max-w-[70ch] text-[15px] leading-relaxed text-muted-foreground">
+        Prices are fixed for the pages listed. 50% deposit to book, 50% when the site is ready to launch. Extra pages are quoted before I add them. Bigger or custom projects, such as memberships or bookings, are quoted after a free call. Add a monthly plan after launch if you want me to look after the site.
+      </p>
     </section>
 
     <section className="container pb-20 lg:pb-28" aria-labelledby="payment-heading">

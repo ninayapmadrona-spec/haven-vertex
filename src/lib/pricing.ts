@@ -39,3 +39,24 @@ export const PAYMENT_TERMS = [
 
 // Clients pay by bank transfer in their own currency. The invoice amount is set by hand.
 export const CURRENCIES = ["USD", "AUD", "GBP", "CAD", "EUR", "NZD", "Other"] as const;
+
+// One-off website builds (USD, fixed price). 50% deposit, 50% on launch.
+export const BUILD_DEPOSIT = 0.5;
+export const BUILDS = [
+  {
+    id: "landing", name: "Landing Page", price: 1000, pages: "1 page", time: "About 1 to 2 weeks",
+    includes: ["One designed page that sells one offer", "Mobile-friendly layout", "Enquiry form and booking link connected", "Basic on-page SEO and speed set-up", "Built on Wix, Squarespace, Duda or WordPress"],
+  },
+  {
+    id: "business", name: "Business Website", price: 2000, pages: "Up to 5 pages", time: "About 3 to 4 weeks",
+    includes: ["Home, About, Services, Contact and one more page", "Mobile-friendly layout in your brand colours", "Forms, booking and email list connected", "On-page SEO, Google Search Console and analytics", "Two rounds of revisions"],
+  },
+  {
+    id: "growth", name: "Growth Website", price: 3200, pages: "Up to 10 pages", time: "About 5 to 6 weeks",
+    includes: ["Everything in Business Website", "Blog set up with your first posts formatted", "Service or location pages written for search", "Newsletter and CRM connected", "30 days of free support after launch"],
+  },
+  {
+    id: "store", name: "Online Store", price: 3600, pages: "Up to 25 products", time: "About 5 to 7 weeks",
+    includes: ["Shopify or WooCommerce store, designed and set up", "Products, categories and shipping rules added", "Payment gateway and tax settings connected", "Order emails and abandoned cart steps", "30 days of free support after launch"],
+  },
+];
