@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { isWaitlist } from "@/lib/availability";
 import { TERMS, CURRENCIES, applyTerm, type TermId } from "@/lib/pricing";
 
 const KEY = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) || "f05e4f0f-cbb4-45ca-9f3b-193145b7fe3c";
@@ -32,7 +33,7 @@ export const StartPlan = ({ plan, price, className, children, build }: Props) =>
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
-        access_key: KEY, subject: `${build ? "Website build" : "Invoice request"}: ${plan}${build ? "" : ` (${t.short})`} from ${f.name.trim()}`, from_name: "Haven Vertex website", botcheck: "",
+        access_key: KEY, subject: `${isWaitlist() ? "WAITLIST: " : ""}${build ? "Website build" : "Invoice request"}: ${plan}${build ? "" : ` (${t.short})`} from ${f.name.trim()}`, from_name: "Haven Vertex website", botcheck: "",
         name: f.name.trim(), email: f.email.trim(), service: plan,
         message: build ? `Website build request\nProject: ${plan}\nFixed price: $${price} USD\n50% deposit: $${price / 2} USD\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}` : `Invoice request\nPlan: ${plan}\nTerm: ${t.label}\nPrice: $${monthly} USD / month${term === "12" ? ` ($${monthly * 12} USD paid upfront)` : ""}\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}`,
       }),
@@ -44,13 +45,13 @@ export const StartPlan = ({ plan, price, className, children, build }: Props) =>
 
   return (
     <>
-      <button type="button" className={className} onClick={() => ref.current?.showModal()}>{children || "Request invoice and start"}</button>
+      <button type="button" className={className} onClick={() => ref.current?.showModal()}>{isWaitlist() ? "Join the waitlist" : children || "Request invoice and start"}</button>
       <dialog ref={ref} className="w-[min(520px,92vw)] rounded-3xl border border-border bg-background p-0 text-foreground shadow-elegant backdrop:bg-[#1d1030]/60" aria-labelledby={`sp-${plan}`}>
         <div className="p-7 sm:p-9">
           {state === "done" ? (
             <>
               <h3 id={`sp-${plan}`} className="font-serif text-3xl">Thank you!</h3>
-              <p className="mt-3 text-muted-foreground">Your request is with me. I'll send an invoice with bank transfer details in {cur} within 1 business day. Work starts when payment arrives.{build ? " Then we book a short kickoff call." : ""}</p>
+              <p className="mt-3 text-muted-foreground">{isWaitlist() ? "You are on my waitlist. I will email you as soon as a spot opens." : <>Your request is with me. I'll send an invoice with bank transfer details in {cur} within 1 business day. Work starts when payment arrives.{build ? " Then we book a short kickoff call." : ""}</>}</p>
               <button type="button" className="mt-6 rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground" onClick={() => ref.current?.close()}>Close</button>
             </>
           ) : (

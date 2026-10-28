@@ -45,6 +45,10 @@ export const faqs = [
     a: "Both. Many clients start with website updates and then add content, social media, research and administrative tasks as they grow. It means one dependable person instead of several freelancers, at a fraction of the cost of a full-time employee.",
   },
   {
+    q: "Will I deal with you directly?",
+    a: "Yes. I am the person you talk to and the person doing the work. If the team grows, I stay your main contact. I only take on as many clients as I can look after well, so spots are limited and I will tell you honestly when I am full.",
+  },
+  {
     q: "How do I get started?",
     a: "Book a free 30-minute discovery call. We'll talk through your website, your goals and the tasks taking up your time, and I'll suggest a clear plan with no obligation.",
   },

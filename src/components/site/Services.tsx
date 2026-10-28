@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { PageHero, PillLink } from "./PageHero";
+import { Availability } from "./Availability";
 import { ServicesPricing } from "./ServicesPricing";
 import { StartPlan } from "./StartPlan";
 import { openCalendly, useCalendly } from "@/lib/calendly";
@@ -16,6 +17,7 @@ export const Services = () => {
   return (
     <>
     <PageHero eyebrow={content.eyebrow || "Services"} title={content.heading} intro={content.description} note="Organised. Reliable. Proactive.">
+      <Availability />
       <PillLink href={contact.calendlyUrl} onClick={openCalendly(contact.calendlyUrl)} newTab>Book a free call</PillLink>
     </PageHero>
     <section id="services" className="pb-24 pt-4 lg:pb-32">
