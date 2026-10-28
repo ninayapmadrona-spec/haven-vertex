@@ -42,7 +42,7 @@ export const ServicesPricing = () => (
                   return (
                     <td key={t.id} className="py-4 pr-4">
                       <span className="font-serif text-2xl">{fmt(m)}</span> <span className="text-sm text-muted-foreground">/ month</span>
-                      {t.id === "12" && <div className="text-xs text-muted-foreground">{fmt(m * 12)} paid once a year</div>}
+                      {t.id === "12" && <div className="text-xs text-muted-foreground">{fmt(m * 12)} paid upfront for the year</div>}
                     </td>
                   );
                 })}

@@ -103,7 +103,7 @@ const Kiosk = () => {
       body: JSON.stringify({
         access_key: KEY, subject: `Plan request from ${form.name.trim()}`, from_name: "Haven Vertex kiosk", botcheck: "",
         name: form.name.trim(), email: form.email.trim(), service: pkg?.t || "No package chosen",
-        message: `Plan built on the kiosk:\n${planText}\n\nTerm: ${termInfo.label}\nPay in currency: ${cur}\nEstimated: ${money(final)}${term === "12" ? ` (${`$${(final * 12).toLocaleString("en-US")}`} paid yearly)` : ""}\nMonthly price before term discount: ${money(monthly)}`,
+        message: `Plan built on the kiosk:\n${planText}\n\nTerm: ${termInfo.label}\nPay in currency: ${cur}\nEstimated: ${money(final)}${term === "12" ? ` (${`$${(final * 12).toLocaleString("en-US")}`} paid upfront)` : ""}\nMonthly price before term discount: ${money(monthly)}`,
       }),
     }).then((r) => r.json()).then((j) => {
       if (!(j.success === true || j.success === "true")) throw new Error(j.message);
@@ -215,7 +215,7 @@ const Kiosk = () => {
                   </select>
                 </label>
                 <div className="kk-total"><span>Estimated</span><span>{money(final)}</span></div>
-                {term === "12" && <p className="kk-note">That is ${(final * 12).toLocaleString("en-US")} USD paid once a year.</p>}
+                {term === "12" && <p className="kk-note">That is ${(final * 12).toLocaleString("en-US")} USD paid upfront for the year.</p>}
                 <p className="kk-note">This is an estimate. Plans are paid in advance and nothing is charged here. Extra hours are ${EXTRA_HOUR} an hour. We confirm everything on your free call.</p>
                 <form onSubmit={send} className="kk-form" noValidate>
                   <input aria-label="Your name" placeholder="Your name" autoComplete="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />

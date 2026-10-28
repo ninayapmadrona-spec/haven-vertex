@@ -4,7 +4,7 @@ export const EXTRA_HOUR = 55;
 export const TERMS = [
   { id: "m", label: "Month to month", short: "Monthly", off: 0, note: "No lock-in. Cancel with 14 days' notice." },
   { id: "6", label: "6-month commitment", short: "6 months", off: 0.1, note: "10% off. Billed monthly in advance." },
-  { id: "12", label: "12 months, paid yearly", short: "12 months", off: 0.15, note: "15% off. Pay once a year in advance." },
+  { id: "12", label: "12 months, paid upfront", short: "12 months", off: 0.15, note: "15% off. Pay the full year before work starts." },
 ] as const;
 export type TermId = (typeof TERMS)[number]["id"];
 

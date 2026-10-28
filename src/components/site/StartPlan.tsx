@@ -34,7 +34,7 @@ export const StartPlan = ({ plan, price, className, children }: Props) => {
       body: JSON.stringify({
         access_key: KEY, subject: `Invoice request: ${plan} (${t.short}) from ${f.name.trim()}`, from_name: "Haven Vertex website", botcheck: "",
         name: f.name.trim(), email: f.email.trim(), service: plan,
-        message: `Invoice request\nPlan: ${plan}\nTerm: ${t.label}\nPrice: $${monthly} USD / month${term === "12" ? ` ($${monthly * 12} USD paid yearly)` : ""}\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}`,
+        message: `Invoice request\nPlan: ${plan}\nTerm: ${t.label}\nPrice: $${monthly} USD / month${term === "12" ? ` ($${monthly * 12} USD paid upfront)` : ""}\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}`,
       }),
     }).then((r) => r.json()).then((j) => {
       if (!(j.success === true || j.success === "true")) throw new Error(j.message);
@@ -66,7 +66,7 @@ export const StartPlan = ({ plan, price, className, children }: Props) => {
                   </label>
                 ))}
               </fieldset>
-              <p className="font-serif text-2xl">${monthly.toLocaleString("en-US")} USD <span className="font-sans text-sm text-muted-foreground">/ month{term === "12" ? ` · $${(monthly * 12).toLocaleString("en-US")} paid yearly` : ""}</span></p>
+              <p className="font-serif text-2xl">${monthly.toLocaleString("en-US")} USD <span className="font-sans text-sm text-muted-foreground">/ month{term === "12" ? ` · $${(monthly * 12).toLocaleString("en-US")} paid upfront` : ""}</span></p>
               <p className="text-sm text-muted-foreground">{t.note} Paid in advance by bank transfer. Nothing is charged here.</p>
               <input aria-label="Your name" placeholder="Your name" autoComplete="name" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} className="h-12 rounded-full border border-border bg-background px-5" />
               <input aria-label="Your email" type="email" placeholder="Your email" autoComplete="email" value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} className="h-12 rounded-full border border-border bg-background px-5" />
