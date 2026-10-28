@@ -3,6 +3,7 @@ import { PageHero, PillLink } from "./PageHero";
 import { openCalendly, useCalendly } from "@/lib/calendly";
 import { useFinalCtaContact } from "@/lib/sanity/hooks";
 import { useAbout } from "@/lib/sanity/hooks";
+import { availabilityText } from "@/lib/availability";
 
 export const About = () => {
   const { content: about } = useAbout();
@@ -28,6 +29,17 @@ export const About = () => {
           </div>
         )}
         <div className={about.images?.[0] ? "lg:col-span-7" : "max-w-3xl"}>
+          <aside className="mb-10 rounded-3xl bg-accent p-6 sm:p-8" aria-label="Who you will work with">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-lavender-deep">Meet Nina</p>
+            <h2 className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">One person, on purpose.</h2>
+            <p className="mt-3 max-w-[56ch] text-foreground/80 leading-relaxed">
+              Haven Vertex is just me. You talk to me on the first call and I do the work every month after. I take on a limited number of clients so replies stay fast. If I bring on help in the future, I stay your main contact.
+            </p>
+            <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-lavender-deep">
+              <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#2fa56a" }} aria-hidden="true" />
+              {availabilityText()}
+            </p>
+          </aside>
           <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
             {paragraphs.map((p, i) => (
               <p key={i} className={i === lastIndex ? "font-medium text-foreground" : undefined}>
