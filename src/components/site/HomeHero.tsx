@@ -12,9 +12,9 @@ export const HomeHero = () => {
       tall
       eyebrow="Connect. Automate. Elevate."
       srPrefix="Website management for small businesses: "
-      title="Your website, quietly taken care of."
-      accent="quietly taken care of."
-      intro="I manage, automate and grow websites for small businesses in Australia, the USA, the UK and Canada, so you can get on with the work you love."
+      title="Too busy to look after your website?"
+      accent="look after your website?"
+      intro="I keep it updated, easy to find on Google and turning visitors into enquiries, so restaurants, clubs, clinics and shops can get back to the work they love."
       note="Same mission. More impact."
     >
       <PillLink href={url} onClick={openCalendly(url)} newTab>Book a free call</PillLink>

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getViewMode } from "@/lib/viewMode";
 import { HomeHero } from "@/components/site/HomeHero";
 import { HomeChoose } from "@/components/site/HomeChoose";
+import { HomeProblems } from "@/components/site/HomeProblems";
 import { HomeStats } from "@/components/site/HomeTrust";
 import { HomeServices } from "@/components/site/HomeServices";
 import { HomeWork } from "@/components/site/HomeWork";
@@ -50,6 +51,7 @@ const Index = () => {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <HomeHero />
+      <HomeProblems />
       <HomeChoose />
       <HomeServices />
       <HomeStats />

@@ -214,3 +214,26 @@
 .hv-fanctl button:focus-visible{outline:2px solid #6c3fc7;outline-offset:2px}
 @media (max-width:640px){.hv-card[data-pos="-1"]{transform:translateX(-82%) rotate(-7deg) scale(.82)}.hv-card[data-pos="1"]{transform:translateX(-18%) rotate(7deg) scale(.82)}}
 @media (prefers-reduced-motion:reduce){.hv-acc-body,.hv-acc-body>div,.hv-card{transition-duration:.01ms}}
+
+/* problems */
+.hv-ptabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
+.hv-ptabs button{all:unset;cursor:pointer;box-sizing:border-box;border:1px solid var(--hv-line);border-radius:99px;padding:10px 20px;font-weight:600;font-size:15px;transition:background .3s,color .3s}
+.hv-ptabs button:hover{background:rgba(108,63,199,.1)}
+.hv-ptabs button[aria-selected="true"]{background:#4b2e8f;border-color:#4b2e8f;color:#fff}
+.hv-ptabs button:focus-visible{outline:2px solid #6c3fc7;outline-offset:2px}
+.hv-ppanel{margin-top:28px}
+.hv-pgrid{border-top:1px solid var(--hv-line)}
+.hv-phead{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:12px 4px;font:500 12px "DM Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--hv-muted)}
+.hv-prow{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;padding:22px 4px;border-top:1px solid var(--hv-line);align-items:baseline;animation:hv-rise .6s var(--hv-ease) both;animation-delay:calc(var(--n)*70ms)}
+.hv-prow h3{margin:0;font-size:clamp(20px,2.2vw,28px);line-height:1.15}
+.hv-prow p{margin:0;color:var(--hv-muted);line-height:1.55;font-size:16px;position:relative;padding-left:18px}
+.hv-prow p::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:99px;background:#6c3fc7}
+.hv-pstat{margin:20px 0 0;padding:16px 20px;border-radius:16px;background:rgba(108,63,199,.1);font-weight:600;max-width:60ch}
+.hv-pcta{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:28px}
+.hv-psrc{margin-top:18px;font-size:12px;color:var(--hv-muted);max-width:80ch}
+.hv-psrc a{text-decoration:underline}
+@keyframes hv-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (max-width:760px){.hv-phead{display:none}.hv-prow{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.hv-prow{animation:none}}
+.hv-pcta .hv-pill{background:#4b2e8f;color:#fff}.hv-pcta .hv-pill:hover{background:#5d3aa8}
+.hv-problems .hv-eyebrow{color:#6c3fc7;opacity:1}
