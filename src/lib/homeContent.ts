@@ -38,7 +38,7 @@ export const faqs = [
   },
   {
     q: "How much does website management cost?",
-    a: "Packages start from $500 USD per month for up to 15 hours of Essential Website Support, $800 for Content & Marketing (up to 25 hours) and $1,500 for Dedicated Digital Support (up to 45 hours). Commit to 6 months for 10% off, or pay for 12 months upfront for 15% off. Plans are paid in advance. See the Services page for what each package includes, or book a free call.",
+    a: "Packages start from $500 USD per month for up to 20 hours of Essential Website Support, $800 for Content & Marketing (up to 32 hours) and $1,500 for Dedicated Digital Support (up to 60 hours). Commit to 6 months for 10% off, or pay for 12 months upfront for 15% off. Plans are paid in advance. See the Services page for what each package includes, or book a free call.",
   },
   {
     q: "Are you a virtual assistant or a website manager?",

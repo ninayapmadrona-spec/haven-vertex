@@ -1,5 +1,5 @@
 // Single source of truth for Haven Vertex pricing. All prices are USD per month.
-export const EXTRA_HOUR = 55;
+export const EXTRA_HOUR = 30;
 
 export const TERMS = [
   { id: "m", label: "Month to month", short: "Monthly", off: 0, note: "No lock-in. Cancel with 14 days' notice." },

@@ -17,9 +17,9 @@ const CATS = [
   { id: "sup", n: "Support", s: "Hand it off", ic: "S", h: ["An extra pair of ", "hands"], t: "Virtual assistance", sub: "Take the admin off your plate." },
 ];
 const ITEMS: Item[] = [
-  { id: "p1", c: "pkg", t: "Essential Website Support", d: "Up to 15 hours a month. Updates, blog posts, landing pages, backups and a monthly check-up for WordPress, Wix, Squarespace or Duda.", p: 500, single: true },
-  { id: "p2", c: "pkg", t: "Content & Marketing Support", d: "Up to 25 hours a month. Everything in Essential plus newsletters, Canva graphics, social scheduling and a monthly report.", p: 800, single: true, b: "For content" },
-  { id: "p3", c: "pkg", t: "Dedicated Digital Support", d: "Up to 45 hours a month. Website, content, inbox, calendar, research and SEO with same-day replies.", p: 1500, single: true },
+  { id: "p1", c: "pkg", t: "Essential Website Support", d: "Up to 20 hours a month. Updates, blog posts, landing pages, backups and a monthly check-up for WordPress, Wix, Squarespace or Duda.", p: 500, single: true },
+  { id: "p2", c: "pkg", t: "Content & Marketing Support", d: "Up to 32 hours a month. Everything in Essential plus newsletters, Canva graphics, social scheduling and a monthly report.", p: 800, single: true, b: "For content" },
+  { id: "p3", c: "pkg", t: "Dedicated Digital Support", d: "Up to 60 hours a month. Website, content, inbox, calendar, research and SEO with same-day replies.", p: 1500, single: true },
   { id: "w1", c: "web", t: "Monthly updates", d: "Text, images, services and prices kept current." },
   { id: "w2", c: "web", t: "Speed and SEO check", d: "Faster pages and the basics Google looks for." },
   { id: "w3", c: "web", t: "Landing page edits", d: "New offers and campaign pages published fast." },
