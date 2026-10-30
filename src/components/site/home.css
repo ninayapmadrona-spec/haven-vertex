@@ -240,3 +240,4 @@
 .hv-avail{display:inline-flex;align-items:center;gap:10px;font:600 14px "Hanken Grotesk",sans-serif;color:#E9DDFB;border:1px solid rgba(233,221,251,.3);border-radius:99px;padding:8px 16px;width:fit-content}
 .hv-avail i{width:9px;height:9px;border-radius:99px;background:#7be0a8;box-shadow:0 0 0 4px rgba(123,224,168,.2)}
 .hv-avail[data-status="waitlist"] i{background:#f2b46d;box-shadow:0 0 0 4px rgba(242,180,109,.2)}
+.hv-fan{overflow-x:clip}

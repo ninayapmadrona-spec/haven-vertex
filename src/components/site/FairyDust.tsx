@@ -40,6 +40,18 @@ export const FairyDust = () => {
     resize();
     window.addEventListener("resize", resize);
 
+    // On a mouse, the fairy light becomes the cursor. Touch screens keep the gentle drift.
+    let mouse = false, tx = 0, ty = 0, hx = 0, hy = 0;
+    const root = document.documentElement;
+    const move = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
+      if (!mouse) { mouse = true; hx = e.clientX; hy = e.clientY; root.classList.add("hv-fairy-cursor"); }
+      tx = e.clientX; ty = e.clientY;
+    };
+    const leave = () => { mouse = false; root.classList.remove("hv-fairy-cursor"); };
+    window.addEventListener("pointermove", move, { passive: true });
+    document.addEventListener("mouseleave", leave);
+
     // Slow, wandering path: a blend of sine waves, always inside the screen.
     const pos = (s: number) => ({
       x: W * (0.5 + 0.42 * Math.sin(s * 0.31 + 0.6) * Math.cos(s * 0.17)),
@@ -50,7 +62,13 @@ export const FairyDust = () => {
       if (!run) return;
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now; t += dt;
-      const h = pos(t), prev = pos(t - 0.016);
+      let h: { x: number; y: number }, prev: { x: number; y: number };
+      if (mouse) {
+        prev = { x: hx, y: hy };
+        const k = Math.min(1, dt * 16);
+        hx += (tx - hx) * k; hy += (ty - hy) * k;
+        h = { x: hx, y: hy };
+      } else { h = pos(t); prev = pos(t - 0.016); }
       const speed = Math.hypot(h.x - prev.x, h.y - prev.y);
       const n = W < 600 ? 1 : 2;
       for (let i = 0; i < n && parts.length < 260; i++) {
@@ -89,7 +107,7 @@ export const FairyDust = () => {
     };
     document.addEventListener("visibilitychange", vis);
     raf = requestAnimationFrame(frame);
-    return () => { run = false; cancelAnimationFrame(raf); window.removeEventListener("resize", resize); document.removeEventListener("visibilitychange", vis); };
+    return () => { run = false; cancelAnimationFrame(raf); leave(); window.removeEventListener("pointermove", move); document.removeEventListener("mouseleave", leave); window.removeEventListener("resize", resize); document.removeEventListener("visibilitychange", vis); };
   }, []);
 
   return <canvas ref={ref} aria-hidden="true" style={{ position: "fixed", inset: 0, width: "100%", height: "100%", zIndex: 80, pointerEvents: "none" }} />;

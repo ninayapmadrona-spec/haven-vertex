@@ -1,2 +1,9 @@
 /* leaves and flowers are retired; the orbiting star replaces them */
 .hv-sway,.hv-spin{display:none!important}
+
+/* the fairy light replaces the mouse arrow; real controls keep a normal cursor */
+html.hv-fairy-cursor,html.hv-fairy-cursor body{cursor:none}
+html.hv-fairy-cursor a,html.hv-fairy-cursor button,html.hv-fairy-cursor select,html.hv-fairy-cursor label,html.hv-fairy-cursor summary,html.hv-fairy-cursor [role="tab"],html.hv-fairy-cursor [role="button"]{cursor:pointer}
+html.hv-fairy-cursor input,html.hv-fairy-cursor textarea{cursor:text}
+html.hv-fairy-cursor dialog,html.hv-fairy-cursor dialog *{cursor:auto}
+html.hv-fairy-cursor dialog button,html.hv-fairy-cursor dialog select{cursor:pointer}
