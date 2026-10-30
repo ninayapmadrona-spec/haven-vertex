@@ -1,15 +1,2 @@
-.hv-orbit{position:fixed;inset:0;z-index:80;pointer-events:none;overflow:hidden}
-.hv-orbit i{position:absolute;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;
-  background:radial-gradient(circle,#fff6d6 0%,#f6c963 45%,rgba(246,201,99,0) 72%);
-  box-shadow:0 0 12px 3px rgba(246,201,99,.65),0 0 28px 8px rgba(185,150,255,.45);
-  offset-path:inset(10px round 26px);offset-rotate:0deg;
-  animation:hv-orbit 22s linear infinite;animation-delay:var(--d)}
-.hv-orbit i:nth-child(2){transform:scale(.8);opacity:.75}
-.hv-orbit i:nth-child(3){transform:scale(.6);opacity:.5}
-.hv-orbit i:nth-child(4){transform:scale(.45);opacity:.32}
-.hv-orbit i:nth-child(5){transform:scale(.3);opacity:.18}
-@keyframes hv-orbit{from{offset-distance:0%}to{offset-distance:100%}}
-@supports not (offset-path:inset(10px)){.hv-orbit{display:none}}
-@media (prefers-reduced-motion:reduce){.hv-orbit{display:none}}
 /* leaves and flowers are retired; the orbiting star replaces them */
 .hv-sway,.hv-spin{display:none!important}

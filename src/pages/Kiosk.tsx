@@ -4,7 +4,7 @@ import { openCalendly, useCalendly } from "@/lib/calendly";
 import { setViewMode } from "@/lib/viewMode";
 import { Lavender } from "@/components/site/Botanical";
 import { RouteSeo } from "@/components/site/RouteSeo";
-import { Orbit } from "@/components/site/Orbit";
+import { FairyDust } from "@/components/site/FairyDust";
 import "@/components/site/home.css";
 import { TERMS, applyTerm, ADDON_PRICE, PACKAGE_INCLUDES, EXTRA_HOUR, CURRENCIES, type TermId } from "@/lib/pricing";
 import "./kiosk.css";
@@ -115,7 +115,7 @@ const Kiosk = () => {
   return (
     <div className="kk">
       <RouteSeo />
-      <Orbit />
+      <FairyDust />
       {!started && (
         <button type="button" className="kk-attract" aria-label="Touch to start" onClick={() => { setStarted(true); try { sessionStorage.setItem("hv-kiosk-started", "1"); } catch { /* ignore */ } }}>
           <div className="hv" aria-hidden="true" style={{ position: "absolute", inset: 0 }}>
