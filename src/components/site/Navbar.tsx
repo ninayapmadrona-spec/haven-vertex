@@ -13,7 +13,6 @@ const links = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/portfolio", label: "Portfolio" },
-  { to: "/testimonials", label: "Testimonials" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -35,7 +34,7 @@ export const Navbar = () => {
             <img
               src={siteSettings.logo}
               alt={siteSettings.siteName || "Haven Vertex"}
-              className="h-9 sm:h-10 w-auto object-contain"
+              className="h-11 sm:h-12 w-auto object-contain"
             />
           ) : (
             <span className="font-serif text-2xl text-ink">

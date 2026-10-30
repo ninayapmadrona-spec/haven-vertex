@@ -41,7 +41,8 @@
       "description": "Read what clients say about working with Haven Vertex for website management, content publishing and virtual assistant support.",
       "h1": "Client Testimonials",
       "intro": "Reviews from businesses supported by Haven Vertex.",
-      "priority": "0.5"
+      "priority": "0.5",
+      "noindex": true
     },
     {
       "path": "/contact",

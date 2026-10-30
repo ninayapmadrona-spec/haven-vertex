@@ -1,0 +1,53 @@
+// Removed from the live site on 2026-10-30. Paste back inside `items: [ ... ]` of defaultTestimonialsSection in src/lib/sanity/defaultContent.ts.
+// Video files are in archive/testimonials/ - copy them back to public/testimonials/ first.
+    {
+      type: "video",
+      clientName: "Client video 1",
+      company: "Haven Vertex client",
+      videoUrl: "/testimonials/client-1.mp4",
+    },
+    {
+      type: "video",
+      clientName: "Client video 2",
+      company: "Haven Vertex client",
+      videoUrl: "/testimonials/client-2.mp4",
+    },
+    {
+      type: "video",
+      clientName: "Client video 3",
+      company: "Haven Vertex client",
+      videoUrl: "/testimonials/client-3.mp4",
+    },
+    {
+      type: "video",
+      clientName: "Client video 4",
+      company: "Haven Vertex client",
+      videoUrl: "/testimonials/client-4.mp4",
+    },
+    {
+      type: "written",
+      clientName: "Jackie",
+      company: "Marketing & Community Engagement, sports club group",
+      writtenText:
+        "Nina is highly competent and efficient. She redesigned both our websites, which greatly improved our look, increased efficiency and, most importantly, made them much more user friendly. With any job we request, Nina is always friendly, prompt, insightful and professional. We highly recommend Nina for all digital content work.",
+    },
+    {
+      type: "written",
+      clientName: "Jackie",
+      company: "Marketing & Community Engagement, sports club group",
+      writtenText:
+        "Thank you. All looks great! So happy with the link you made. I came back from holidays thinking no one had seen what you had achieved.",
+    },
+    {
+      type: "written",
+      clientName: "Client",
+      company: "Website project",
+      writtenText:
+        "What captivated me most about your work is that you understood me. My goals, my challenges, and the solution. You understand me in a way that is effortless.",
+    },
+    {
+      type: "written",
+      clientName: "Lisa",
+      company: "Working client",
+      writtenText: "You always do a good job.",
+    },
