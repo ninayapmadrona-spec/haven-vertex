@@ -212,5 +212,5 @@ export const defaultFinalCtaContact: FinalCtaContactContent = {
   contactDescription:
     "Tell me about your business, your goals, and where you need support. I typically respond within 1–2 business days.",
   email: "hello@havenvertex.com",
-  locationNote: "Serving clients worldwide, including Australia, the USA, the UK and Canada, with flexible hours that overlap your time zone.",
+  locationNote: "Serving clients worldwide, including Australia, the UK, the Netherlands, the USA and Canada, with flexible hours that overlap your time zone.",
 };

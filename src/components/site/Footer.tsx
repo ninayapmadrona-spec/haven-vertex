@@ -15,7 +15,7 @@ export const Footer = () => (
       <div>
         <p className="font-serif text-2xl">Haven Vertex</p>
         <p className="text-xs text-muted-foreground mt-1">Website Management • Virtual Assistance • Digital Support</p>
-        <p className="text-xs text-muted-foreground mt-1">Serving Australia, USA, UK &amp; Canada</p>
+        <p className="text-xs text-muted-foreground mt-1">Serving Australia, UK, Netherlands, USA &amp; Canada</p>
       </div>
       <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
         {links.map((l) => (

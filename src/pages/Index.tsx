@@ -38,8 +38,9 @@ const Index = () => {
     founder: { "@type": "Person", name: "Nina Madrona", jobTitle: "Website Manager & Virtual Assistant" },
     areaServed: [
       { "@type": "Country", name: "Australia" },
-      { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Netherlands" },
+      { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "Canada" },
     ],
     sameAs: ["https://www.linkedin.com/company/haven-vertex"],

@@ -6,7 +6,7 @@ export const whoIHelp = {
   eyebrow: "Who I Help",
   heading: "Website Support for Australian Small Businesses, Agencies & Entrepreneurs",
   intro:
-    "I'm Nina Madrona, a website manager and virtual assistant with 12+ years of experience. I support business owners in Australia, the USA, the UK and Canada who are too busy to keep their website current, and agencies that need a reliable pair of hands behind the scenes.",
+    "I'm Nina Madrona, a website manager and virtual assistant with 12+ years of experience. I support business owners in Australia, the UK, the Netherlands, the USA and Canada who are too busy to keep their website current, and agencies that need a reliable pair of hands behind the scenes.",
   groups: [
     {
       title: "Small business owners",
@@ -34,7 +34,7 @@ export const faqs = [
   },
   {
     q: "Which countries do you work with?",
-    a: "Australia is where most of my experience is, but I also support businesses in the USA, UK and Canada. I work flexible hours and can overlap with your time zone, so you'll get timely replies and updates.",
+    a: "Australia is where most of my experience is, but I also support businesses in the UK, the Netherlands, the USA and Canada. I work flexible hours and can overlap with your time zone, so you'll get timely replies and updates.",
   },
   {
     q: "How much does website management cost?",
@@ -72,7 +72,7 @@ export const aboutExtra = {
   why: [
     "12+ years supporting businesses, agencies and entrepreneurs online.",
     "Hands-on technical website skills combined with creative execution and practical business support.",
-    "Experience across Australian industries, plus flexible hours that overlap your time zone in Australia, the USA, UK or Canada.",
+    "Experience across Australian industries, plus flexible hours that overlap your time zone in Australia, the UK, the Netherlands, the USA or Canada.",
     "One reliable person who takes ownership of your website, content and ongoing online operations, without the cost of a full-time hire.",
   ],
 };

@@ -24,7 +24,7 @@ export const HomeStats = () => (
         </div>
         <div className="hv-stat-row">
           <div className="hv-stat"><b>12+</b><span>Years supporting businesses</span></div>
-          <div className="hv-stat"><b>4</b><span>Countries served</span></div>
+          <div className="hv-stat"><b>5</b><span>Countries served</span></div>
           <div className="hv-stat"><b>$500</b><span>USD per month to start</span></div>
         </div>
       </div>

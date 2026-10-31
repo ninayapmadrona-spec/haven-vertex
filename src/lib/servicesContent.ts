@@ -16,5 +16,5 @@ export const servicesExtra = {
   ],
   hoursHeading: "Flexible Hours Across Time Zones",
   hours:
-    "I support businesses in Australia, the USA, the UK and Canada. I work flexible hours and can overlap with your business day, so requests are picked up and answered promptly.",
+    "I support businesses in Australia, the UK, the Netherlands, the USA and Canada. I work flexible hours and can overlap with your business day, so requests are picked up and answered promptly.",
 };
