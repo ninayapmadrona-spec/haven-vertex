@@ -18,6 +18,8 @@ function head(data, page) {
   const img = site + data.ogImage;
   const t = esc(page.title);
   const d = esc(page.description);
+  const ot = esc(page.ogTitle || page.title);
+  const od = esc(page.ogDescription || page.description);
   return [
     START,
     `<title>${t}</title>`,
@@ -28,14 +30,14 @@ function head(data, page) {
     `<meta property="og:site_name" content="${esc(data.siteName)}" />`,
     `<meta property="og:locale" content="en_AU" />`,
     `<meta property="og:url" content="${url}" />`,
-    `<meta property="og:title" content="${t}" />`,
-    `<meta property="og:description" content="${d}" />`,
+    `<meta property="og:title" content="${ot}" />`,
+    `<meta property="og:description" content="${od}" />`,
     `<meta property="og:image" content="${img}" />`,
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:title" content="${t}" />`,
-    `<meta name="twitter:description" content="${d}" />`,
+    `<meta name="twitter:title" content="${ot}" />`,
+    `<meta name="twitter:description" content="${od}" />`,
     `<meta name="twitter:image" content="${img}" />`,
     END,
   ].join("\n    ");

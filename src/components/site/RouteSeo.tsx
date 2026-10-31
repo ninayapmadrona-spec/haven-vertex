@@ -30,11 +30,11 @@ export const RouteSeo = () => {
     const url = siteUrl + path;
     document.title = page.title;
     setMeta('meta[name="description"]', "name", "description", page.description);
-    setMeta('meta[property="og:title"]', "property", "og:title", page.title);
-    setMeta('meta[property="og:description"]', "property", "og:description", page.description);
+    setMeta('meta[property="og:title"]', "property", "og:title", (page as { ogTitle?: string }).ogTitle || page.title);
+    setMeta('meta[property="og:description"]', "property", "og:description", (page as { ogDescription?: string }).ogDescription || page.description);
     setMeta('meta[property="og:url"]', "property", "og:url", url);
-    setMeta('meta[name="twitter:title"]', "name", "twitter:title", page.title);
-    setMeta('meta[name="twitter:description"]', "name", "twitter:description", page.description);
+    setMeta('meta[name="twitter:title"]', "name", "twitter:title", (page as { ogTitle?: string }).ogTitle || page.title);
+    setMeta('meta[name="twitter:description"]', "name", "twitter:description", (page as { ogDescription?: string }).ogDescription || page.description);
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!link) {
       link = document.createElement("link");
