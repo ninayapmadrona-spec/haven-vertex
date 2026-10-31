@@ -12,7 +12,7 @@ export const HomeHero = () => {
     <PageHero
       tall
       eyebrow="Connect. Automate. Elevate."
-      srPrefix="Website management for small businesses: "
+      srPrefix="Website creation, management and virtual marketing assistance: "
       title="Too busy to look after your website?"
       accent="look after your website?"
       intro="I keep it updated, easy to find on Google and turning visitors into enquiries, so restaurants, clubs, clinics and shops can get back to the work they love."
