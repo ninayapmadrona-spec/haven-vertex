@@ -69,3 +69,5 @@ export const HOUR_PACKS = [
   { id: "h10", hours: 10, price: 290 },
   { id: "h20", hours: 20, price: 560 },
 ];
+// Smallest monthly plan built from add-ons alone.
+export const MIN_MONTHLY = 100;

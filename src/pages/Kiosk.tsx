@@ -6,7 +6,7 @@ import { Lavender } from "@/components/site/Botanical";
 import { RouteSeo } from "@/components/site/RouteSeo";
 import { FairyDust } from "@/components/site/FairyDust";
 import "@/components/site/home.css";
-import { TERMS, applyTerm, ADDON_PRICE, PACKAGE_INCLUDES, EXTRA_HOUR, HOUR_PACKS, CURRENCIES, type TermId } from "@/lib/pricing";
+import { TERMS, applyTerm, ADDON_PRICE, PACKAGE_INCLUDES, EXTRA_HOUR, MIN_MONTHLY, HOUR_PACKS, CURRENCIES, type TermId } from "@/lib/pricing";
 import "./kiosk.css";
 
 type Item = { id: string; c: string; t: string; d: string; p?: number; single?: boolean; b?: string; pack?: boolean };
@@ -85,7 +85,9 @@ const Kiosk = () => {
   const c = CATS[cat];
   const covered = (i: Item) => !i.single && !!pkg && (PACKAGE_INCLUDES[pkg.id] || []).includes(i.id);
   const lineCost = (i: Item) => (i.single ? i.p || 0 : covered(i) ? 0 : addonPrice(i.id));
-  const monthly = chosen.reduce((n, i) => n + lineCost(i), 0);
+  const rawMonthly = chosen.reduce((n, i) => n + lineCost(i), 0);
+  const minApplied = !pkg && rawMonthly > 0 && rawMonthly < MIN_MONTHLY;
+  const monthly = minApplied ? MIN_MONTHLY : rawMonthly;
   const isPack = !!pkg?.pack;
   const final = isPack ? monthly : applyTerm(monthly, term);
   const termInfo = TERMS.find((t) => t.id === term)!;
@@ -208,6 +210,7 @@ const Kiosk = () => {
                     <div className="kk-line" key={i.id}><span>{i.t}<small>{i.d}</small></span><span>{covered(i) ? "Included" : `$${lineCost(i).toLocaleString("en-US")}${i.pack ? "" : " / mo"}`}</span></div>
                   ))}
                 </div>
+                {minApplied && <p className="kk-note">Monthly plans start at ${MIN_MONTHLY}. Your add-ons are billed at the ${MIN_MONTHLY} minimum.</p>}
                 {!isPack && <div className="kk-terms" role="radiogroup" aria-label="Plan length">
                   {TERMS.map((t) => (
                     <button key={t.id} type="button" role="radio" aria-checked={term === t.id} onClick={() => setTerm(t.id)}>
