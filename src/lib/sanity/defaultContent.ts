@@ -169,6 +169,24 @@ export const defaultTestimonialsSection: TestimonialsSectionContent = {
   description: "Real client reviews will be added soon.",
   items: [
     {
+      type: "video",
+      clientName: "Client video 1",
+      company: "Haven Vertex client",
+      videoUrl: "/testimonials/client-1.mp4",
+    },
+    {
+      type: "video",
+      clientName: "Client video 2",
+      company: "Haven Vertex client",
+      videoUrl: "/testimonials/client-2.mp4",
+    },
+    {
+      type: "video",
+      clientName: "Client video 3",
+      company: "Haven Vertex client",
+      videoUrl: "/testimonials/client-4.mp4",
+    },
+    {
       type: "written",
       clientName: "Jane M.",
       company: "Client, July 2019",
