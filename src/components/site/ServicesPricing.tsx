@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-import { TERMS, PAYMENT_TERMS, EXTRA_HOUR, BUILDS } from "@/lib/pricing";
+import { TERMS, PAYMENT_TERMS, EXTRA_HOUR, BUILDS, HOUR_PACKS, HOUR_RATE } from "@/lib/pricing";
 import { StartPlan } from "./StartPlan";
 import { setViewMode } from "@/lib/viewMode";
 
@@ -83,6 +83,26 @@ export const ServicesPricing = () => (
       </div>
       <p className="mt-6 max-w-[70ch] text-[15px] leading-relaxed text-muted-foreground">
         Prices are fixed for the pages listed. 50% deposit to book, 50% when the site is ready to launch. Extra pages are quoted before I add them. Bigger or custom projects, such as memberships or bookings, are quoted after a free call. Add a monthly plan after launch if you want me to look after the site.
+      </p>
+    </section>
+
+    <section className="container pb-20 lg:pb-28" aria-labelledby="hours-heading">
+      <h2 id="hours-heading" className="max-w-[20ch] text-balance font-serif text-4xl leading-[1.05] sm:text-5xl">Just need a few hours?</h2>
+      <p className="mt-4 max-w-[62ch] text-lg text-muted-foreground">
+        Pay as you go with a prepaid hour pack. No monthly plan. Hours are valid for 60 days, and I log every task so you can see where the time went.
+      </p>
+      <div className="mt-10 grid gap-6 md:grid-cols-3">
+        {HOUR_PACKS.map((h) => (
+          <article key={h.id} className="flex flex-col rounded-3xl border border-border bg-card p-7">
+            <h3 className="font-serif text-2xl">{h.hours} hours</h3>
+            <p className="mt-2"><span className="font-serif text-3xl">{fmt(h.price)}</span> <span className="text-sm text-muted-foreground">USD, paid in advance</span></p>
+            <p className="mt-1 text-sm text-muted-foreground">${h.price / h.hours} an hour</p>
+            <StartPlan pack plan={`${h.hours}-hour pack`} price={h.price} className="mt-6 h-12 rounded-full border border-primary/40 font-bold text-primary transition-colors hover:bg-accent">Buy this pack</StartPlan>
+          </article>
+        ))}
+      </div>
+      <p className="mt-6 max-w-[70ch] text-[15px] leading-relaxed text-muted-foreground">
+        Regular work costs less per hour on a monthly plan. A single hour is ${HOUR_RATE}.
       </p>
     </section>
 
