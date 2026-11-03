@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { openCalendly, useCalendly } from "@/lib/calendly";
 import { setViewMode } from "@/lib/viewMode";
@@ -161,14 +161,17 @@ const Kiosk = () => {
             <div><h2>{c.t}</h2><p className="kk-sub">{c.sub}</p></div>
             <div className="kk-grid">
               {ITEMS.filter((i) => i.c === c.id).map((i, k) => (
-                <button key={i.id} type="button" className="kk-tile" style={{ ["--i" as string]: k }} aria-pressed={!!sel[i.id]} onClick={() => toggle(i)}>
-                  {i.b && <span className="kk-badge">{i.b}</span>}
+                <Fragment key={i.id}>
+                {i.id === "h5" && <div className="kk-divider"><b>Not ready for a monthly plan?</b><span>Pay as you go with an hour pack. Paid once, valid for 60 days.</span></div>}
+                <button type="button" className={`kk-tile${i.pack ? " kk-pack" : ""}`} style={{ ["--i" as string]: k }} aria-pressed={!!sel[i.id]} onClick={() => toggle(i)}>
+                  {(i.b || i.pack) && <span className={`kk-badge${i.pack ? " gold" : ""}`}>{i.pack ? "Pay as you go" : i.b}</span>}
                   <div><div className="t">{i.t}</div><div className="d">{i.d}</div></div>
                   <div className="kk-row">
                     {i.single ? <span className="kk-price">{i.pack ? "ONE TIME" : "PER MONTH"}<b>${i.p?.toLocaleString("en-US")}</b></span> : covered(i) ? <span className="kk-price">IN YOUR PACKAGE<b>Included</b></span> : <span className="kk-price">ADD-ON / MONTH<b>${addonPrice(i.id)}</b></span>}
                     <span className="kk-add" aria-hidden="true">+</span>
                   </div>
                 </button>
+                </Fragment>
               ))}
             </div>
           </div>
