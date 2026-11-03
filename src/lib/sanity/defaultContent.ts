@@ -167,7 +167,28 @@ export const defaultTestimonialsSection: TestimonialsSectionContent = {
   eyebrow: "Kind Words",
   heading: "Client Testimonials",
   description: "Real client reviews will be added soon.",
-  items: [],
+  items: [
+    {
+      type: "written",
+      clientName: "Jane M.",
+      company: "Client, July 2019",
+      writtenText:
+        "Nina is my first virtual assistant. ... She is very patient with me, generous and helpful. Even if I have not given her any directions, she comes up with her own ideas and executes them very nicely. She does not take feedback personally and is very nice to work with.",
+    },
+    {
+      type: "written",
+      clientName: "Derrick K.",
+      company: "Client, May 2016",
+      writtenText: "She is a good worker and always on time. She follows instruction very well. I would hire her anytime.",
+    },
+    {
+      type: "written",
+      clientName: "Anonymous client",
+      company: "Client, December 2015",
+      writtenText:
+        "I enjoyed having her on board this year. She was prompt with her work, took creative initiative, met deadlines, pushed herself to learn new programs and software and made my life much more productive. She will definitely be an asset to your business.",
+    },
+  ],
 };
 
 export const defaultPortfolioSection: PortfolioSectionContent = {

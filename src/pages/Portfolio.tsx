@@ -6,6 +6,18 @@ import { openCalendly, useCalendly } from "@/lib/calendly";
 import { useFinalCtaContact } from "@/lib/sanity/hooks";
 import "@/components/site/home.css";
 
+const dayToDay: [string, string, string][] = [
+  ["Website content and blog updates", "New pages, blog posts, images and proofreading, published on WordPress and Wix sites and kept current.", "Ongoing"],
+  ["WordPress builds and on-page SEO", "WordPress sites built from scratch, with keyword research, on-page SEO and link building.", "Built and optimised"],
+  ["Landing pages", "Landing pages designed and tuned to turn visitors into enquiries.", "Design and optimise"],
+  ["Email newsletters", "Mailchimp and MailerLite newsletters designed, written up and sent on schedule.", "Email marketing"],
+  ["Social media and graphics", "Facebook and Instagram managed, with Canva graphics made to match the brand.", "Content"],
+  ["Online store listings", "Etsy and online store products uploaded, with edited photos and clear descriptions.", "E-commerce"],
+  ["Inbox, files and admin", "Email, files, client correspondence and scheduling handled for professional services firms.", "Virtual assistance"],
+  ["Google Business Profile", "Business listings kept accurate and active so local customers find the right details.", "Local search"],
+  ["Research and presentations", "Research, client presentations and recruitment support for busy owners and teams.", "Support"],
+];
+
 const PortfolioPage = () => {
   useCalendly();
   const { content: contact } = useFinalCtaContact();
@@ -40,6 +52,22 @@ const PortfolioPage = () => {
             ))}
           </div>
           <p className="mt-8 text-sm italic text-muted-foreground">More project samples are available on request.</p>
+        </div>
+      </section>
+
+      <section className="hv pb-20 lg:pb-24" aria-labelledby="day-to-day">
+        <div className="container">
+          <h2 id="day-to-day" className="font-serif text-3xl lg:text-4xl text-balance">Day-to-day work I've handled</h2>
+          <p className="mt-3 max-w-[62ch] text-muted-foreground">Over 12 years of hands-on support for business owners, from one-person shops to busy teams. This is the work that keeps a business moving.</p>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {dayToDay.map(([t, p, tag]) => (
+              <article key={t} className="rounded-2xl border border-border/60 bg-card p-6 shadow-soft">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-lavender-deep">{tag}</p>
+                <h3 className="mt-2 font-serif text-2xl leading-tight">{t}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{p}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
