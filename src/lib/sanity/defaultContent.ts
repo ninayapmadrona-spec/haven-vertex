@@ -200,11 +200,28 @@ export const defaultTestimonialsSection: TestimonialsSectionContent = {
       writtenText: "She is a good worker and always on time. She follows instruction very well. I would hire her anytime.",
     },
     {
-      type: "written",
-      clientName: "Anonymous client",
-      company: "Client, December 2015",
-      writtenText:
-        "I enjoyed having her on board this year. She was prompt with her work, took creative initiative, met deadlines, pushed herself to learn new programs and software and made my life much more productive. She will definitely be an asset to your business.",
+      type: "linkedin",
+      clientName: "Raschell H.",
+      company: "Wellness speaker and author, LinkedIn, March 2025",
+      linkedinUrl: "https://www.linkedin.com/in/nina-ricci-madrona-002191a2/",
+      linkedinText:
+        "Nina worked with me as my virtual assistant from 2020 to the beginning of 2021. She was supportive in many of my programs and was a great asset to my business and supported many of my suggestions and ideas. Definitely somebody I would suggest working with.",
+    },
+    {
+      type: "linkedin",
+      clientName: "Tyrus P.",
+      company: "Home inspector and workshop presenter, LinkedIn, August 2021",
+      linkedinUrl: "https://www.linkedin.com/in/nina-ricci-madrona-002191a2/",
+      linkedinText:
+        "Nina is a fast learner and hard worker. I thoroughly enjoyed my time working with her. She was prompt with her work, took creative initiative when needed, met deadlines, pushed herself to learn new programs and software and made my life much more peaceful and productive.",
+    },
+    {
+      type: "linkedin",
+      clientName: "Cassidy L., Esq.",
+      company: "Personal injury attorney, LinkedIn, October 2020",
+      linkedinUrl: "https://www.linkedin.com/in/nina-ricci-madrona-002191a2/",
+      linkedinText:
+        "I highly recommend Nina Ricci for all legal administrative tasks. Nina worked for me while I was getting my practice built and was instrumental in helping me automate firm tasks and in helping me manage my email. We practice personal injury and civil litigation and Nina was extremely helpful in creating forms and civil litigation templates. She was responsive, kind, and picked up the tasks quickly. If you are a professional business owner and are looking for assistance in automating your business, Nina is a fantastic choice.",
     },
   ],
 };
