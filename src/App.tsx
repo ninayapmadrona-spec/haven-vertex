@@ -12,6 +12,7 @@ const Services = lazy(() => import("./pages/Services.tsx"));
 const Portfolio = lazy(() => import("./pages/Portfolio.tsx"));
 const Testimonials = lazy(() => import("./pages/Testimonials.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
+const QuickHelp = lazy(() => import("./pages/QuickHelp.tsx"));
 const Kiosk = lazy(() => import("./pages/Kiosk.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
           </Route>
           <Route path="/kiosk" element={<Suspense fallback={null}><Kiosk /></Suspense>} />
+          <Route path="/quick-help" element={<Suspense fallback={null}><QuickHelp /></Suspense>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route
             path="*"

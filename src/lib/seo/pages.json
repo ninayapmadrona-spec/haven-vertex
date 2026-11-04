@@ -61,6 +61,15 @@
       "intro": "Tap what you need and see the starting price.",
       "priority": "0.3",
       "noindex": true
+    },
+    {
+      "path": "/quick-help",
+      "title": "Virtual Assistant Hour Packs | Haven Vertex",
+      "description": "Pay-as-you-go virtual assistant hours for small businesses.",
+      "h1": "Extra hands for your small business.",
+      "intro": "Buy a pack of hours and hand off everyday tasks.",
+      "priority": "0.1",
+      "noindex": true
     }
   ]
 }
