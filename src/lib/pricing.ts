@@ -33,6 +33,7 @@ export const PAYMENT_TERMS = [
   { t: "Paid in advance", p: "Monthly plans are invoiced before each month starts. Pay by bank transfer in your own currency (USD, AUD, GBP, CAD, EUR or NZD). Work begins once payment arrives." },
   { t: "Starting out", p: "Your first month is paid before any work begins. A free 30 minute call comes first, with no charge." },
   { t: "One-off projects", p: "Landing pages, setups and fixes are quoted up front. 50% deposit to book, 50% on delivery." },
+  { t: "Hour packs", p: "Prefer to pay by the hour? Hour packs are paid in full in advance and valid for 60 days. I log each task and tell you when hours run low." },
   { t: "Hours and extras", p: `Each plan has a set number of hours a month. Extra time is $${EXTRA_HOUR} an hour, agreed with you first. Unused hours do not roll over.` },
   { t: "Changing or stopping", p: "Month-to-month plans can change or stop with 14 days' notice. If you leave a 6 or 12 month plan early, the months used are re-billed at the monthly rate." },
 ];
@@ -60,3 +61,13 @@ export const BUILDS = [
     includes: ["Shopify or WooCommerce store, designed and set up", "Products, categories and shipping rules added", "Payment gateway and tax settings connected", "Order emails and abandoned cart steps", "30 days of free support after launch"],
   },
 ];
+
+// Pay-as-you-go hour packs (USD, paid in full in advance, valid 60 days).
+export const HOUR_RATE = 30;
+export const HOUR_PACKS = [
+  { id: "h5", hours: 5, price: 150 },
+  { id: "h10", hours: 10, price: 290 },
+  { id: "h20", hours: 20, price: 560 },
+];
+// Smallest monthly plan built from add-ons alone.
+export const MIN_MONTHLY = 100;

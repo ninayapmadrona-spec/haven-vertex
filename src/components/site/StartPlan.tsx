@@ -4,9 +4,10 @@ import { TERMS, CURRENCIES, applyTerm, type TermId } from "@/lib/pricing";
 
 const KEY = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) || "f05e4f0f-cbb4-45ca-9f3b-193145b7fe3c";
 
-type Props = { plan: string; price: number; className?: string; children?: React.ReactNode; build?: boolean };
+type Props = { plan: string; price: number; className?: string; children?: React.ReactNode; build?: boolean; pack?: boolean };
 
-export const StartPlan = ({ plan, price, className, children, build }: Props) => {
+export const StartPlan = ({ plan, price, className, children, build, pack }: Props) => {
+  const fixed = !!build || !!pack;
   const ref = useRef<HTMLDialogElement>(null);
   const [term, setTerm] = useState<TermId>("m");
   const [cur, setCur] = useState<string>("USD");
@@ -22,7 +23,7 @@ export const StartPlan = ({ plan, price, className, children, build }: Props) =>
     return () => d.removeEventListener("close", close);
   }, [state]);
 
-  const monthly = build ? price : applyTerm(price, term);
+  const monthly = fixed ? price : applyTerm(price, term);
   const t = TERMS.find((x) => x.id === term)!;
 
   const submit = (e: React.FormEvent) => {
@@ -33,9 +34,9 @@ export const StartPlan = ({ plan, price, className, children, build }: Props) =>
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
-        access_key: KEY, subject: `${isWaitlist() ? "WAITLIST: " : ""}${build ? "Website build" : "Invoice request"}: ${plan}${build ? "" : ` (${t.short})`} from ${f.name.trim()}`, from_name: "Haven Vertex website", botcheck: "",
+        access_key: KEY, subject: `${isWaitlist() ? "WAITLIST: " : ""}${pack ? "Hour pack" : build ? "Website build" : "Invoice request"}: ${plan}${fixed ? "" : ` (${t.short})`} from ${f.name.trim()}`, from_name: "Haven Vertex website", botcheck: "",
         name: f.name.trim(), email: f.email.trim(), service: plan,
-        message: build ? `Website build request\nProject: ${plan}\nFixed price: $${price} USD\n50% deposit: $${price / 2} USD\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}` : `Invoice request\nPlan: ${plan}\nTerm: ${t.label}\nPrice: $${monthly} USD / month${term === "12" ? ` ($${monthly * 12} USD paid upfront)` : ""}\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}`,
+        message: pack ? `Hour pack request\nPack: ${plan}\nPrice: $${price} USD, paid in full in advance (valid 60 days)\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}` : build ? `Website build request\nProject: ${plan}\nFixed price: $${price} USD\n50% deposit: $${price / 2} USD\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}` : `Invoice request\nPlan: ${plan}\nTerm: ${t.label}\nPrice: $${monthly} USD / month${term === "12" ? ` ($${monthly * 12} USD paid upfront)` : ""}\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}`,
       }),
     }).then((r) => r.json()).then((j) => {
       if (!(j.success === true || j.success === "true")) throw new Error(j.message);
@@ -56,8 +57,8 @@ export const StartPlan = ({ plan, price, className, children, build }: Props) =>
             </>
           ) : (
             <form onSubmit={submit} noValidate className="grid gap-4">
-              <h3 id={`sp-${plan}`} className="font-serif text-3xl">{build ? plan : `Start with ${plan}`}</h3>
-              {!build && <fieldset className="grid grid-cols-3 gap-2">
+              <h3 id={`sp-${plan}`} className="font-serif text-3xl">{fixed ? plan : `Start with ${plan}`}</h3>
+              {!fixed && <fieldset className="grid grid-cols-3 gap-2">
                 <legend className="sr-only">Plan length</legend>
                 {TERMS.map((x) => (
                   <label key={x.id} className="cursor-pointer rounded-2xl border-2 px-2 py-3 text-center text-sm transition-colors" style={term === x.id ? { background: "#4b2e8f", borderColor: "#4b2e8f", color: "#fff" } : { background: "#fff", borderColor: "rgba(75,46,143,.3)", color: "#2a1745" }}>
@@ -67,10 +68,12 @@ export const StartPlan = ({ plan, price, className, children, build }: Props) =>
                   </label>
                 ))}
               </fieldset>}
+              {pack && <p className="font-serif text-2xl">${price.toLocaleString("en-US")} USD <span className="font-sans text-sm text-muted-foreground">paid in full in advance</span></p>}
+              {pack && <p className="text-sm text-muted-foreground">Hours are valid for 60 days. I send an invoice with bank transfer details; nothing is charged here.</p>}
               {build && <p className="font-serif text-2xl">${price.toLocaleString("en-US")} USD <span className="font-sans text-sm text-muted-foreground">fixed price · 50% deposit (${(price / 2).toLocaleString("en-US")}) to book</span></p>}
               {build && <p className="text-sm text-muted-foreground">The other 50% is due when your site is ready to launch. I send an invoice for the deposit; nothing is charged here.</p>}
-              {!build && <p className="font-serif text-2xl">${monthly.toLocaleString("en-US")} USD <span className="font-sans text-sm text-muted-foreground">/ month{term === "12" ? ` · $${(monthly * 12).toLocaleString("en-US")} paid upfront` : ""}</span></p>}
-              {!build && <p className="text-sm text-muted-foreground">{t.note} Paid in advance by bank transfer. Nothing is charged here.</p>}
+              {!fixed && <p className="font-serif text-2xl">${monthly.toLocaleString("en-US")} USD <span className="font-sans text-sm text-muted-foreground">/ month{term === "12" ? ` · $${(monthly * 12).toLocaleString("en-US")} paid upfront` : ""}</span></p>}
+              {!fixed && <p className="text-sm text-muted-foreground">{t.note} Paid in advance by bank transfer. Nothing is charged here.</p>}
               <input aria-label="Your name" placeholder="Your name" autoComplete="name" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} className="h-12 rounded-full border border-border bg-background px-5" />
               <input aria-label="Your email" type="email" placeholder="Your email" autoComplete="email" value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} className="h-12 rounded-full border border-border bg-background px-5" />
               <input aria-label="Your website" placeholder="Your website (optional)" value={f.site} onChange={(e) => setF({ ...f, site: e.target.value })} className="h-12 rounded-full border border-border bg-background px-5" />
@@ -81,7 +84,7 @@ export const StartPlan = ({ plan, price, className, children, build }: Props) =>
               </label>
               {err && <p role="alert" className="text-sm" style={{ color: "#a1204a" }}>{err}</p>}
               <div className="flex flex-wrap gap-3">
-                <button type="submit" disabled={state === "sending"} className="rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground disabled:opacity-60">{state === "sending" ? "Sending..." : build ? "Request a deposit invoice" : "Request my invoice"}</button>
+                <button type="submit" disabled={state === "sending"} className="rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground disabled:opacity-60">{state === "sending" ? "Sending..." : build ? "Request a deposit invoice" : pack ? "Request an invoice" : "Request my invoice"}</button>
                 <button type="button" className="rounded-full border border-border px-6 py-3 font-bold" onClick={() => ref.current?.close()}>Cancel</button>
               </div>
             </form>

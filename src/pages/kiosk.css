@@ -99,3 +99,10 @@
 .kk .kk-terms button:focus-visible{outline:3px solid #8a5be0;outline-offset:2px}
 .kk .kk-attract h2{color:#fff;max-width:14ch}
 .kk .kk-attract h2 em{color:#d9c2ff}
+
+.kk-divider{grid-column:1/-1;margin-top:14px;padding:16px 22px;border-radius:22px;background:linear-gradient(90deg,#FFF4D6,#FFE9A8);border:2px solid #E3B93C;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;animation:kk-rise .55s var(--ease) both}
+.kk-divider b{font:800 20px "Hanken Grotesk",sans-serif;color:#4a3300}
+.kk-divider span{font-size:15px;color:#6b4e00}
+.kk-pack{border-color:#E3B93C;background:#FFFCF2}
+.kk-pack[aria-pressed="true"]{border-color:var(--violet);background:#F4EEFF}
+.kk-badge.gold{background:#E3B93C;color:#3b2a00}

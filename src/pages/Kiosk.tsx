@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { openCalendly, useCalendly } from "@/lib/calendly";
 import { setViewMode } from "@/lib/viewMode";
@@ -6,10 +6,10 @@ import { Lavender } from "@/components/site/Botanical";
 import { RouteSeo } from "@/components/site/RouteSeo";
 import { FairyDust } from "@/components/site/FairyDust";
 import "@/components/site/home.css";
-import { TERMS, applyTerm, ADDON_PRICE, PACKAGE_INCLUDES, EXTRA_HOUR, CURRENCIES, type TermId } from "@/lib/pricing";
+import { TERMS, applyTerm, ADDON_PRICE, PACKAGE_INCLUDES, EXTRA_HOUR, MIN_MONTHLY, HOUR_PACKS, CURRENCIES, type TermId } from "@/lib/pricing";
 import "./kiosk.css";
 
-type Item = { id: string; c: string; t: string; d: string; p?: number; single?: boolean; b?: string };
+type Item = { id: string; c: string; t: string; d: string; p?: number; single?: boolean; b?: string; pack?: boolean };
 const CATS = [
   { id: "pkg", n: "Start here", s: "Pick a package", ic: "1", h: ["Start with a ", "package"], t: "Choose your package", sub: "Pick one. You can change it any time on your call." },
   { id: "web", n: "Websites", s: "Keep it fresh", ic: "W", h: ["Keep your site ", "fresh"], t: "Website care", sub: "Tap to add what your site needs each month." },
@@ -21,6 +21,9 @@ const ITEMS: Item[] = [
   { id: "p1", c: "pkg", t: "Essential Website Support", d: "Up to 25 hours a month. Updates, blog posts, landing pages, backups and a monthly check-up for WordPress, Wix, Squarespace or Duda.", p: 500, single: true },
   { id: "p2", c: "pkg", t: "Content & Marketing Support", d: "Up to 40 hours a month. Everything in Essential plus newsletters, Canva graphics, social scheduling and a monthly report.", p: 800, single: true, b: "For content" },
   { id: "p3", c: "pkg", t: "Dedicated Digital Support", d: "Up to 75 hours a month. Website, content, inbox, calendar, research and SEO with same-day replies.", p: 1500, single: true },
+  { id: "h5", c: "pkg", t: "Hour pack: 5 hours", d: "Pay as you go. Paid in advance, valid for 60 days. No monthly plan.", p: 150, single: true, pack: true },
+  { id: "h10", c: "pkg", t: "Hour pack: 10 hours", d: "Pay as you go. Paid in advance, valid for 60 days. No monthly plan.", p: 290, single: true, pack: true },
+  { id: "h20", c: "pkg", t: "Hour pack: 20 hours", d: "Pay as you go. Paid in advance, valid for 60 days. No monthly plan.", p: 560, single: true, pack: true },
   { id: "w1", c: "web", t: "Monthly updates", d: "Text, images, services and prices kept current." },
   { id: "w2", c: "web", t: "Speed and SEO check", d: "Faster pages and the basics Google looks for." },
   { id: "w3", c: "web", t: "Landing page edits", d: "New offers and campaign pages published fast." },
@@ -70,6 +73,7 @@ const Kiosk = () => {
     setSel((s) => {
       const next = { ...s };
       if (it.single) ITEMS.forEach((x) => x.single && (next[x.id] = false));
+      if (!it.single && ITEMS.some((x) => x.pack && s[x.id])) ITEMS.forEach((x) => x.pack && (next[x.id] = false));
       next[it.id] = it.single ? true : !s[it.id];
       return next;
     });
@@ -81,10 +85,13 @@ const Kiosk = () => {
   const c = CATS[cat];
   const covered = (i: Item) => !i.single && !!pkg && (PACKAGE_INCLUDES[pkg.id] || []).includes(i.id);
   const lineCost = (i: Item) => (i.single ? i.p || 0 : covered(i) ? 0 : addonPrice(i.id));
-  const monthly = chosen.reduce((n, i) => n + lineCost(i), 0);
-  const final = applyTerm(monthly, term);
+  const rawMonthly = chosen.reduce((n, i) => n + lineCost(i), 0);
+  const minApplied = !pkg && rawMonthly > 0 && rawMonthly < MIN_MONTHLY;
+  const monthly = minApplied ? MIN_MONTHLY : rawMonthly;
+  const isPack = !!pkg?.pack;
+  const final = isPack ? monthly : applyTerm(monthly, term);
   const termInfo = TERMS.find((t) => t.id === term)!;
-  const planText = chosen.map((i) => `- ${i.t}${covered(i) ? " (included in package)" : ` ($${lineCost(i)}/mo)`}`).join("\n");
+  const planText = chosen.map((i) => `- ${i.t}${covered(i) ? " (included in package)" : ` ($${lineCost(i)}${i.pack ? "" : "/mo"})`}`).join("\n");
 
   const onDown = (e: React.PointerEvent) => { drag.current = { x: e.clientX, y: e.clientY }; };
   const onUp = (e: React.PointerEvent) => {
@@ -104,7 +111,7 @@ const Kiosk = () => {
       body: JSON.stringify({
         access_key: KEY, subject: `Plan request from ${form.name.trim()}`, from_name: "Haven Vertex kiosk", botcheck: "",
         name: form.name.trim(), email: form.email.trim(), service: pkg?.t || "No package chosen",
-        message: `Plan built on the kiosk:\n${planText}\n\nTerm: ${termInfo.label}\nPay in currency: ${cur}\nEstimated: ${money(final)}${term === "12" ? ` (${`$${(final * 12).toLocaleString("en-US")}`} paid upfront)` : ""}\nMonthly price before term discount: ${money(monthly)}`,
+        message: isPack ? `Hour pack requested on the kiosk:\n${planText}\n\nPaid in full in advance, valid 60 days.\nPay in currency: ${cur}\nPrice: $${final} USD` : `Plan built on the kiosk:\n${planText}\n\nTerm: ${termInfo.label}\nPay in currency: ${cur}\nEstimated: ${money(final)}${term === "12" ? ` (${`$${(final * 12).toLocaleString("en-US")}`} paid upfront)` : ""}\nMonthly price before term discount: ${money(monthly)}`,
       }),
     }).then((r) => r.json()).then((j) => {
       if (!(j.success === true || j.success === "true")) throw new Error(j.message);
@@ -154,14 +161,17 @@ const Kiosk = () => {
             <div><h2>{c.t}</h2><p className="kk-sub">{c.sub}</p></div>
             <div className="kk-grid">
               {ITEMS.filter((i) => i.c === c.id).map((i, k) => (
-                <button key={i.id} type="button" className="kk-tile" style={{ ["--i" as string]: k }} aria-pressed={!!sel[i.id]} onClick={() => toggle(i)}>
-                  {i.b && <span className="kk-badge">{i.b}</span>}
+                <Fragment key={i.id}>
+                {i.id === "h5" && <div className="kk-divider"><b>Not ready for a monthly plan?</b><span>Pay as you go with an hour pack. Paid once, valid for 60 days.</span></div>}
+                <button type="button" className={`kk-tile${i.pack ? " kk-pack" : ""}`} style={{ ["--i" as string]: k }} aria-pressed={!!sel[i.id]} onClick={() => toggle(i)}>
+                  {(i.b || i.pack) && <span className={`kk-badge${i.pack ? " gold" : ""}`}>{i.pack ? "Pay as you go" : i.b}</span>}
                   <div><div className="t">{i.t}</div><div className="d">{i.d}</div></div>
                   <div className="kk-row">
-                    {i.single ? <span className="kk-price">PER MONTH<b>${i.p?.toLocaleString("en-US")}</b></span> : covered(i) ? <span className="kk-price">IN YOUR PACKAGE<b>Included</b></span> : <span className="kk-price">ADD-ON / MONTH<b>${addonPrice(i.id)}</b></span>}
+                    {i.single ? <span className="kk-price">{i.pack ? "ONE TIME" : "PER MONTH"}<b>${i.p?.toLocaleString("en-US")}</b></span> : covered(i) ? <span className="kk-price">IN YOUR PACKAGE<b>Included</b></span> : <span className="kk-price">ADD-ON / MONTH<b>${addonPrice(i.id)}</b></span>}
                     <span className="kk-add" aria-hidden="true">+</span>
                   </div>
                 </button>
+                </Fragment>
               ))}
             </div>
           </div>
@@ -200,24 +210,25 @@ const Kiosk = () => {
                 <h3 id="kk-oh">Your plan</h3>
                 <div>
                   {chosen.map((i) => (
-                    <div className="kk-line" key={i.id}><span>{i.t}<small>{i.d}</small></span><span>{covered(i) ? "Included" : `$${lineCost(i).toLocaleString("en-US")} / mo`}</span></div>
+                    <div className="kk-line" key={i.id}><span>{i.t}<small>{i.d}</small></span><span>{covered(i) ? "Included" : `$${lineCost(i).toLocaleString("en-US")}${i.pack ? "" : " / mo"}`}</span></div>
                   ))}
                 </div>
-                <div className="kk-terms" role="radiogroup" aria-label="Plan length">
+                {minApplied && <p className="kk-note">Monthly plans start at ${MIN_MONTHLY}. Your add-ons are billed at the ${MIN_MONTHLY} minimum.</p>}
+                {!isPack && <div className="kk-terms" role="radiogroup" aria-label="Plan length">
                   {TERMS.map((t) => (
                     <button key={t.id} type="button" role="radio" aria-checked={term === t.id} onClick={() => setTerm(t.id)}>
                       <b>{t.short}</b><small>{t.off ? `${Math.round(t.off * 100)}% off` : "No lock-in"}</small>
                     </button>
                   ))}
-                </div>
-                <p className="kk-note">{termInfo.note}</p>
+                </div>}
+                <p className="kk-note">{isPack ? "Hours are valid for 60 days from payment." : termInfo.note}</p>
                 <label className="kk-note" style={{ display: "grid", gap: 4 }}>Pay in this currency (by bank transfer)
                   <select value={cur} onChange={(e) => setCur(e.target.value)} aria-label="Currency" style={{ height: 48, borderRadius: 24, border: "2px solid rgba(75,46,143,.3)", padding: "0 18px", background: "#fff", color: "#2a1745", font: "inherit" }}>
                     {CURRENCIES.map((c) => <option key={c}>{c}</option>)}
                   </select>
                 </label>
-                <div className="kk-total"><span>Estimated</span><span>{money(final)}</span></div>
-                {term === "12" && <p className="kk-note">That is ${(final * 12).toLocaleString("en-US")} USD paid upfront for the year.</p>}
+                <div className="kk-total"><span>Estimated</span><span>{isPack ? `$${final.toLocaleString("en-US")} USD, one time` : money(final)}</span></div>
+                {!isPack && term === "12" && <p className="kk-note">That is ${(final * 12).toLocaleString("en-US")} USD paid upfront for the year.</p>}
                 <p className="kk-note">This is an estimate. Plans are paid in advance and nothing is charged here. Extra hours are ${EXTRA_HOUR} an hour. We confirm everything on your free call.</p>
                 <form onSubmit={send} className="kk-form" noValidate>
                   <input aria-label="Your name" placeholder="Your name" autoComplete="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
