@@ -170,8 +170,8 @@ export const defaultTestimonialsSection: TestimonialsSectionContent = {
   items: [
     {
       type: "video",
-      clientName: "Client video 1",
-      company: "Haven Vertex client",
+      clientName: "Cherise M.",
+      company: "Client for 3 years",
       videoUrl: "/testimonials/client-1.mp4",
     },
     {
