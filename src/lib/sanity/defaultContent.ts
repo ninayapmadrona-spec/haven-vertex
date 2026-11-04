@@ -176,8 +176,8 @@ export const defaultTestimonialsSection: TestimonialsSectionContent = {
     },
     {
       type: "video",
-      clientName: "Client video 2",
-      company: "Haven Vertex client",
+      clientName: "Mentorship organisation",
+      company: "Landing page project",
       videoUrl: "/testimonials/client-2.mp4",
     },
     {
