@@ -171,7 +171,7 @@ export const defaultTestimonialsSection: TestimonialsSectionContent = {
     {
       type: "video",
       clientName: "Cherise M.",
-      company: "Business owner · 3 years",
+      company: "Integrative health coach · 3 years",
       videoUrl: "/testimonials/client-1.mp4",
     },
     {
