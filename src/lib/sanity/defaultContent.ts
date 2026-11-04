@@ -171,19 +171,19 @@ export const defaultTestimonialsSection: TestimonialsSectionContent = {
     {
       type: "video",
       clientName: "Cherise M.",
-      company: "Client for 3 years",
+      company: "Business owner · 3 years",
       videoUrl: "/testimonials/client-1.mp4",
     },
     {
       type: "video",
       clientName: "Mentorship organisation",
-      company: "Landing page project",
+      company: "Mentorship nonprofit · Project-based work",
       videoUrl: "/testimonials/client-2.mp4",
     },
     {
       type: "video",
       clientName: "Raschell H.",
-      company: "Wellness speaker and author",
+      company: "Wellness speaker and author · 2 years",
       videoUrl: "/testimonials/client-4.mp4",
     },
     {
