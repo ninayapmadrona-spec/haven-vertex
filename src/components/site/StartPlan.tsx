@@ -34,7 +34,7 @@ export const StartPlan = ({ plan, price, className, children, build, pack }: Pro
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
-        access_key: KEY, subject: `${isWaitlist() ? "WAITLIST: " : ""}${pack ? "Hour pack" : build ? "Website build" : "Invoice request"}: ${plan}${fixed ? "" : ` (${t.short})`} from ${f.name.trim()}`, from_name: "Haven Vertex website", botcheck: "",
+        access_key: KEY, subject: `[HAVEN VERTEX] ${isWaitlist() ? "WAITLIST: " : ""}${pack ? "Hour pack" : build ? "Website build" : "Invoice request"}: ${plan}${fixed ? "" : ` (${t.short})`} from ${f.name.trim()}`, from_name: "Haven Vertex website", botcheck: "",
         name: f.name.trim(), email: f.email.trim(), service: plan,
         message: pack ? `Hour pack request\nPack: ${plan}\nPrice: $${price} USD, paid in full in advance (valid 60 days)\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}` : build ? `Website build request\nProject: ${plan}\nFixed price: $${price} USD\n50% deposit: $${price / 2} USD\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}` : `Invoice request\nPlan: ${plan}\nTerm: ${t.label}\nPrice: $${monthly} USD / month${term === "12" ? ` ($${monthly * 12} USD paid upfront)` : ""}\nPay in currency: ${cur}\nWebsite: ${f.site.trim() || "not given"}`,
       }),

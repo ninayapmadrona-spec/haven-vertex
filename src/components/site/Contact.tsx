@@ -34,7 +34,7 @@ export const Contact = () => {
       return;
     }
     const data = result.data;
-    const subject = `Website enquiry from ${data.name}${data.business ? ` (${data.business})` : ""}`;
+    const subject = `[HAVEN VERTEX] Website enquiry from ${data.name}${data.business ? ` (${data.business})` : ""}`;
     const body = `Name: ${data.name}\nEmail: ${data.email}\nBusiness: ${data.business || "-"}\nService: ${data.service}\n\n${data.message}`;
     // Web3Forms access key: public by design (it can only deliver messages to
     // hello@havenvertex.com). Can be overridden with VITE_WEB3FORMS_KEY.

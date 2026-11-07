@@ -109,7 +109,7 @@ const Kiosk = () => {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
-        access_key: KEY, subject: `Plan request from ${form.name.trim()}`, from_name: "Haven Vertex kiosk", botcheck: "",
+        access_key: KEY, subject: `[HAVEN VERTEX] Plan request from ${form.name.trim()}`, from_name: "Haven Vertex kiosk", botcheck: "",
         name: form.name.trim(), email: form.email.trim(), service: pkg?.t || "No package chosen",
         message: isPack ? `Hour pack requested on the kiosk:\n${planText}\n\nPaid in full in advance, valid 60 days.\nPay in currency: ${cur}\nPrice: $${final} USD` : `Plan built on the kiosk:\n${planText}\n\nTerm: ${termInfo.label}\nPay in currency: ${cur}\nEstimated: ${money(final)}${term === "12" ? ` (${`$${(final * 12).toLocaleString("en-US")}`} paid upfront)` : ""}\nMonthly price before term discount: ${money(monthly)}`,
       }),
