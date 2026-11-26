@@ -1,37 +1,27 @@
 // Booking widget (zcal). File and export names are kept from the old
 // Calendly setup so every "Book a free call" button keeps working unchanged.
-import { useEffect } from "react";
+// The zcal script is only downloaded when someone clicks a booking button,
+// so it never slows down page loading.
 
 export const BOOKING_URL = "https://zcal.co/i/Pip1z_aX";
 const EMBED_SRC = "https://static.zcal.co/embed/v1/embed.js";
 const MODAL_ID = "hv-booking-modal";
-const STYLE_ID = "hv-booking-style";
-
-// zcal follows the visitor's dark/light setting and has a see-through
-// background, so in dark mode its text turned white on our white panel.
-// Force the light version and let the calendar fill the popup.
-const ensureStyle = () => {
-  if (document.getElementById(STYLE_ID)) return;
-  const st = document.createElement("style");
-  st.id = STYLE_ID;
-  st.textContent = `
-#${MODAL_ID}, #${MODAL_ID} * { color-scheme: light; }
-#${MODAL_ID} .zcal-inline-widget { height: 100%; }
-#${MODAL_ID} iframe { display: block; width: 100% !important; height: 100% !important; min-height: 100% !important; border: 0; background: #fff; color-scheme: light; }`;
-  document.head.appendChild(st);
-};
 
 /** Any old Calendly link (e.g. still saved in Sanity) is swapped for zcal. */
 export const toBookingUrl = (url?: string) =>
   !url || url.includes("calendly.com") ? BOOKING_URL : url;
 
 const loadEmbed = () => {
-  // Re-inserting the script makes zcal scan the page for the new widget.
+  // Re-inserting the script makes zcal pick up the newly added widget.
   document.querySelectorAll(`script[src="${EMBED_SRC}"]`).forEach((s) => s.remove());
   const s = document.createElement("script");
   s.src = EMBED_SRC;
   s.async = true;
   document.body.appendChild(s);
+};
+
+const onKey = (e: KeyboardEvent) => {
+  if (e.key === "Escape") closeModal();
 };
 
 const closeModal = () => {
@@ -40,13 +30,8 @@ const closeModal = () => {
   document.removeEventListener("keydown", onKey);
 };
 
-const onKey = (e: KeyboardEvent) => {
-  if (e.key === "Escape") closeModal();
-};
-
 const openModal = (url: string) => {
   closeModal();
-  ensureStyle();
   const overlay = document.createElement("div");
   overlay.id = MODAL_ID;
   overlay.setAttribute("role", "dialog");
@@ -57,24 +42,25 @@ const openModal = (url: string) => {
 
   const panel = document.createElement("div");
   panel.style.cssText =
-    "position:relative;width:100%;max-width:1000px;height:min(760px,92vh);overflow:hidden;background:#fff;color:#2a1838;color-scheme:light;border-radius:20px;box-shadow:0 30px 80px rgba(30,10,45,.35)";
+    "position:relative;width:100%;max-width:1000px;max-height:92vh;overflow:auto;background:#fff;border-radius:20px;box-shadow:0 30px 80px rgba(30,10,45,.35)";
 
   const close = document.createElement("button");
   close.type = "button";
   close.setAttribute("aria-label", "Close");
   close.textContent = "×";
   close.style.cssText =
-    "position:absolute;top:10px;right:14px;z-index:2;width:36px;height:36px;border:0;border-radius:50%;background:#4A1A6B;color:#fff;font-size:22px;line-height:36px;cursor:pointer";
+    "position:sticky;top:10px;float:right;margin:10px 14px 0 0;z-index:2;width:36px;height:36px;border:0;border-radius:50%;background:#4A1A6B;color:#fff;font-size:22px;line-height:36px;cursor:pointer";
   close.onclick = closeModal;
 
+  // Nina's zcal embed code, with zcal's own background switched on.
   const widget = document.createElement("div");
   widget.className = "zcal-inline-widget";
-  widget.style.cssText = "height:100%";
+  widget.setAttribute("data-zcal-options", JSON.stringify({ showBackground: 1 }));
   const link = document.createElement("a");
   link.href = url;
   link.target = "_blank";
   link.rel = "noopener noreferrer";
-  link.textContent = "10-Min FREE Discovery Call - Schedule a meeting";
+  link.textContent = "10 - FREE Discovery Call - Schedule a meeting";
   widget.appendChild(link);
 
   panel.append(close, widget);
@@ -88,14 +74,12 @@ const openModal = (url: string) => {
   loadEmbed();
 };
 
-/** Kept for compatibility; zcal loads only when a booking button is clicked. */
-export const useCalendly = () => {
-  useEffect(() => closeModal, []);
-};
+/** Kept so existing components don't need changing; loads nothing up front. */
+export const useCalendly = () => {};
 
-/** Opens the zcal booking popup; falls back to the link's new tab otherwise. */
+/** Opens the zcal booking popup. Ctrl/Cmd-click still opens a new tab. */
 export const openCalendly = (url: string) => (e: React.MouseEvent) => {
-  if (typeof window === "undefined" || e.metaKey || e.ctrlKey || e.shiftKey) return;
+  if (e.metaKey || e.ctrlKey || e.shiftKey) return;
   e.preventDefault();
   openModal(toBookingUrl(url));
 };
