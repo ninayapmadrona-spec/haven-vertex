@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { openCalendly, useCalendly } from "@/lib/calendly";
+import { BOOKING_URL, openCalendly, useCalendly } from "@/lib/calendly";
 import { setViewMode } from "@/lib/viewMode";
 import { Lavender } from "@/components/site/Botanical";
 import { RouteSeo } from "@/components/site/RouteSeo";
@@ -199,9 +199,9 @@ const Kiosk = () => {
             {sentTo !== null ? (
               <>
                 <h3 id="kk-oh">Thank you{sentTo ? `, ${sentTo}` : ""}!</h3>
-                <p className="kk-note" style={{ fontSize: 17 }}>Your plan is on its way to me. I'll reply within 1 to 2 business days. Want to talk sooner? Book a free 30 minute call.</p>
+                <p className="kk-note" style={{ fontSize: 17 }}>Your plan is on its way to me. I'll reply within 1 to 2 business days. Want to talk sooner? Book a free 10-minute call.</p>
                 <div className="kk-acts">
-                  <a className="kk-a1" href="https://calendly.com/havenvertex/30min" onClick={openCalendly("https://calendly.com/havenvertex/30min")} target="_blank" rel="noopener noreferrer">Book my free call</a>
+                  <a className="kk-a1" href={BOOKING_URL} onClick={openCalendly(BOOKING_URL)} target="_blank" rel="noopener noreferrer">Book my free call</a>
                   <button type="button" className="kk-a2" onClick={() => { setOpen(false); setSel({}); }}>Done</button>
                 </div>
               </>
@@ -236,7 +236,7 @@ const Kiosk = () => {
                   {err && <p className="kk-note" style={{ gridColumn: "1/-1", color: "#a1204a" }} role="alert">{err}</p>}
                   <div className="kk-acts" style={{ gridColumn: "1/-1" }}>
                     <button type="submit" className="kk-a1" disabled={sending}>{sending ? "Sending..." : "Send me this plan"}</button>
-                    <a className="kk-a2" href="https://calendly.com/havenvertex/30min" onClick={openCalendly("https://calendly.com/havenvertex/30min")} target="_blank" rel="noopener noreferrer">Book a free call instead</a>
+                    <a className="kk-a2" href={BOOKING_URL} onClick={openCalendly(BOOKING_URL)} target="_blank" rel="noopener noreferrer">Book a free call instead</a>
                   </div>
                 </form>
                 <button type="button" className="kk-note" style={{ background: "none", border: 0, textDecoration: "underline", textAlign: "left", padding: 0 }} onClick={() => setOpen(false)}>Keep choosing</button>

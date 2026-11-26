@@ -31,7 +31,7 @@ export const ADDON_PRICE: Record<string, number> = {
 
 export const PAYMENT_TERMS = [
   { t: "Paid in advance", p: "Monthly plans are invoiced before each month starts. Pay by bank transfer in your own currency (USD, AUD, GBP, CAD, EUR or NZD). Work begins once payment arrives." },
-  { t: "Starting out", p: "Your first month is paid before any work begins. A free 30 minute call comes first, with no charge." },
+  { t: "Starting out", p: "Your first month is paid before any work begins. A free 10-minute call comes first, with no charge." },
   { t: "One-off projects", p: "Landing pages, setups and fixes are quoted up front. 50% deposit to book, 50% on delivery." },
   { t: "Hour packs", p: "Prefer to pay by the hour? Hour packs are paid in full in advance and valid for 60 days. I log each task and tell you when hours run low." },
   { t: "Hours and extras", p: `Each plan has a set number of hours a month. Extra time is $${EXTRA_HOUR} an hour, agreed with you first. Unused hours do not roll over.` },

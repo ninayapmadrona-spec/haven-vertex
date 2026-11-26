@@ -263,7 +263,7 @@ export const defaultFinalCtaContact: FinalCtaContactContent = {
   ctaDescription:
     "Whether you need website support, content management, or a dependable digital support specialist, Haven Vertex can help keep your business running efficiently.",
   ctaButtonLabel: "Book A Free Discovery Call",
-  calendlyUrl: "https://calendly.com/havenvertex/30min",
+  calendlyUrl: "https://zcal.co/i/Pip1z_aX",
   contactHeading: "Let's Start The Conversation",
   contactDescription:
     "Tell me about your business, your goals, and where you need support. I typically respond within 1–2 business days.",

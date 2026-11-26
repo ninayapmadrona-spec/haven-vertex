@@ -50,7 +50,7 @@ export const faqs = [
   },
   {
     q: "How do I get started?",
-    a: "Book a free 30-minute discovery call. We'll talk through your website, your goals and the tasks taking up your time, and I'll suggest a clear plan with no obligation.",
+    a: "Book a free 10-minute discovery call. We'll talk through your website, your goals and the tasks taking up your time, and I'll suggest a clear plan with no obligation.",
   },
 ];
 
