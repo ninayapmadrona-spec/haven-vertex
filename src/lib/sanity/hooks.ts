@@ -1,4 +1,5 @@
 import { useSanitySection } from "./useSanitySection";
+import { toBookingUrl } from "@/lib/calendly";
 import {
   SITE_SETTINGS_QUERY,
   HERO_QUERY,
@@ -32,5 +33,8 @@ export const useTestimonialsSection = () =>
   useSanitySection("testimonialsSection", TESTIMONIALS_SECTION_QUERY, defaultTestimonialsSection);
 export const usePortfolioSection = () =>
   useSanitySection("portfolioSection", PORTFOLIO_SECTION_QUERY, defaultPortfolioSection);
-export const useFinalCtaContact = () =>
-  useSanitySection("finalCtaContact", FINAL_CTA_CONTACT_QUERY, defaultFinalCtaContact);
+export const useFinalCtaContact = () => {
+  const section = useSanitySection("finalCtaContact", FINAL_CTA_CONTACT_QUERY, defaultFinalCtaContact);
+  // Old Calendly links saved in Sanity are swapped for the zcal booking link.
+  return { ...section, content: { ...section.content, calendlyUrl: toBookingUrl(section.content.calendlyUrl) } };
+};

@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { caseStudies } from "@/lib/portfolioContent";
-import { openCalendly, useCalendly } from "@/lib/calendly";
+import { BOOKING_URL, openCalendly, useCalendly } from "@/lib/calendly";
 
-const CAL_URL = "https://calendly.com/havenvertex/30min";
+const CAL_URL = BOOKING_URL;
 import "./home.css";
 
 export const PortfolioFan = () => {
@@ -58,7 +58,7 @@ export const PortfolioFan = () => {
           const pos = Math.max(-1, Math.min(1, d));
           return (
             <button type="button" className="hv-card hv-next" data-pos={pos} data-hide={Math.abs(d) > 1} tabIndex={d === 0 ? 0 : -1}
-              onClick={(e) => { if (d !== 0) go(d); else if (window.Calendly) openCalendly(CAL_URL)(e); else window.open(CAL_URL, "_blank", "noopener"); }}>
+              onClick={(e) => { if (d !== 0) go(d); else openCalendly(CAL_URL)(e); }}>
               <span><b className="font-serif">Your website, next.</b><small>Book a free call and we start with what you have.</small></span>
             </button>
           );

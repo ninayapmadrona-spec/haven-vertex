@@ -100,7 +100,7 @@ export const Contact = () => {
             <CheckCircle2 className="w-12 h-12 text-lavender-deep" />
             <h2 className="mt-5 font-serif text-3xl lg:text-4xl text-balance">Thank you{sentTo ? `, ${sentTo}` : ""}!</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed max-w-md">
-              Your message is on its way to me. I'll reply within 1–2 business days. If you'd like to talk sooner, you can book a free 30-minute discovery call.
+              Your message is on its way to me. I'll reply within 1–2 business days. If you'd like to talk sooner, you can book a free 10-minute discovery call.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button asChild className="rounded-full h-12 px-6 gradient-primary text-primary-foreground border-0">
