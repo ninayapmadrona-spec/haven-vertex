@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { sanityClient, isSanityConfigured } from "./client";
+import { getSanityClient, isSanityConfigured } from "./client";
 import { usePreviewMode } from "./usePreviewMode";
 
 /**
@@ -25,8 +25,9 @@ export function useSanitySection<T>(type: string, query: string, fallback: T) {
         const json = await res.json();
         return json.data ?? null;
       }
-      if (!sanityClient) return null;
-      return sanityClient.fetch<T | null>(query);
+      const client = await getSanityClient();
+      if (!client) return null;
+      return (await client.fetch(query)) as T | null;
     },
     enabled: isPreview || isSanityConfigured,
     staleTime: isPreview ? 0 : 60_000,
