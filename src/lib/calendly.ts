@@ -5,6 +5,21 @@ import { useEffect } from "react";
 export const BOOKING_URL = "https://zcal.co/i/Pip1z_aX";
 const EMBED_SRC = "https://static.zcal.co/embed/v1/embed.js";
 const MODAL_ID = "hv-booking-modal";
+const STYLE_ID = "hv-booking-style";
+
+// zcal follows the visitor's dark/light setting and has a see-through
+// background, so in dark mode its text turned white on our white panel.
+// Force the light version and let the calendar fill the popup.
+const ensureStyle = () => {
+  if (document.getElementById(STYLE_ID)) return;
+  const st = document.createElement("style");
+  st.id = STYLE_ID;
+  st.textContent = `
+#${MODAL_ID}, #${MODAL_ID} * { color-scheme: light; }
+#${MODAL_ID} .zcal-inline-widget { height: 100%; }
+#${MODAL_ID} iframe { display: block; width: 100% !important; height: 100% !important; min-height: 100% !important; border: 0; background: #fff; color-scheme: light; }`;
+  document.head.appendChild(st);
+};
 
 /** Any old Calendly link (e.g. still saved in Sanity) is swapped for zcal. */
 export const toBookingUrl = (url?: string) =>
@@ -31,6 +46,7 @@ const onKey = (e: KeyboardEvent) => {
 
 const openModal = (url: string) => {
   closeModal();
+  ensureStyle();
   const overlay = document.createElement("div");
   overlay.id = MODAL_ID;
   overlay.setAttribute("role", "dialog");
@@ -41,7 +57,7 @@ const openModal = (url: string) => {
 
   const panel = document.createElement("div");
   panel.style.cssText =
-    "position:relative;width:100%;max-width:1000px;height:min(760px,92vh);overflow:auto;background:#fff;border-radius:20px;box-shadow:0 30px 80px rgba(30,10,45,.35)";
+    "position:relative;width:100%;max-width:1000px;height:min(760px,92vh);overflow:hidden;background:#fff;color:#2a1838;color-scheme:light;border-radius:20px;box-shadow:0 30px 80px rgba(30,10,45,.35)";
 
   const close = document.createElement("button");
   close.type = "button";
@@ -53,7 +69,7 @@ const openModal = (url: string) => {
 
   const widget = document.createElement("div");
   widget.className = "zcal-inline-widget";
-  widget.style.cssText = "min-height:100%;padding:8px";
+  widget.style.cssText = "height:100%";
   const link = document.createElement("a");
   link.href = url;
   link.target = "_blank";
